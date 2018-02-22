@@ -1,0 +1,17 @@
+dist: trusty
+language: tex
+sudo: false
+
+before_install:
+  - sudo apt-get install -y texlive-full
+
+addons:
+    apt:
+        packages:
+          - biber
+          - make
+script:
+  - make build
+
+notifications:
+    email: false

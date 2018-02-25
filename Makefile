@@ -1,4 +1,4 @@
-OUTPUT = Projektdokumentation_PREN02.pdf
+OUTPUT = Projektdokumentation_PREN2.pdf
 
 %.pdf: %.tex
 	# Check that tex files don't contain trailing whitespace.

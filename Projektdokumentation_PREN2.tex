@@ -108,7 +108,6 @@ Horw, \today
 \begin{tabular}{lp{0.7\textwidth}}
 	Basil Bachmann & \includegraphics[height=1.5cm,keepaspectratio]{BasilBachmann}\\
 	Pascal Baumann & \includegraphics[height=1.5cm,keepaspectratio]{PascalBaumann}\\
-	David Craven & \includegraphics[height=1.5cm,keepaspectratio]{DavidCraven}\\
 	Victor Guntern & \includegraphics[height=1.5cm,keepaspectratio]{VictorGuntern}\\
 	Markus Kempf & \includegraphics[height=1.5cm,keepaspectratio]{MarkusKempf}\\
 	Jan Odermatt & \includegraphics[height=1.5cm,keepaspectratio]{JanOdermatt}\\
@@ -586,8 +585,6 @@ Ziel war es, die Kommunikation via UART zwischen Elektronik-Board und Informatik
 		\hline
 		Pascal Baumann & Informatik \\
 		\hline
-		David Craven & Elektrotechnik \\
-		\hline
 		Victor Guntern & Maschinenbau \\
 		\hline
 		Markus Kempf & Maschinenbau \\
@@ -703,14 +700,52 @@ Ziel war es, die Kommunikation via UART zwischen Elektronik-Board und Informatik
 	\label{tab:Wochenplan}
 \end{table}
 
+\newpage
 
 \section{Projektplan}
 \label{sec:Projektplan}
+
+\subsection{Prototypenplan Steuerung}
+\label{ssec:ProtoSteuerung}
+Da wir aufgrund interner Umstrukturierung in dieser späten Phase einen Grundsatzentscheid zur Mikrocontrollerplattform treffen mussten, ergeben sich fundamentale Änderungen. Vorher erarbeiteten Code ist daher nur bedingt gebrauchbar.
+
+Es wurde daher in einer Taskforce aus Informatik und Elektrotechnik, in SCRUM angelehnten Sprints von einem Minimal Viable Prototype\footnote{MVP - Minimal Viable Product; Ein System mit Grundfunktionen welches iterativ erweitert wird, bis die gewünschte Funktionalität erreicht wird.} in vordefinierten Schritten unser Prototyp zu erarbeiten.
+
+\vspace{1em}
+\noindent
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|p{0.15\textwidth}|p{0.4\textwidth}|}
+		\hline
+		\textbf{Version} & \textbf{Funktionsumfang (Abb. \ref{fig:PrototypePlanung})} \\
+		\hline
+		 v0.1 & 1,2,6\\
+		\hline
+		 v0.2 & 1,2,3,6\\
+		\hline
+		 v0.3 & 1,2,3,5,6\\
+		\hline
+		 v1.0 & 1,2,3,4,5,6\\
+		\hline
+	\end{tabular}
+	\caption{Prototypversionen}
+	\label{tab:PrototypePlanung}
+\end{table}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth,keepaspectratio]{PrototypePlanung}
+	\caption{Funktionen Prototyp}
+	\label{fig:PrototypePlanung}
+\end{figure}
+
+\subsection{Grober Rahmenplan}
+\label{ssec:GrobRahmenplan}
 An dieser Stelle ist der Projektplan grob umrissen, den Detaillierten finden Sie im Anhang.
 
 \begin{figure}[h!]
 	\includegraphics[width=\linewidth,keepaspectratio]{Rahmenplan}
-	\caption{Grober Projektplan}
+	\caption{Grober Projektplan PREN02}
 	\label{fig:GrobProjekt}
 \end{figure}
 
@@ -721,15 +756,15 @@ An dieser Stelle ist der Projektplan grob umrissen, den Detaillierten finden Sie
 	\hline
 	\textbf{Meileinstein} & \textbf{Termin} & \textbf{Beschreibung} \\
 	\hline
-	Start & 21.09.2017 & Input 1 mit Einfürung \\
+	Meilenstein 1 & 09.03.2018 12:00 Uhr & Detailplanung Projekt abgeschlossen, Entscheidung LoFive / Arduino gefallen\\
 	\hline
-	Meilenstein 1 & 13.10.2017 12:00 Uhr & Projektorganisation, Technologierecherche, Anforderungsliste \\
+	Meilenstein 2 & 19.04.2018 12:00 Uhr & Steuerungsprototyp v0.3 erreicht, Prototyp  montiert, Vorführung vor Experten\\
 	\hline
-	Meilenstein 2 & 10.11.2017 12:00 Uhr & Risikomanagement, Evaluation der Lösungsprinzipien und Auswahl der optimalen Lösungskombination(en) \\
+	Meilenstein 3 & 25.05.2018 12:00 Uhr & Alle Komponenten freigegeben, voller Funktionsumfang erreicht\\
 	\hline
-	Meilenstein 3 & 15.12.2017 12:00 Uhr & Freigabe des Gesamtkonzepts, Dokumentation zu 80\% fertig gestellt. \\
+	Meilenstein 4 & Juni & Wettbewerb\\
 	\hline
-	Schlussabgabe PREN1 &12.01.2018 & Schlussabgabe Dokumentation zu 100\% fertig \\
+	Schlussabgabe PREN2 & TBD & Schlussabgabe Dokumentation zu 100\% fertig \\
 	\hline
 	\end{tabular}
 	\caption{Meilensteine}
@@ -744,7 +779,7 @@ Für den Bau der Teilfunktionsmuster in PREN1 dürfen maximal CHF 200.- ausgegeb
 
 \vspace{1em}
 \noindent
-\begin{table}[h]
+\begin{table}[h!]
 	\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|p{0.225\textwidth}||p{0.225\textwidth}|}
 	\hline
 	\textbf{Artikel} & \textbf{Anzahl} & \textbf{Preis/Stk. CHF} & \textbf{Total CHF} \\
@@ -876,6 +911,7 @@ Legende:
 	\label{fig:Risikomatrix}
 \end{figure}
 
+\newpage
 \subsection{Massnahmen}
 \label{sec:Massnahmen}
 \vspace{1em}
@@ -904,7 +940,7 @@ Legende:
 		\hline
 		9 & Bei Unklarheiten und Unwohlsein wird von jedem Teammitglied erwartet, dass er sich selbst meldet. Zur Veranschaulichung technischer Aspekte wird mit Skizzen gearbeitet. \\
 		\hline
-		10 & Aktueller Stand ist zu jedem Zeitpunkt allen klar. Aufgaben-Board ist immer aktuell. Im Falle eines Teammitgliedsausfall kann so jemand anderes übernehmen. \\
+		10 & Aktueller Stand ist zu jedem Zeitpunkt allen klar. Aufgaben-Board ist immer aktuell. Im Falle eines Ausfalls kann so jemand anderes übernehmen. \\
 		\hline
 		11 & Mit Arbeiten und dazugehöriger Dokumentation wird frühzeitig begonnen. Der Aufwand wird grosszügig mit einberechnet / Puffer. \\
 		\hline

@@ -344,7 +344,27 @@ Für die Distanzmessung werden in x-Richtung und y-Richtung je ein Ultraschallse
 %todo Beschreibung Kamera
 
 \subsection{Arduino}
-%todo Beschreibung Arduino
+%todo Beschreibung Arduino DUE
+
+Als Unterstützung zum RasPi wird ein Arduino Due eingesetzt. In Vergleich zum kleineren Arduino Uno liegt der Vorteil in der grösseren Anzahl Ein und Ausgänge, womit es sich vor allem für grössere Projekte anbietet.
+
+
+
+\begin{itemize}[noitemsep]
+	\item Atmel SAM3X8E ARM Cortex-M3 CPU (32-bit ARM controller)
+	\item 512 KB Flash Memory
+	\item 54 digital in/-output Pins
+	\item 12 analog Input Pins
+	\item 4 UART-Schnittstellen
+	\item 84 MHz clock
+	\item 1 USB OTG Kabelverbindung
+	\item 2 Digital zu Analogwandler
+	\item 2 TWI
+	\item 1 SPI
+	\item 2 JTAG
+	\item 1 Poweranschluss
+	\item Stromversorgung 5V/
+\end{itemize}\parencite{https://store.arduino.cc/usa/arduino-due} %todo Quelle angeben https://store.arduino.cc/usa/arduino-due
 
 \subsection{RasPi}
 %todo Beschreibung Raspi
@@ -369,8 +389,11 @@ Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. D
 \subsection{Endschalter}
 Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der Zielbereich erreicht ist und der Masten berührt wird. Dafür wird der Endschalter mit dem Arduino ausgelesen. Angebracht ist er am vordersten Punkt des Kamerahalters. Verwendet wurde ein Endschalter des Typs 5E4T125 von Burgess. 
 
-\section{Konzeptänderungen nach PREN01}
+\section{Konzeptänderungen nach PREN01}%todo
 \label{sec:Konzeptaenderungen}
+
+
+
 
 \section{Schnittstellen}
 \label{sec:Schnittstellen}

@@ -226,7 +226,6 @@ Vor und hinter dem Antriebsrad sind im Abstand von 7cm zwei Führungsräder ange
 Die Kamera ist etwa 20 Zentimeter vor der Seilwinde für den Hub angebracht. Dafür wurde ein 11 Zentimeter langes Winkelprofil aus Aluminium an der Grundplatte angeschraubt. An diesem ist ein kleiner Aluminiumwinkel befestigt, der die Kamera hält. Dieser ist schwenkbar, damit die Kamera optimal ausgerichtet werden kann. Dabei ist essentiell wichtig, dass die Grundplatte immer Parallel zum Boden liegt, da sonst die Kamera falsche Daten liefern würde und somit die Genauigkeit beim Absetzen stark beeinträchtigen würde. Die RasPi-Kamera wird mit 4 Schrauben an dem Winkel befestigt. Zusätzlich zu der Kamera werden auch die beiden Ultraschallsensoren und der Endschalter an der Halterung befestigt.
 
 \subsection{Regelung und Steuerung}
-
 Als Kern der elektronischen Steuerung wird das \textit{LoFive} Board verwendet, welches mit dem \textit{SiFive Freedom E310} Mikroprozessor bestückt ist. Dieser wurde nach dem offenen Standard der RISC-V Foundation konstruiert und ist daher für jeden einsehbar. Als Programmiersprache wird voraussichtlich Rust verwendet.
 
 Über das Board werden zwei Schrittmotoren-Treiber sowie ein LCD-Display angesteuert. Zur Rückmeldung werden zwei Ultraschallsensoren und ein \textit{Raspberry Pi 3 Model B} (RasPi) verwendet.
@@ -236,25 +235,6 @@ Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplattform übermit
 \subsection{Positionsanzeige}
 
 Auf dem LCD-Display werden die Koordinaten in x- sowie z-Richtung dargestellt. Die x-Koordinate wird mithilfe des Schrittmotors und zusätzlich mit einem Ultraschall-Distanzsensor bestimmt. Die z-Koordinate wird mittels einem weiteren Ultraschall-Sensor erkannt. Bei z-Koordinate muss jedoch noch einen Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die angezeigten Koordinaten müssen die der transportierten Last sein. Wieviel abgezogen werden muss, wird über den Hubschrittmotor berechnet. Sobald die Daten des Ultraschall-Sensors stark von der Durchhangsberechnung abweicht, sollen die Daten der Durchhangsberechnung angezeigt werden. Damit können Fehler verhindert werden, welche durch Hindernisse auftreten.
-
-\subsection{Ultraschallsensor}
-%todo Beschreibung Ultraschallsensor
-Für die Distanzmessung werden in x-Richtung und y-Richtung je ein Ultraschallsensor verwendet. Die Ultraschallsensoren des Typs HC-SR04 weisen eine Messdistanz zwischen zwei Zentimeter und bis zu fünf Meter auf. Die Genauigkeit wird mit drei Millimetern Abweichung angegeben. Dies ist ausreichend für die geplante Anwendung. Ausgelesen und verarbeitet werden die Informationen auf dem Arduino.
-
-\subsection{Schrittmotoren}
-%todo Beschreibung Schrittmotoren
-
-\subsection{RasPi-Kamera}
-%todo Beschreibung Kamera
-
-\subsection{Arduino}
-%todo Beschreibung Arduino
-
-\subsection{RasPi}
-%todo Beschreibung Raspi
-
-\subsection{Endschalter}
-Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der Zielbereich erreicht ist und der Masten berührt wird. Dafür wird der Endschalter mit dem Arduino ausgelesen. Angebracht ist er am vordersten Punkt des Kamerahalters. Verwendet wurde ein Endschalter des Typs 5E4T125 von Burgess. 
 
 \newpage
 \subsection{Zielerkennung}
@@ -557,6 +537,25 @@ Ziel war es, die Kommunikation via UART zwischen Elektronik-Board und Informatik
 
 \section{Komponenten}
 \label{sec:Pren02Komponenten}
+
+\subsection{Ultraschallsensor}
+%todo Beschreibung Ultraschallsensor
+Für die Distanzmessung werden in x-Richtung und y-Richtung je ein Ultraschallsensor verwendet. Die Ultraschallsensoren des Typs HC-SR04 weisen eine Messdistanz zwischen zwei Zentimeter und bis zu fünf Meter auf. Die Genauigkeit wird mit drei Millimetern Abweichung angegeben. Dies ist ausreichend für die geplante Anwendung. Ausgelesen und verarbeitet werden die Informationen auf dem Arduino.
+
+\subsection{Schrittmotoren}
+%todo Beschreibung Schrittmotoren
+
+\subsection{RasPi-Kamera}
+%todo Beschreibung Kamera
+
+\subsection{Arduino}
+%todo Beschreibung Arduino
+
+\subsection{RasPi}
+%todo Beschreibung Raspi
+
+\subsection{Endschalter}
+Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der Zielbereich erreicht ist und der Masten berührt wird. Dafür wird der Endschalter mit dem Arduino ausgelesen. Angebracht ist er am vordersten Punkt des Kamerahalters. Verwendet wurde ein Endschalter des Typs 5E4T125 von Burgess. 
 
 \section{Konzeptänderungen nach PREN01}
 \label{sec:Konzeptaenderungen}

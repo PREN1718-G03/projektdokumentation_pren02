@@ -234,7 +234,6 @@ Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplattform übermit
 
 Auf dem LCD-Display werden die Koordinaten in x- sowie z-Richtung dargestellt. Die x-Koordinate wird mithilfe des Schrittmotors und zusätzlich mit einem Ultraschall-Distanzsensor bestimmt. Die z-Koordinate wird mittels einem weiteren Ultraschall-Sensor erkannt. Bei z-Koordinate muss jedoch noch einen Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die angezeigten Koordinaten müssen die der transportierten Last sein. Wieviel abgezogen werden muss, wird über den Hubschrittmotor berechnet. Sobald die Daten des Ultraschall-Sensors stark von der Durchhangsberechnung abweicht, sollen die Daten der Durchhangsberechnung angezeigt werden. Damit können Fehler verhindert werden, welche durch Hindernisse auftreten.
 
-\newpage
 \subsection{Zielerkennung}
 \subsubsection{Systemübersicht}
 
@@ -297,8 +296,6 @@ Dieser Ablauf wird in Abbildung \ref{fig:ZielerkennungAblauf} noch genauer darge
 	\label{fig:ZielerkennungAblauf}
 \end{figure}
 
-\newpage
-
 \subsection{Systemarchitektur}
 \label{ssec:SysArch}
 
@@ -311,7 +308,7 @@ Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (si
 	\label{fig:SystemArchitektur}
 \end{figure}
 
-Die Logik der Erkennung wurde in zwei Teile separiert. Zum Einen das Erfassen der Daten des Sensors und der Erkennung der Zielplattform, und zum Anderen das Berechnen der Distanz zwischen Zielplattform und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung wird über eine Factory-Klasse bereitgestellt. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
+Die Logik der Erkennung wurde in zwei Teile separiert, bildlich dargestellt in der Abbildung \ref{fig:KameraSensor}. Zum Einen das Erfassen der Daten des Sensors und der Erkennung der Zielplattform, und zum Anderen das Berechnen der Distanz zwischen Zielplattform und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung wird über eine Factory-Klasse bereitgestellt. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
 
 Im Moment wird die Erkennung der Zielplattform (wie in Kapitel \ref{ssec:Bilderkennung} dargestellt) über einen Konturerkennungsalgorithmus der Bibliothek 'OpenCV' realisiert. 
 
@@ -321,6 +318,7 @@ Im Moment wird die Erkennung der Zielplattform (wie in Kapitel \ref{ssec:Bilderk
 	\caption{Gesamtübersicht der Erkennungslogik}
 	\label{fig:KameraSensor}
 \end{figure}
+
 
 
 \subsubsection{Kommunikation zwischen Boards}
@@ -341,7 +339,7 @@ Die Pins können für Testzwecke direkt via Kabel miteinander verbunden werden. 
 
 UART muss auf dem Raspberry Pi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht \textquotedblleft miniUART\textquotedblright\ verwenden.
 
-Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden. Die Programmierung dieser wird auf dem RaspberryPi mit Hilfe des Python Moduls \textquotedblleft pySerial\textquotedblright\ realisiert.
+Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden. Die Programm\-ierung dieser wird auf dem RaspberryPi mit Hilfe des Python Moduls \textquotedblleft pySerial\textquotedblright\ realisiert.
 
 \newpage
 

@@ -312,12 +312,16 @@ Die Logik der Erkennung wurde in zwei Teile separiert, bildlich dargestellt in d
 
 Im Moment wird die Erkennung der Zielplattform (wie in Kapitel \ref{ssec:Bilderkennung} dargestellt) über einen Kontur\-erkennungs\-algorithmus der Bibliothek 'OpenCV' realisiert. Ist die Zielplattform erkannt, so wird über den Controller das Signal zum Berechnen der Distanz gegeben. Die Methodik zur Distanzberechnung wird in Kapitel \ref{ssec:DistModelCreation} genauer erläutert.
 
+Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue Fahrtanweisungen zur Motor- und Sensorsteuerung übergeben. Dies wird über das 'communicator'-Modul realisiert.
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[keepaspectratio,width=0.5\textwidth]{pi-sensor_cs}
 	\caption{Gesamtübersicht der Erkennungslogik}
 	\label{fig:KameraSensor}
 \end{figure}
+
+
 
 \subsubsection{Kommunikation zwischen Boards}
 \label{sssec:Kommunikation}

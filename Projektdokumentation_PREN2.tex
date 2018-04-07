@@ -286,7 +286,6 @@ Die Erkennung (in Abbildung \ref{fig:AufnahmeZielerkennung} dargestellt) läuft 
 	\item[-] bestimmte Anzahl Rechtecke mit dem gleichen Mittelpunkt ausfindig machen
 	\item[-] Zielplatte erkannt
 \end{itemize}
-
 \footnotetext{contrast limited adaptive histogram equalization}
 
 Dieser Ablauf wird in Abbildung \ref{fig:ZielerkennungAblauf} noch genauer dargestellt.
@@ -300,6 +299,21 @@ Dieser Ablauf wird in Abbildung \ref{fig:ZielerkennungAblauf} noch genauer darge
 
 \newpage
 
+\subsection{Systemarchitektur}
+\label{ssec:SysArch}
+
+Die Architektur des RaspberryPi-Sensors wurde in 3 Hauptmodule unterteilt (siehe \ref{fig:SystemArchitektur}). Zum Einen ist dies die Kamera mit der dazugehörenden Logik, wie auch die serielle Schnittstelle über die die Kommunikation realisiert wird, zum Anderen ist dies der Controller, welcher als Supervisor die ganzen Prozesse überwacht und koordiniert.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio,width=0.5\textwidth]{SystemArchitektur}
+	\caption{Modulübersicht der PiSensor Architektur}
+	\label{fig:SystemArchitektur}
+\end{figure}
+
+
+\newpage
+
 \subsubsection{Kommunikation zwischen Boards}
 \label{ssec:kommunikation}
 Zwischen dem Raspberry Pi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
@@ -309,7 +323,7 @@ Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Sc
 Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 8 (Tx) und Pin 10 (Rx).
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio, width=0.7\textwidth]{raspberry_pi3_model_b_pin_diagram.jpg}
+	\includegraphics[keepaspectratio, width=0.\textwidth]{raspberry_pi3_model_b_pin_diagram.jpg}
 	\caption{RaspberryPi Pin Diagram}
 	\label{fig:RaspberryPins}
 \end{figure}

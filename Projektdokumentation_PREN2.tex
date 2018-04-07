@@ -310,7 +310,7 @@ Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (si
 
 Die Logik der Erkennung wurde in zwei Teile separiert, bildlich dargestellt in der Abbildung \ref{fig:KameraSensor}. Zum Einen das Erfassen der Daten des Sensors und der Erkennung der Zielplattform, und zum Anderen das Berechnen der Distanz zwischen Zielplattform und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung wird über eine Factory-Klasse bereitgestellt. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
 
-Im Moment wird die Erkennung der Zielplattform (wie in Kapitel \ref{ssec:Bilderkennung} dargestellt) über einen Konturerkennungsalgorithmus der Bibliothek 'OpenCV' realisiert. 
+Im Moment wird die Erkennung der Zielplattform (wie in Kapitel \ref{ssec:Bilderkennung} dargestellt) über einen Kontur\-erkennungs\-algorithmus der Bibliothek 'OpenCV' realisiert. Ist die Zielplattform erkannt, so wird über den Controller das Signal zum Berechnen der Distanz gegeben. Die Methodik zur Distanzberechnung wird in Kapitel \ref{ssec:DistModelCreation} genauer erläutert.
 
 \begin{figure}[h!]
 	\centering
@@ -319,10 +319,8 @@ Im Moment wird die Erkennung der Zielplattform (wie in Kapitel \ref{ssec:Bilderk
 	\label{fig:KameraSensor}
 \end{figure}
 
-
-
 \subsubsection{Kommunikation zwischen Boards}
-\label{ssec:kommunikation}
+\label{sssec:Kommunikation}
 Zwischen dem Raspberry Pi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
 
 Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
@@ -515,6 +513,11 @@ $\mu=\frac{sin(\alpha)}{cos(\alpha)}$\\
 daraus folgt\\
 $\mu=tan(\alpha)$\\
 Wir erwarten einen Winkel zwischen $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rightarrow \mu = 0,14 ... 0,58$. Daraus folgt, dass wir als Material für die Rollen Gummi verwenden müssen.
+
+\subsection{Auswertung des Distanzversuchs und Modellermittlung}
+\label{ssec:DistModelCreation}
+
+% TODO Write this subsection in full glorious detail
 
 
 \chapter{Projektorganisation und Projektplanung}

@@ -264,7 +264,7 @@ Der Schritt \textquotedblleft Zielplatte erkennen\textquotedblright\ wird im Kap
 Jene Schritte mit der Bezeichnung \textquotedblleft Kommunikation ET\textquotedblright\ werden im Kapitel \ref{ssec:kommunikation} detailliert beschrieben.
 
 \subsubsection{Bilderkennung}
-\label{ssec:bilderkennung}
+\label{ssec:Bilderkennung}
 
 \begin{figure}[h!]
 	\centering
@@ -302,17 +302,26 @@ Dieser Ablauf wird in Abbildung \ref{fig:ZielerkennungAblauf} noch genauer darge
 \subsection{Systemarchitektur}
 \label{ssec:SysArch}
 
-Die Architektur des RaspberryPi-Sensors wurde in 3 Hauptmodule unterteilt (siehe \ref{fig:SystemArchitektur}). Zum Einen ist dies die Kamera mit der dazugehörenden Logik, wie auch die serielle Schnittstelle über die die Kommunikation realisiert wird, zum Anderen ist dies der Controller, welcher als Supervisor die ganzen Prozesse überwacht und koordiniert.
+Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (siehe Abb. \ref{fig:SystemArchitektur}). Zum Einen ist dies die Kamera mit der dazugehörenden Logik, wie auch die serielle Schnittstelle über die die Kommunikation realisiert wird, zum Anderen ist dies der Controller, welcher als Supervisor die ganzen Prozesse überwacht und koordiniert.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio,width=0.5\textwidth]{SystemArchitektur}
+	\includegraphics[keepaspectratio,width=0.7\textwidth]{SystemArchitektur}
 	\caption{Modulübersicht der PiSensor Architektur}
 	\label{fig:SystemArchitektur}
 \end{figure}
 
+Die Logik der Erkennung wurde in zwei Teile separiert. Zum Einen das Erfassen der Daten des Sensors und der Erkennung der Zielplattform, und zum Anderen das Berechnen der Distanz zwischen Zielplattform und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung wird über eine Factory-Klasse bereitgestellt. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
 
-\newpage
+Im Moment wird die Erkennung der Zielplattform (wie in Kapitel \ref{ssec:Bilderkennung} dargestellt) über einen Konturerkennungsalgorithmus der Bibliothek 'OpenCV' realisiert. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio,width=0.5\textwidth]{pi-sensor_cs}
+	\caption{Gesamtübersicht der Erkennungslogik}
+	\label{fig:KameraSensor}
+\end{figure}
+
 
 \subsubsection{Kommunikation zwischen Boards}
 \label{ssec:kommunikation}

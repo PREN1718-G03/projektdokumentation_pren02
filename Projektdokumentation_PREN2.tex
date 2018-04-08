@@ -321,8 +321,6 @@ Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue 
 	\label{fig:KameraSensor}
 \end{figure}
 
-
-
 \subsection{Kommunikation zwischen Boards}
 \label{ssec:Kommunikation}
 Zwischen dem Raspberry Pi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
@@ -392,6 +390,20 @@ Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. D
 
 \subsection{Endschalter}
 Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der Zielbereich erreicht ist und der Masten berührt wird. Dafür wird der Endschalter mit dem Arduino ausgelesen. Angebracht ist er am vordersten Punkt des Kamerahalters. Verwendet wurde ein Endschalter des Typs 5E4T125 von Burgess. 
+
+\subsection{Grundeinheit}
+\label{ssec:GrundeinheitBeschrieb}
+Die Grundeinheit besteht aus der Verbindung von Hubvorrichtung und Fahreinheit. Dabei werden diverse elektronische Komponenten und Sensoren an der Grundeinheit befestigt, welche aber in einem separaten Kapitel behandelt werden. Auch zur Grundeinheit gehören die Motorhalterung, der Befestigungswickel für die Laufkatze und die Führungsrohre der Carbonstäbe. 
+
+\subsubsection{Grundplatte}
+\label{sssec:GrundplatteBeschrieb}
+%TODO Material auswählen
+Die Grundplatte wurde aus einem Aluminiumblech gefertigt. Dabei hat diese Platte ein Loch in der Mitte, durch welches das Seil der Seilwinde geht. Die Grundplatte enthält noch einige Löcher, welche zur Befestigung diverser anderer Komponenten dient. 
+
+\subsubsection{Verbindungswinkel}
+\label{sssec:VerbindungswinkelBeschrieb}
+Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinheit. Dabei wird der Verbindungswinkel mit zwei M5 Schrauben auf an die Grundplatte geschraubt. Der Verbindungswinkel besitzt eine Gleitlagerung aus Messing. 
+
 
 \section{Konzeptänderungen nach PREN01}
 \label{sec:Konzeptaenderungen}
@@ -520,7 +532,6 @@ Wir erwarten einen Winkel zwischen $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rig
 
 \subsection{Auswertung des Distanzversuchs und Modellermittlung}
 \label{ssec:DistModelCreation}
-
 % TODO Write this subsection in full glorious detail
 
 

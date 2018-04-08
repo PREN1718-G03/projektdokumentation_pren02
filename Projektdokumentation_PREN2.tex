@@ -323,8 +323,8 @@ Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue 
 
 
 
-\subsubsection{Kommunikation zwischen Boards}
-\label{sssec:Kommunikation}
+\subsection{Kommunikation zwischen Boards}
+\label{ssec:Kommunikation}
 Zwischen dem Raspberry Pi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
 
 Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
@@ -337,11 +337,11 @@ Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 8 (Tx) und Pin 10 
 	\label{fig:RaspberryPins}
 \end{figure}
 
-Die Pins können für Testzwecke direkt via Kabel miteinander verbunden werden. Im Endausbau soll diese Verbindung jedoch über einen eigens angefertigten Print laufen. So wird auch sichergestellt, dass beide Boards eine gemeinsame Erdung besitzen.
+Da das Arduino mit einer Spannung von bis zu 5V auf seinen UART Pins arbeitet und das Raspberry Pi mit nur 3.3V muss ein Logikpegelübersetzer eingesetzt werden. Wir verwenden dazu ein TXB0108 von Adafruit.
 
 UART muss auf dem Raspberry Pi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht \textquotedblleft miniUART\textquotedblright\ verwenden.
 
-Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control sowie ein genaues Nachrichtenformat definiert werden. Die Programm\-ierung dieser wird auf dem RaspberryPi mit Hilfe des Python Moduls \textquotedblleft pySerial\textquotedblright\ realisiert.
+Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control definiert werden. Die Programm\-ierung dieser wird auf dem RaspberryPi mit Hilfe des Python Moduls \textquotedblleft pySerial\textquotedblright\ realisiert.
 
 \newpage
 

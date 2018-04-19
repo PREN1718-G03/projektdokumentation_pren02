@@ -223,7 +223,7 @@ Der Antrieb auf dem Seil wird mit drei Rädern ausgeführt. Das mittlere Rad aus
 \\
 Vor und hinter dem Antriebsrad sind im Abstand von 7cm zwei Führungsräder angebracht. Diese sind in der Höhe verstellbar und müssen manuell im voraus eingestellt werden. Die Aufgabe dieser Räder ist die Schwingung in x-Richtung zu minimieren und den Druck des Seiles auf das Antriebsrad zu erhöhen. Letzteres hat zur Folge, dass die Reibkraft sich erhöht und somit der Schlupf und die Gefahr von Rutschen auf dem Seil minimiert wird.
 
-\subsection{Kamerahalterung}
+\subsection{Kamerahalterung} %todo Abmasse halterung anpassen
 Die Kamera ist etwa 20 Zentimeter vor der Seilwinde für den Hub angebracht. Dafür wurde ein 11 Zentimeter langes Winkelprofil aus Aluminium an der Grundplatte angeschraubt. An diesem ist ein kleiner Aluminiumwinkel befestigt, der die Kamera hält. Dieser ist schwenkbar, damit die Kamera optimal ausgerichtet werden kann. Dabei ist essentiell wichtig, dass die Grundplatte immer Parallel zum Boden liegt, da sonst die Kamera falsche Daten liefern würde und somit die Genauigkeit beim Absetzen stark beeinträchtigen würde. Die RasPi-Kamera wird mit 4 Schrauben an dem Winkel befestigt. Zusätzlich zu der Kamera werden auch die beiden Ultraschallsensoren und der Endschalter an der Halterung befestigt.
 
 \subsection{Regelung und Steuerung}
@@ -369,7 +369,27 @@ Die Laufkatze hat total zwei Schrittmotoren verbaut. Einen für den Antrieb auf 
 %todo Beschreibung Kamera
 
 \subsection{Arduino}
-%todo Beschreibung Arduino
+%todo Beschreibung Arduino DUE
+
+Als Unterstützung zum RasPi wird ein Arduino Due eingesetzt. In Vergleich zum kleineren Arduino Uno liegt der Vorteil in der grösseren Anzahl Ein und Ausgänge, womit es sich vor allem für grössere Projekte anbietet.
+
+
+
+\begin{itemize}[noitemsep]
+	\item Atmel SAM3X8E ARM Cortex-M3 CPU (32-bit ARM controller)
+	\item 512 KB Flash Memory
+	\item 54 digital in/-output Pins
+	\item 12 analog Input Pins
+	\item 4 UART-Schnittstellen
+	\item 84 MHz clock
+	\item 1 USB OTG Kabelverbindung
+	\item 2 Digital zu Analogwandler
+	\item 2 TWI
+	\item 1 SPI
+	\item 2 JTAG
+	\item 1 Poweranschluss
+	\item Stromversorgung 5V/
+\end{itemize}\parencite{ArduinoDue2018}
 
 \subsection{RasPi}
 %todo Beschreibung Raspi
@@ -410,6 +430,9 @@ Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinhei
 
 \section{Konzeptänderungen nach PREN01}
 \label{sec:Konzeptaenderungen}
+% TODO Konzeptänderungen eintragen
+
+
 
 \section{Schnittstellen}
 \label{sec:Schnittstellen}

@@ -223,6 +223,13 @@ Der Antrieb auf dem Seil wird mit drei Rädern ausgeführt. Das mittlere Rad aus
 \\
 Vor und hinter dem Antriebsrad sind im Abstand von 7cm zwei Führungsräder angebracht. Diese sind in der Höhe verstellbar und müssen manuell im voraus eingestellt werden. Die Aufgabe dieser Räder ist die Schwingung in x-Richtung zu minimieren und den Druck des Seiles auf das Antriebsrad zu erhöhen. Letzteres hat zur Folge, dass die Reibkraft sich erhöht und somit der Schlupf und die Gefahr von Rutschen auf dem Seil minimiert wird.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio,width=0.5\textwidth]{Antriebseinheit}
+	\caption{Modulübersicht Antriebseinheit	}
+	\label{fig:SystemArchitektur}
+\end{figure}
+
 \subsection{Kamerahalterung} %todo Abmasse halterung anpassen
 Die Kamera ist etwa 20 Zentimeter vor der Seilwinde für den Hub angebracht. Dafür wurde ein 11 Zentimeter langes Winkelprofil aus Aluminium an der Grundplatte angeschraubt. An diesem ist ein kleiner Aluminiumwinkel befestigt, der die Kamera hält. Dieser ist schwenkbar, damit die Kamera optimal ausgerichtet werden kann. Dabei ist essentiell wichtig, dass die Grundplatte immer Parallel zum Boden liegt, da sonst die Kamera falsche Daten liefern würde und somit die Genauigkeit beim Absetzen stark beeinträchtigen würde. Die RasPi-Kamera wird mit 4 Schrauben an dem Winkel befestigt. Zusätzlich zu der Kamera werden auch die beiden Ultraschallsensoren und der Endschalter an der Halterung befestigt.
 
@@ -419,9 +426,8 @@ Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der
 Die Grundeinheit besteht aus der Verbindung von Hubvorrichtung und Fahreinheit. Dabei werden diverse elektronische Komponenten und Sensoren an der Grundeinheit befestigt, welche aber in einem separaten Kapitel behandelt werden. Auch zur Grundeinheit gehören die Motorhalterung, der Befestigungswickel für die Laufkatze und die Führungsrohre der Carbonstäbe. 
 
 \subsubsection{Grundplatte}
-% TODO Display + Ultraschall
 \label{sssec:GrundplatteBeschrieb}
-Die Grundplatte wurde aus einer MFD-Platte gefertigt. Dabei hat diese Platte einen Ausschnitt in der Mitte, durch welches das Seil der Seilwinde geht.Neben dem Ausschnitt wird der Winkel für die Seilwinde angeschraubt. Zwei zusätzliche Löcher neben dem Ausschnitt dienen zur Befestigung der beiden Führungen. Die Elektronikkomponenten werden mithilfe von Klettverbindungen auf die Grundplatte befestigt. 
+Die Grundplatte wurde aus einer MFD-Platte gefertigt. Dabei hat diese Platte einen Ausschnitt in der Mitte, durch welches das Seil der Seilwinde geht.Neben dem Ausschnitt wird der Winkel für die Seilwinde angeschraubt. Zwei zusätzliche Löcher neben dem Ausschnitt dienen zur Befestigung der beiden Führungen. Die Elektronikkomponenten werden mithilfe von Klettverbindungen auf die Grundplatte befestigt. Die halterung für den LCD-Display wird mit einer Steckverbindung auf die Grundplatte gesteckt. Auf der Unterseite der Grundplatte wir die Halterung für den Ultraschall mit vier Schrauben befestigt. 
 
 \subsubsection{Verbindungswinkel}
 \label{sssec:VerbindungswinkelBeschrieb}

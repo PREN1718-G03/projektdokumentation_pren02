@@ -430,15 +430,33 @@ Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinhei
 
 \section{Konzeptänderungen nach PREN01}
 \label{sec:Konzeptaenderungen}
-% TODO Konzeptänderungen eintragen
+% TODO Konzeptänderungen erweitern
 
 \subsection{Antriebseinheit und Grundplatte}
 
 \begin{itemize}
 		\item Das angetriebene Laufrad ist neu aus Gummi und nicht nur mit Gummi beschichtet. Die Reibung auf dem Seil wird damit vergrössert und verhindert Rutschen.
-		\item Bei dem Gelenk der Aufhängung ist zusätzlich eine Messingbuchse eingebaut um einen möglichst Reibungsfreien 
-		\item mit
-		\item Listenpunkten
+		\item Bei dem Gelenk der Aufhängung ist zusätzlich eine Messingbuchse eingebaut damit möglichst wenig Reibung auftritt.
+		\item Die Dämpfer um Schwingungen aufzufangen werden nicht benötigt, da die Schwingungen auch ohne Dämpfer klein sind.
+		\item Die Grundplatte bearbeitungstechnischen Gründen nicht mehr aus Aluminium gefertigt sondern aus einer gelaserten, 6mm dicken Holzplatte.
+		\item Die Positionsanzeige in x-Richtung wird nur noch über einen Ultraschallsensor bestimmt. Der Schrittmotor wird aufgrund der ausreichenden Genauigkeit des Ultraschallsensors nicht mehr benötigt.
+		\item Die geplante Durchhangstabelle wird nicht miteinbezogen, da ebenfalls ein Ultraschallsensor verwendet wird. Der Schrittmotor wird aber noch immer benötigt, da der Ultraschallsensor an der Grundplatte angebracht ist aber die Position der Last angezeigt werden muss.
+\end{itemize}
+
+\subsection{Hubvorrichtung}
+
+\begin{itemize}
+		\item Der Haken ist neu aus Kunststoff aus dem 3D-Drucker gefertigt. Aufgrund einer leicht veränderten Geometrie ist 3D-Druck sinnvoller.
+		\item Der Haken wird zusätzlich noch von einem Schwenkbegrenzer eingeschränkt. Damit wird sichergestellt, dass der Haken leicht nach hinten gerichtet ist um die Last besser aufheben oder absetzen zu können.
+		\item Eine geplante Querverstrebung zwischen den beiden Führungsrohren aus Kohlenstofffasern wird weggelassen, da bei Testversuchen keine Probleme ohne die Verstrebung aufgetreten sind.
+		\item Der Nylonfaden um den Haken zu heben wird ersetzt durch einen Stofffaden. Der Nylonfaden wäre zu steif um diesen kontrolliert auf der Seilwinde aufzurollen.
+\end{itemize} 
+
+\subsection{Elektronische Komponenten}
+
+\begin{itemize}
+		\item Als Kern der elektronischen Steuerung wird neu anstelle des \textit{LoFive} Boards ein \textit{ArduinoDue} Board verwendet. Weil das \textit{LoFive} ein sehr neues Board ist, bestehen im Vergleich zum \textit{ArduinoDue} wenig bis keine Informationen oder Beispiele im Internet dafür. Ein grosser Mehraufwand und Unsicherheit wäre die Folge gewesen.
+		\item Aufgrund des Wechsels vom \textit{LoFive} auf das \textit{ArduinoDue} ist auch die Programmiersprache nicht mehr Rust, sondern es wird neu auf C programmiert.
 \end{itemize}
 
 

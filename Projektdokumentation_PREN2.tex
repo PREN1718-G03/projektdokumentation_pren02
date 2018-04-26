@@ -345,7 +345,7 @@ Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 8 (Tx) und Pin 10 
 	\label{fig:RaspberryPins}
 \end{figure}
 
-Da das Arduino mit einer Spannung von bis zu 5V auf seinen UART Pins arbeitet und das Raspberry Pi mit nur 3.3V muss ein Logikpegelübersetzer eingesetzt werden. Wir verwenden dazu ein TXB0108 von Adafruit.
+Die RX und TX Pins des Raspberry Pi werden mit den jeweils komplementären Pins des Arduino (dh. TX und RX) zusammengesteckt.
 
 UART muss auf dem Raspberry Pi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht \textquotedblleft miniUART\textquotedblright\ verwenden.
 

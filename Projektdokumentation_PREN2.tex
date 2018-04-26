@@ -453,7 +453,7 @@ Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinhei
 
 \begin{itemize}
 		\item Der Haken ist neu aus Kunststoff aus dem 3D-Drucker gefertigt. Aufgrund einer leicht veränderten Geometrie ist 3D-Druck sinnvoller.
-		\item Der Haken wird zusätzlich noch von einem Schwenkbegrenzer eingeschränkt. Damit wird sichergestellt, dass der Haken leicht nach hinten gerichtet ist um die Last besser aufheben oder absetzen zu können.
+		\item Zusätzlich wird der Haken noch von einem Schwenkbegrenzer eingeschränkt. Damit wird sichergestellt, dass der Haken leicht nach hinten gerichtet ist um die Last besser aufheben oder absetzen zu können.
 		\item Eine geplante Querverstrebung zwischen den beiden Führungsrohren aus Kohlenstofffasern wird weggelassen, da bei Testversuchen keine Probleme ohne die Verstrebung aufgetreten sind.
 		\item Der Nylonfaden um den Haken zu heben wird ersetzt durch einen Stofffaden. Der Nylonfaden wäre zu steif um diesen kontrolliert auf der Seilwinde aufzurollen.
 \end{itemize} 
@@ -463,6 +463,7 @@ Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinhei
 \begin{itemize}
 		\item Als Kern der elektronischen Steuerung wird neu anstelle des \textit{LoFive} Boards ein \textit{ArduinoDue} Board verwendet. Weil das \textit{LoFive} ein sehr neues Board ist, bestehen im Vergleich zum \textit{ArduinoDue} wenig bis keine Informationen oder Beispiele im Internet dafür. Ein grosser Mehraufwand und Unsicherheit wäre die Folge gewesen.
 		\item Aufgrund des Wechsels vom \textit{LoFive} auf das \textit{ArduinoDue} ist auch die Programmiersprache nicht mehr Rust, sondern es wird neu auf C programmiert.
+		\item Die Auswertung der Daten der Ultraschallsensoren erfolgt neu über das \textit{RasPi} anstatt dem \textit{Arduino}. Grund dafür ist die bessere Prozessorleistung des \textit{RasPi}.
 \end{itemize}
 
 
@@ -471,6 +472,16 @@ Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinhei
 
 \section{Bedienung}
 \label{sec:Bedienung}
+%todo anpassung höhe des Hakens ab Boden
+Um die Funktionalität des Geräts zu gewährleisten, müssen einige Punkte in der Vorbereitung beachtet werden.
+
+\begin{itemize}
+	\item Es muss sichergestellt sein, dass alle Kabel eingesteckt sind ausser der Stecker der Energieversorgung von den Akkupacks.
+	\item Die Laufkatze muss vorsichtig in das Seil eingehängt werden. Wichtig ist, dass sich die Führungsrollen unter und das Antriebsrad über dem Seil befinden.
+	\item Das Gerät muss sich an der Position auf dem Seil befinden, damit der Masten gerade berührt wird.
+	\item Die vorgegebene Höhe von 5 Zentimeter vom untersten Punkt des Hakens bis zum Boden muss eingestellt werden. Wenn sich der Haken an der korrekten Höhe befindet, muss der Stecker der Akkupacks am ET-Board eingesteckt werden damit der Schrittmotor die hält.
+	\item Der Kippschalter am ET-Board muss nun betätigt werden um das Gerät zu starten.
+\end{itemize}
 
 \section{Tests}
 \label{sec:TestsPrototyp}

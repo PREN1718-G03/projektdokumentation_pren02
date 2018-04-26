@@ -119,13 +119,13 @@ Horw, \today
 \pagenumbering{roman}
 \begin{abstract}
 	Im Rahmen des Moduls Produktentwicklung 2 wird ein Funktionsmuster des in PREN01 ausgearbeiteten Konzeptes erstellt. Dabei sind die Fachrichtungen Maschinentechnik, Informatik und Elektrotechnik vertreten. Neben der Realisierung des geplanten Funktionsumfang, steht vor allem auch das gute Abschneiden im Wettbewerb im Vordergrund.
-	
+
 	Der Fokus dieses Moduls liegt in dem Bauen der Laufkatze und der Funktionalität des ganzen Gerätes. Zudem ist die Projektplanung, die Dokumentation und die Interdisziplinäre Zusammenarbeit sehr wichtig. Das Ziel des Projektes ist es, eine Laufkatze zu entwickeln welche autonom eine Last aufheben und an einer zuvor unbekannten Position auf eine Zielplatte absetzten kann. Die Position der aufgenommenen Last soll während dem Transport angezeigt werden.
-	
+
 	Das Ergebnis dieser Arbeit ist ein Konzept einer Laufkatze, welche mit Seilrollen angetrieben wird. Unterhalb der Aufhängung ist die Montageplatte und die Hubeinrichtung angebracht. Diese besteht aus einem Hacken welcher mit einer geführten Seilwindenkonstruktion gehoben werden kann. Die Zielplatte wird mittels Bilderkennung erkannt und die Distanz mit Ultraschallsensoren und dem Zählen der Schritte von den Motoren.
-	
-	Am Ende des Moduls wird das geschaffene an einem Wettbewerb von Experten bewertet. Es werden unter anderem die Geschwindigkeit, die Genauigkeit und die fehlerfreie Absolvierung der Aufgaben angeschaut. 
-	
+
+	Am Ende des Moduls wird das geschaffene an einem Wettbewerb von Experten bewertet. Es werden unter anderem die Geschwindigkeit, die Genauigkeit und die fehlerfreie Absolvierung der Aufgaben angeschaut.
+
 \end{abstract}
 
 \chapter*{Versionierung}
@@ -151,7 +151,7 @@ Horw, \today
 \label{ch:Intro}
 Dieses Dokument beschreibt ein Funktionsmuster einer autonomen Laufkatze. Dabei handelt es sich um ein interdisziplinäres Projekt, welches über zwei Semester an der Hochschule Luzern absolviert wurde. In diesem Projekt musste mit einem begrenzten Budget gearbeitet und vielseitige Herausforderungen bewältigt werden.
 
-In der vorhergegangenen Konzeptentwicklung konnte sichergestellt werden, dass alle Anforderungen durch unser Konzept erfüllt werden. Dieses Konzept gilt es nun auszuführen. Zu beginn wurde vor allem auf einen Prototyp hingearbeitet, welcher die Grundfunktionen ausführen konnte. Auf die Details und die autonomen Funktionen wurde erst später eingegangen. 
+In der vorhergegangenen Konzeptentwicklung konnte sichergestellt werden, dass alle Anforderungen durch unser Konzept erfüllt werden. Dieses Konzept gilt es nun auszuführen. Zu beginn wurde vor allem auf einen Prototyp hingearbeitet, welcher die Grundfunktionen ausführen konnte. Auf die Details und die autonomen Funktionen wurde erst später eingegangen.
 
 Wie im vorherigen Modul Produktentwicklung 1 wurde die Dokumentation mit \LaTeX gestaltet, da es sich bewährte.
 
@@ -370,7 +370,7 @@ Für die Distanzmessung werden in x-Richtung und y-Richtung je ein Ultraschallse
 
 \subsection{Schrittmotoren}
 %todo Beschreibung Schrittmotoren
-Die Laufkatze hat total zwei Schrittmotoren verbaut. Einen für den Antrieb auf dem Seil und einen für den Hub der Last. 
+Die Laufkatze hat total zwei Schrittmotoren verbaut. Einen für den Antrieb auf dem Seil und einen für den Hub der Last.
 
 \subsection{RasPi-Kamera}
 %todo Beschreibung Kamera
@@ -419,19 +419,19 @@ Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. D
 \vspace{1em}
 
 \subsection{Endschalter}
-Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der Zielbereich erreicht ist und der Masten berührt wird. Dafür wird der Endschalter mit dem Arduino ausgelesen. Angebracht ist er am vordersten Punkt des Kamerahalters. Verwendet wurde ein Endschalter des Typs 5E4T125 von Burgess. 
+Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der Zielbereich erreicht ist und der Masten berührt wird. Dafür wird der Endschalter mit dem Arduino ausgelesen. Angebracht ist er am vordersten Punkt des Kamerahalters. Verwendet wurde ein Endschalter des Typs 5E4T125 von Burgess.
 
 \subsection{Grundeinheit}
 \label{ssec:GrundeinheitBeschrieb}
-Die Grundeinheit besteht aus der Verbindung von Hubvorrichtung und Fahreinheit. Dabei werden diverse elektronische Komponenten und Sensoren an der Grundeinheit befestigt, welche aber in einem separaten Kapitel behandelt werden. Auch zur Grundeinheit gehören die Motorhalterung, der Befestigungswickel für die Laufkatze und die Führungsrohre der Carbonstäbe. 
+Die Grundeinheit besteht aus der Verbindung von Hubvorrichtung und Fahreinheit. Dabei werden diverse elektronische Komponenten und Sensoren an der Grundeinheit befestigt, welche aber in einem separaten Kapitel behandelt werden. Auch zur Grundeinheit gehören die Motorhalterung, der Befestigungswickel für die Laufkatze und die Führungsrohre der Carbonstäbe.
 
 \subsubsection{Grundplatte}
 \label{sssec:GrundplatteBeschrieb}
-Die Grundplatte wurde aus einer MFD-Platte gefertigt. Dabei hat diese Platte einen Ausschnitt in der Mitte, durch welches das Seil der Seilwinde geht.Neben dem Ausschnitt wird der Winkel für die Seilwinde angeschraubt. Zwei zusätzliche Löcher neben dem Ausschnitt dienen zur Befestigung der beiden Führungen. Die Elektronikkomponenten werden mithilfe von Klettverbindungen auf die Grundplatte befestigt. Die halterung für den LCD-Display wird mit einer Steckverbindung auf die Grundplatte gesteckt. Auf der Unterseite der Grundplatte wir die Halterung für den Ultraschall mit vier Schrauben befestigt. 
+Die Grundplatte wurde aus einer MFD-Platte gefertigt. Dabei hat diese Platte einen Ausschnitt in der Mitte, durch welches das Seil der Seilwinde geht.Neben dem Ausschnitt wird der Winkel für die Seilwinde angeschraubt. Zwei zusätzliche Löcher neben dem Ausschnitt dienen zur Befestigung der beiden Führungen. Die Elektronikkomponenten werden mithilfe von Klettverbindungen auf die Grundplatte befestigt. Die halterung für den LCD-Display wird mit einer Steckverbindung auf die Grundplatte gesteckt. Auf der Unterseite der Grundplatte wir die Halterung für den Ultraschall mit vier Schrauben befestigt.
 
 \subsubsection{Verbindungswinkel}
 \label{sssec:VerbindungswinkelBeschrieb}
-Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinheit. Dabei wird der Verbindungswinkel mit zwei M5 Schrauben auf an die Grundplatte geschraubt. Der Verbindungswinkel besitzt eine Gleitlagerung aus Messing. 
+Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinheit. Dabei wird der Verbindungswinkel mit zwei M5 Schrauben auf an die Grundplatte geschraubt. Der Verbindungswinkel besitzt eine Gleitlagerung aus Messing.
 
 
 \section{Konzeptänderungen nach PREN01}
@@ -452,11 +452,11 @@ Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinhei
 \subsection{Hubvorrichtung}
 
 \begin{itemize}
-		\item Der Haken ist neu aus Kunststoff aus dem 3D-Drucker gefertigt. Aufgrund einer leicht veränderten Geometrie ist 3D-Druck sinnvoller.
+		\item Der Haken ist neu aus Kunststoff aus dem 3D-Drucker gefertigt. Aufgrund einer leicht veränderten Geometrie ist ein 3D-Druck sinnvoller.
 		\item Zusätzlich wird der Haken noch von einem Schwenkbegrenzer eingeschränkt. Damit wird sichergestellt, dass der Haken leicht nach hinten gerichtet ist um die Last besser aufheben oder absetzen zu können.
 		\item Eine geplante Querverstrebung zwischen den beiden Führungsrohren aus Kohlenstofffasern wird weggelassen, da bei Testversuchen keine Probleme ohne die Verstrebung aufgetreten sind.
 		\item Der Nylonfaden um den Haken zu heben wird ersetzt durch einen Stofffaden. Der Nylonfaden wäre zu steif um diesen kontrolliert auf der Seilwinde aufzurollen.
-\end{itemize} 
+\end{itemize}
 
 \subsection{Elektronische Komponenten}
 

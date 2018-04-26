@@ -51,6 +51,8 @@
 % PDF einfügen
 \usepackage{pdfpages}
 
+\usepackage{pdflscape}
+
 % Tell BibLatex to use the ngerman language mapping
 \DeclareLanguageMapping{ngerman}{ngerman-apa}
 
@@ -315,7 +317,7 @@ Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (si
 	\centering
 	\includegraphics[keepaspectratio,width=0.5\textwidth]{SystemArchitektur}
 	\caption{Modulübersicht der PiSensor Architektur}
-	\label{fig:SystemArchitektur}
+	\label{fig:PiSensorSystemArchitektur}
 \end{figure}
 
 Die Logik der Erkennung wurde in zwei Teile separiert, bildlich dargestellt in der Abbildung \ref{fig:KameraSensor}. Zum Einen das Erfassen der Daten des Sensors und der Erkennung der Zielplattform, und zum Anderen das Berechnen der Distanz zwischen Zielplattform und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung wird über eine Factory-Klasse bereitgestellt. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
@@ -330,6 +332,17 @@ Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue 
 	\caption{Gesamtübersicht der Erkennungslogik}
 	\label{fig:KameraSensor}
 \end{figure}
+
+\begin{landscape}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio,width=\linewidth]{pi-sensor}
+	\caption{Detailansicht des Raspberry Pi Sensormoduls}
+	\label{fig:PiSensor}
+\end{figure}
+
+\end{landscape}
 
 \subsection{Kommunikation zwischen Boards}
 \label{ssec:Kommunikation}

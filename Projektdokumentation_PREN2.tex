@@ -358,21 +358,17 @@ Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, S
 Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken.  Eine nicht-Drehbare Querstange aus Aluminium dient als Halterung für den Haken. Ebenfalls an dieser Querstange ist ein Schwenkbegrenzer mit einer Feder befestigt. Die Feder hält den Haken in einer Schieflage von etwa 45\SI{}{\degree}. Weil die Startposition der Last vorgegeben ist, wird das Aufheben der Last im voraus programmiert.
 Nach dem anheben der Last wird die Feder durch das zusätzliche Gewicht gestaucht und der Winkel des Hakens zur Vertikalen verkleinert sich auf etwa 10\SI{}{\degree}.\\
 Beim Absetzen der Last auf der Zielplattform drückt die Feder den Haken automatisch wieder in die Ursprungsposition und klinkt sich damit aus dem Haken der Last aus.
-Durch einen gekrümmten Draht an der Unterseite des Greifers wird sicher gestellt, dass die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird.
-Der Haken ist aus ABS gefertigt und wird 3D gedruckt. 
-
-Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken. Die gelenkige Lagerung ermöglicht einen grösseren Toleranzbereich in z-Richtung zum Anheben der Last. Versuche haben gezeigt, dass bei Berührung der Last der Greifer nach hinten gekippt wird und durch das Vorwärts bewegen des Fahrzeuges sich in den Haken der Last einfädelt. Siehe \textquotedblleft Testprotokoll Last greifen mit Haken\textquotedblright und \textquotedblleft Testprotokoll Last absetzen mit Haken\textquotedblright  im Anhang \ref{app:ch:Versuche}. Durch einen gekrümmten Draht an der Unterseite des Greifers wird sicher gestellt, dass die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird.
-
-Nachdem das Fahrzeug die Zielplattform erreicht hat, wird die Last vorsichtig abgesetzt. Das Ausfädeln des Drahtes aus dem Haken erfolgt durch eine Rückwärtsbewegung des Fahrzeuges.
-
-Der Greifer wird aus Aluminium gefertigt. Dieser besteht aus gebogenem Flachmaterial, durch welchen im oberen Bereich eine Drehachse und im unteren Bereich ein gebogener Draht durch ein Loch geführt wird. Die Drehachse dient zudem noch als Befestigung des Greifers an die Hubvorrichtung.
+Durch einen gekrümmten Draht an der Unterseite des Greifers wird sichergestellt, dass sich die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird. %todo verdrehung?
+Der Haken ist aus ABS gefertigt und wird 3D gedruckt.
 
 \subsection{Last anheben und senken}
-Die Last wird mithilfe einer Seilwinde angehoben, welche mit einem Schrittmotor angetrieben wird. Dieser ist auf der Befestigungsplatte positioniert. Auf der Motorachse ist eine Seiltrommel aus Aluminium befestigt, welche einen Nylonfaden aufwickelt. Das Ende des Fadens ist direkt am Greifer befestigt. Da ein loses Seil stark in Schwingung geraten kann, wird zusätzlich eine Führung mit zwei Stäben aus Kohlenstofffasern verwendet. Auf der Befestigungsplatte sind dafür Führungsrohre montiert. Um den Widerstand zwischen der Führung und dem Stab so klein wie möglich zu halten, wird das Führungsrohr geschmiert. Damit sichergestellt werden kann, dass sich die Stäbe synchron bewegen, wird eine Querverstrebung eingebaut. Damit kann ein Verkanten der Stäbe aufgrund von ungleicher Hubgeschwindigkeit der Stäbe ausgeschlossen werden. Mit diesen Massnahmen können die Schwingungen stark minimiert und eine Verdrehung des Greifers verhindert werden. Dank diesem Aufbau kann der Greifer genauer geführt werden und somit der Transport der Last optimiert ablaufen.
+Die Last wird mithilfe einer Seilwinde angehoben, welche über einen Schrittmotor angetrieben wird. Dieser ist auf der Befestigungsplatte positioniert. Auf der Motorachse ist eine Seiltrommel aus Aluminium befestigt, die einen Stofffaden aufwickelt. Das Ende des Fadens ist direkt am Greifer befestigt. %todo anmachen des Fadens
+Da ein loses Seil stark in Schwingung geraten kann, wird zusätzlich eine Führung mit zwei Stäben aus Kohlenstofffasern verwendet. Auf der Befestigungsplatte sind dafür Führungsrohre angebracht. Um den Widerstand zwischen der Führung und dem Stab so klein wie möglich zu halten, wird das Führungsrohr geschmiert. Aufgrund dieser Führungsstäbe können Schwingungen und Verdrehungen vermieden werden. 
+Dank diesem Aufbau kann der Greifer genauer geführt werden und somit der Transport der Last optimiert ablaufen.
 
 \subsection{Ultraschallsensor}
-%todo Beschreibung Ultraschallsensor
-Für die Distanzmessung werden in x-Richtung und y-Richtung je ein Ultraschallsensor verwendet. Die Ultraschallsensoren des Typs HC-SR04 weisen eine Messdistanz zwischen zwei Zentimeter und bis zu fünf Meter auf. Die Genauigkeit wird mit drei Millimetern Abweichung angegeben. Dies ist ausreichend für die geplante Anwendung. Ausgelesen und verarbeitet werden die Informationen auf dem Arduino.
+%todo Quelle Datenblatt
+Für die Distanzmessung werden in x-Richtung und y-Richtung je ein Ultraschallsensor verwendet. Die Ultraschallsensoren des Typs HC-SR04 weisen eine Messdistanz zwischen zwei Zentimeter und bis zu fünf Meter auf. Die Genauigkeit wird mit drei Millimetern Abweichung angegeben. Dies ist ausreichend für die geplante Anwendung. Ausgelesen und verarbeitet werden die Informationen auf dem \textit{RasPi}.
 
 \subsection{Schrittmotoren}
 %todo Beschreibung Schrittmotoren
@@ -380,6 +376,7 @@ Die Laufkatze hat total zwei Schrittmotoren verbaut. Einen für den Antrieb auf 
 
 \subsection{RasPi-Kamera}
 %todo Beschreibung Kamera
+Für die Erkennung der Zielplattform wird die \textit{RasPi}-Kamera v2.1 verwendet. Angebracht ist die Kamera zuvorderst am Gerät mit vier Schrauben an einem Winkel. Damit die Zielplattform genügend früh erkannt werden kann und die Last nicht das Bild stört, ist die Kamera mit einem Winkel \SI{20}{\degree} zur Vertikalen nach vorne gerichtet. Das Bild wird auf dem \textit{RasPi} ausgewertet und erkennt damit die Zielplattform.
 
 \subsection{Arduino}
 %todo Beschreibung Arduino DUE
@@ -1017,7 +1014,32 @@ Legende:
 
 \chapter{Schlussdiskussion}
 \label{ch:SchlussDisku}
+Die Zusammenarbeit im Team war trotz einigen grösseren Schwierigkeiten bis zum Schluss sehr gut. Das Team war immer in der Lage um sich gegenseitig zu unterstützen und Probleme zu beheben. Dies war unbedingt nötig, da Eve Meier (Informatik) nach dem Pren1 das Team verlassen hat und sich David Craven (Elektrotechnik) nach kurzer Zeit im Pren2 abgemeldet hat. Dadurch wurde das Team sehr unausgeglichen mit vier Maschinentechnik-Studenten und nur je einem Informatik-, und Elektrotechnikstudenten. Die Studenten der Maschinentechnik versuchten zu helfen, wo es möglich war. Zum einen durch mithilfe beim Programmieren oder durch Anpassungen am Gerät um den Programmieraufwand zu reduzieren.\\
+Nachfolgend werden nach Fachbereich aufgetrennt die jeweiligen Erkenntnisse dem Pren-Modul beschrieben.
 
+\section{Maschinentechnik}
+
+\begin{itemize}
+	\item Kabelführung\\
+	Die Kabelführung wurde sehr lange vernachlässigt und wurde nicht als Problem betrachtet. Vor allem die Anordnung der Komponenten würde einiges einfacher fallen, wenn die Kabelführung schon definiert gewesen wäre. Zudem mussten Kabel verlängert werden aufgrund von Änderungen an der Positionierung einzelner Komponenten.
+	\item Ästhetik\\
+	Bei der Planung und Konstruktion des Gerätes wurde nicht auf das Aussehen geachtet. Die Denkweise war, dass die Ästhetik gegen Ende des Projektes ein Thema werden würde. Es hat sich aber herausgestellt, dass im Nachhinein eine gute Lösung schwer zu finden ist. Viel einfach wäre es gewesen, wenn schon seit beginn des Projektes Gedanken zum Aussehen gemacht worden wären.
+	\item Fertigung\\
+	Zu beginn des Projektes wurde ohne grosse Überlegungen Aluminium für viele Bauteile verwendet. Es wäre sinnvoller gewesen, sich im Voraus über die Werkstoffwahl Gedanken zu machen, um Mehraufwand durch mehrmaliges Fertigen zu vermeiden. Zusätzlich wurde die zur Verfügung gestellte Zeit für den 3D-Drucker, den Laser und die Mechanik-Werkstatt zu wenig genutzt.
+\end{itemize}
+
+\section{Elektrotechnik}
+\begin{itemize}
+	\item Wechsel des Boards\\
+	Es zeichnete sich schon früh ab, dass die Arbeit mit dem \textit{LoFive}-Board nicht wie gewollt funktioniert. Der später erfolgte Wechsel auf das \textit{Arduino} hätte schon viel früher passieren sollen. Die vorgegeben Meilensteine bei der Programmierung des \textit{LoFive}-Boards wurden selten eingehalten und verlängert. Wegen dem Wechsel des Boards, konnte auch das bisher Programmierte nicht mehr verwendet werden. Dies hat im Endeffekt dazu geführt, dass der komplette Code in kurzer Zeit neu geschrieben werden musste.
+	\item 
+	
+\end{itemize}
+
+\section{Informatik}
+
+\section{Arbeitsprozess}
+Die Zusammenarbeit unter den Disziplinen hat aufgrund der Anwesenheit an beiden Schultagen gut funktioniert. Lösungen wurden, soweit als möglich, gemeinsam gesucht und auch gefunden. Einige Probleme hätten aber verhindert werden können, wenn die gesetzten Meilensteine und die Konsequenzen, falls nicht erreicht, eingehalten worden wären. Ein strikteres Vorgehen wäre rückblickend wünschenswert gewesen.
 \listoffigures
 
 \listoftables

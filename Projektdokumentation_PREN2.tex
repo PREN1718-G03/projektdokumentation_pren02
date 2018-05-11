@@ -486,6 +486,43 @@ Um die Funktionalität des Geräts zu gewährleisten, müssen einige Punkte in d
 \section{Tests}
 \label{sec:TestsPrototyp}
 
+Im Rahmen des Projektes wird das System bzw. Fahrzeug und deren Komponenten fortlaufend
+getestet. Die folgenden Testszenarien und Methoden sollen mögliche Fehler am System oder in
+Komponenten frühzeitig entdecken und so die Möglichkeiten bieten, Verbesserungen
+vorzunehmen. Weiter kann durch definierte Testfälle sichergestellt werden, dass alle essentiellen
+Komponenten getestet werden.
+
+\subsection{Methodik}
+
+Bevor die Komponenten in das Gesamtsystem integriert wurden, wurden sie einzeln getestet. Danach wurden sie ins Gesamtsystem integriert und erneut getestet. Für sämtliche Tests wurde immer zuerst ein Ziel definiert und dann die Resultate mithilfe eines Protokolls festgehalten.
+
+\subsection{Testszenarien}
+
+Aufgrund der grossen Anzahl Testszenarien und Testfälle werden diese übersichtshalber mit den
+Testresultaten im Anhang aufgeführt.
+
+\subsection{Fazit}
+
+Die durchgeführten Tests (siehe Anhang) zeigen auf, dass alle wesentlichen
+Komponenten soweit funktionieren und nur in folgenden Fällen zu Komplikationen führen kann:\\
+%- Raupe zieht es ab Rädern:
+%Bei zu hohem Grip der Raupe wird bei einer Drehung (z.B. im Wendebereich) die Raupe
+%von den Rädern gezogen.
+%- Kugeldämpfung eher Federung:
+%In den Tests wurde festgestellt, dass die Kugeldämpfung eher als Federung agiert. Als
+%Gegenmassnahme wurden dämpfende Materialien unter dem Federarm platziert und die
+%Geschwindigkeit auf der Wippe verringert.
+%- Servoarm verändert Kalibrationsposition:
+%Der Servo fährt mit demselben PWM-Signal unterschiedliche Positionen an.
+%- Ziffernerkennung in seltenen Fällen: In den Tests wurde festgestellt, dass z.B. direkt
+%beim Start die Ziffer aufgrund der laufenden Kalibration nicht erkannt wird. Teilweise
+%wurden die Ziffern unterwegs nicht erkannt, was auf nicht passende Rotwerte bei der
+%Balkenerkennung zurückzuführen ist.
+%Mehrere Testläufe haben gezeigt, dass das Gerät in 7/10 Durchläufen alle Anforderungen erfüllt.
+%Es gingen bei der Überquerung des Parcours keine Kugeln verloren, die Ziffer wurde korrekt
+%erkannt und angezeigt sowie im Zielfeld korrekt gewählt.
+
+
 \section{Schnittstellen und Abhängigkeiten}
 \label{sec:SchnittAbhang}
 % TODO Überprüfen

@@ -9,6 +9,8 @@
 % Fancy Figures
 \usepackage{graphicx}
 
+\usepackage{subcaption}
+
 % Colored text
 \usepackage{xcolor}
 
@@ -635,6 +637,64 @@ Wir erwarten einen Winkel zwischen $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rig
 \subsection{Auswertung des Distanzversuchs und Modellermittlung}
 \label{ssec:DistModelCreation}
 % TODO Write this subsection in full glorious detail
+
+Da wir unsere Kamera mit einem Anstellwinkel von \SI{70}{\degree} auf die Ebene schauen lassen, verzerren wir das Bild (und vor allem die Distanzen) perspektivisch (skizziert in Bild \ref{fig:Perspektive}). Um diese korrekt berechnen zu können wurde aus verschiedenen Höhen, die Länge in cm und in Pixel gemessen und durch die gesammelten Daten ein Modell gelegt. Dies wurde im Programm R Studio bewerkstelligt. Leider konnten die Daten nicht durch ein lineares Modell approximiert werden, und es musste ein Quadratisches verwendet werden, dies ist in Abbildung \ref{fig:Modelle} zu sehen.
+
+Jedoch konnte auch keine einzelne Funktion für alle Höhen verwendet werden. Es müssen dadurch auch die Koeffizienten durch eine Funktion approximiert werden. Wir erhalten schlussendlich das Modell abhängig von Höhe h in cm und Distanz in Anzahl Pixel:
+
+\begin{align*}
+	\begin{split}
+		Distanz_{cm} &= a\cdot x^2 + b\cdot x + c
+		\\
+		x &= Distanz_{Pixel}
+		\\
+		a &= 0.000115
+		\\
+		b &= 0.002585856 \cdot h - 0.064546103
+		\\
+		c &= -\frac{2}{75} \cdot h + \frac{3}{5}
+	\end{split}
+\end{align*}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[keepaspectratio, width=0.8\textwidth]{Perspektive}
+	\caption{Perspektivische Verzerrung der Abbildung von jeweils \SI{10}{\degree}-Bögen}
+	\label{fig:Perspektive}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{hoehe52_5}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{hoehe57_5}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{hoehe62_5}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{hoehe67_5}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{hoehe72_5}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{hoehe77_5}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{hoehe82_5}
+	\end{subfigure}
+	\caption{Modelle der unterschiedlichen Messhöhen}
+	\label{fig:Modelle}
+\end{figure}
 
 
 \chapter{Projektorganisation und Projektplanung}

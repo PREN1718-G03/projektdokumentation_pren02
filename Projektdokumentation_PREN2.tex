@@ -499,7 +499,7 @@ Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinhei
 
 Zur Distanzmessung wird der Ultraschallsensor HC-SR04 gebraucht. Dieser wird über 5V gespeist und über zwei GPIO-Pins angesprochen. Einer davon (Trigger) dient dabei zum Auslösen des Pulses, während der Andere (Echo) ein Signal abgibt, falls der Puls wieder empfangen wurde.
 
-Aus der Zeit zwischen Puls und Empfang kann danach über die folgende Formel ausgerechnet werden:
+Aus der Zeit zwischen Puls und Empfang kann danach die Distanz über die folgende Formel berechnet werden:
 
 \begin{equation*}
 	distanz = \frac{\Delta_{Zeit} \cdot 34300}{2}

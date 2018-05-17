@@ -51,6 +51,8 @@
 % PDF einfügen
 \usepackage{pdfpages}
 
+\usepackage{pdflscape}
+
 % Tell BibLatex to use the ngerman language mapping
 \DeclareLanguageMapping{ngerman}{ngerman-apa}
 
@@ -119,13 +121,13 @@ Horw, \today
 \pagenumbering{roman}
 \begin{abstract}
 	Im Rahmen des Moduls Produktentwicklung 2 wird ein Funktionsmuster des in PREN01 ausgearbeiteten Konzeptes erstellt. Dabei sind die Fachrichtungen Maschinentechnik, Informatik und Elektrotechnik vertreten. Neben der Realisierung des geplanten Funktionsumfang, steht vor allem auch das gute Abschneiden im Wettbewerb im Vordergrund.
-	
+
 	Der Fokus dieses Moduls liegt in dem Bauen der Laufkatze und der Funktionalität des ganzen Gerätes. Zudem ist die Projektplanung, die Dokumentation und die Interdisziplinäre Zusammenarbeit sehr wichtig. Das Ziel des Projektes ist es, eine Laufkatze zu entwickeln welche autonom eine Last aufheben und an einer zuvor unbekannten Position auf eine Zielplatte absetzten kann. Die Position der aufgenommenen Last soll während dem Transport angezeigt werden.
-	
+
 	Das Ergebnis dieser Arbeit ist ein Konzept einer Laufkatze, welche mit Seilrollen angetrieben wird. Unterhalb der Aufhängung ist die Montageplatte und die Hubeinrichtung angebracht. Diese besteht aus einem Hacken welcher mit einer geführten Seilwindenkonstruktion gehoben werden kann. Die Zielplatte wird mittels Bilderkennung erkannt und die Distanz mit Ultraschallsensoren und dem Zählen der Schritte von den Motoren.
-	
-	Am Ende des Moduls wird das geschaffene an einem Wettbewerb von Experten bewertet. Es werden unter anderem die Geschwindigkeit, die Genauigkeit und die fehlerfreie Absolvierung der Aufgaben angeschaut. 
-	
+
+	Am Ende des Moduls wird das geschaffene an einem Wettbewerb von Experten bewertet. Es werden unter anderem die Geschwindigkeit, die Genauigkeit und die fehlerfreie Absolvierung der Aufgaben angeschaut.
+
 \end{abstract}
 
 \chapter*{Versionierung}
@@ -151,7 +153,7 @@ Horw, \today
 \label{ch:Intro}
 Dieses Dokument beschreibt ein Funktionsmuster einer autonomen Laufkatze. Dabei handelt es sich um ein interdisziplinäres Projekt, welches über zwei Semester an der Hochschule Luzern absolviert wurde. In diesem Projekt musste mit einem begrenzten Budget gearbeitet und vielseitige Herausforderungen bewältigt werden.
 
-In der vorhergegangenen Konzeptentwicklung konnte sichergestellt werden, dass alle Anforderungen durch unser Konzept erfüllt werden. Dieses Konzept gilt es nun auszuführen. Zu beginn wurde vor allem auf einen Prototyp hingearbeitet, welcher die Grundfunktionen ausführen konnte. Auf die Details und die autonomen Funktionen wurde erst später eingegangen. 
+In der vorhergegangenen Konzeptentwicklung konnte sichergestellt werden, dass alle Anforderungen durch unser Konzept erfüllt werden. Dieses Konzept gilt es nun auszuführen. Zu beginn wurde vor allem auf einen Prototyp hingearbeitet, welcher die Grundfunktionen ausführen konnte. Auf die Details und die autonomen Funktionen wurde erst später eingegangen.
 
 Wie im vorherigen Modul Produktentwicklung 1 wurde die Dokumentation mit \LaTeX gestaltet, da es sich bewährte.
 
@@ -315,7 +317,7 @@ Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (si
 	\centering
 	\includegraphics[keepaspectratio,width=0.5\textwidth]{SystemArchitektur}
 	\caption{Modulübersicht der PiSensor Architektur}
-	\label{fig:SystemArchitektur}
+	\label{fig:PiSensorSystemArchitektur}
 \end{figure}
 
 Die Logik der Erkennung wurde in zwei Teile separiert, bildlich dargestellt in der Abbildung \ref{fig:KameraSensor}. Zum Einen das Erfassen der Daten des Sensors und der Erkennung der Zielplattform, und zum Anderen das Berechnen der Distanz zwischen Zielplattform und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung wird über eine Factory-Klasse bereitgestellt. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
@@ -331,6 +333,17 @@ Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue 
 	\label{fig:KameraSensor}
 \end{figure}
 
+\begin{landscape}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio,width=\linewidth]{pi-sensor}
+	\caption{Detailansicht des Raspberry Pi Sensormoduls}
+	\label{fig:PiSensor}
+\end{figure}
+
+\end{landscape}
+
 \subsection{Kommunikation zwischen Boards}
 \label{ssec:Kommunikation}
 Zwischen dem Raspberry Pi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
@@ -345,7 +358,7 @@ Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 8 (Tx) und Pin 10 
 	\label{fig:RaspberryPins}
 \end{figure}
 
-Da das Arduino mit einer Spannung von bis zu 5V auf seinen UART Pins arbeitet und das Raspberry Pi mit nur 3.3V muss ein Logikpegelübersetzer eingesetzt werden. Wir verwenden dazu ein TXB0108 von Adafruit.
+Die RX und TX Pins des Raspberry Pi werden mit den jeweils komplementären Pins des Arduino (dh. TX und RX) zusammengesteckt.
 
 UART muss auf dem Raspberry Pi manuell aktiviert werden.  Zusätzlich muss das integrierte Bluetooth-Modul deaktiviert werden, sodass die genannten Ports nicht \textquotedblleft miniUART\textquotedblright\ verwenden.
 
@@ -354,26 +367,30 @@ Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, S
 \newpage
 
 \subsection{Last greifen und absetzen}
-
-Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken. Die gelenkige Lagerung ermöglicht einen grösseren Toleranzbereich in Richtung z-Achse zum Anheben der Last. Versuche haben gezeigt, dass bei Berührung der Last der Greifer nach hinten gekippt wird und durch das Vorwärts bewegen des Fahrzeuges sich in den Haken der Last einfädelt. Siehe \textquotedblleft Testprotokoll Last greifen mit Haken\textquotedblright und \textquotedblleft Testprotokoll Last absetzen mit Haken\textquotedblright  im Anhang \ref{app:ch:Versuche}. Durch einen gekrümmten Draht an der Unterseite des Greifers wird sicher gestellt, dass die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird.
-
-Nachdem das Fahrzeug die Zielplattform erreicht hat, wird die Last vorsichtig abgesetzt. Das Ausfädeln des Drahtes aus dem Haken erfolgt durch eine Rückwärtsbewegung des Fahrzeuges.
-
-Der Greifer wird aus Aluminium gefertigt. Dieser besteht aus gebogenem Flachmaterial, durch welchen im oberen Bereich eine Drehachse und im unteren Bereich ein gebogener Draht durch ein Loch geführt wird. Die Drehachse dient zudem noch als Befestigung des Greifers an die Hubvorrichtung.
+%todo Testprotokolle verlinken
+Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken.  Eine nicht-Drehbare Querstange aus Aluminium dient als Halterung für den Haken. Ebenfalls an dieser Querstange ist ein Schwenkbegrenzer mit einer Feder befestigt. Die Feder hält den Haken in einer Schieflage von etwa 45\SI{}{\degree}. Weil die Startposition der Last vorgegeben ist, wird das Aufheben der Last im voraus programmiert.
+Nach dem anheben der Last wird die Feder durch das zusätzliche Gewicht gestaucht und der Winkel des Hakens zur Vertikalen verkleinert sich auf etwa 10\SI{}{\degree}.\\
+Beim Absetzen der Last auf der Zielplattform drückt die Feder den Haken automatisch wieder in die Ursprungsposition und klinkt sich damit aus dem Haken der Last aus.
+Durch einen gekrümmten Draht an der Unterseite des Greifers wird sichergestellt, dass sich die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird. %todo verdrehung?
+Der Haken ist aus ABS gefertigt und wird 3D gedruckt.
 
 \subsection{Last anheben und senken}
-Die Last wird mithilfe einer Seilwinde angehoben, welche mit einem Schrittmotor angetrieben wird. Dieser ist auf der Befestigungsplatte positioniert. Auf der Motorachse ist eine Seiltrommel aus Aluminium befestigt, welche einen Nylonfaden aufwickelt. Das Ende des Fadens ist direkt am Greifer befestigt. Da ein loses Seil stark in Schwingung geraten kann, wird zusätzlich eine Führung mit zwei Stäben aus Kohlenstofffasern verwendet. Auf der Befestigungsplatte sind dafür Führungsrohre montiert. Um den Widerstand zwischen der Führung und dem Stab so klein wie möglich zu halten, wird das Führungsrohr geschmiert. Damit sichergestellt werden kann, dass sich die Stäbe synchron bewegen, wird eine Querverstrebung eingebaut. Damit kann ein Verkanten der Stäbe aufgrund von ungleicher Hubgeschwindigkeit der Stäbe ausgeschlossen werden. Mit diesen Massnahmen können die Schwingungen stark minimiert und eine Verdrehung des Greifers verhindert werden. Dank diesem Aufbau kann der Greifer genauer geführt werden und somit der Transport der Last optimiert ablaufen.
+Die Last wird mithilfe einer Seilwinde angehoben, welche über einen Schrittmotor angetrieben wird. Dieser ist auf der Befestigungsplatte positioniert. Auf der Motorachse ist eine Seiltrommel aus Aluminium befestigt, die einen Stofffaden aufwickelt. Das Ende des Fadens ist direkt am Greifer befestigt. %todo anmachen des Fadens
+Da ein loses Seil stark in Schwingung geraten kann, wird zusätzlich eine Führung mit zwei Stäben aus Kohlenstofffasern verwendet. Auf der Befestigungsplatte sind dafür Führungsrohre angebracht. Um den Widerstand zwischen der Führung und dem Stab so klein wie möglich zu halten, wird das Führungsrohr geschmiert. Aufgrund dieser Führungsstäbe können Schwingungen und Verdrehungen vermieden werden. 
+Dank diesem Aufbau kann der Greifer genauer geführt werden und somit der Transport der Last optimiert ablaufen.
 
 \subsection{Ultraschallsensor}
-%todo Beschreibung Ultraschallsensor
-Für die Distanzmessung werden in x-Richtung und y-Richtung je ein Ultraschallsensor verwendet. Die Ultraschallsensoren des Typs HC-SR04 weisen eine Messdistanz zwischen zwei Zentimeter und bis zu fünf Meter auf. Die Genauigkeit wird mit drei Millimetern Abweichung angegeben. Dies ist ausreichend für die geplante Anwendung. Ausgelesen und verarbeitet werden die Informationen auf dem Arduino.
+%todo Quelle Datenblatt
+Für die Distanzmessung werden in x-Richtung und y-Richtung je ein Ultraschallsensor verwendet. Die Ultraschallsensoren des Typs HC-SR04 weisen eine Messdistanz zwischen zwei Zentimeter und bis zu fünf Meter auf. Die Genauigkeit wird mit drei Millimetern Abweichung angegeben. Dies ist ausreichend für die geplante Anwendung. Ausgelesen und verarbeitet werden die Informationen auf dem \textit{RasPi}.
 
 \subsection{Schrittmotoren}
 %todo Beschreibung Schrittmotoren
 Die Laufkatze hat total zwei Schrittmotoren verbaut. Einen für den Antrieb auf dem Seil und einen für den Hub der Last. Der Antrieb auf dem Seil ist ein Motor des Typs JK42HM48-1684A.Dieser dreht sich pro Schritt um \SI{0.9}{\degree}. Das Haltemoment beträgt 4.4kgcm. Der Antrieb des Hubes wird mit einem Motor des Typs 35HS3408A4 ausgeführt. Dieser dreht sich pro Schritt um \SI{1.8}{\degree}. Das Haltemoment beträgt 1.8kgcm.
 
+
 \subsection{RasPi-Kamera}
 %todo Beschreibung Kamera
+Für die Erkennung der Zielplattform wird die \textit{RasPi}-Kamera v2.1 verwendet. Angebracht ist die Kamera zuvorderst am Gerät mit vier Schrauben an einem Winkel. Damit die Zielplattform genügend früh erkannt werden kann und die Last nicht das Bild stört, ist die Kamera mit einem Winkel \SI{20}{\degree} zur Vertikalen nach vorne gerichtet. Das Bild wird auf dem \textit{RasPi} ausgewertet und erkennt damit die Zielplattform.
 
 \subsection{Arduino}
 %todo Beschreibung Arduino DUE
@@ -419,19 +436,19 @@ Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. D
 \vspace{1em}
 
 \subsection{Endschalter}
-Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der Zielbereich erreicht ist und der Masten berührt wird. Dafür wird der Endschalter mit dem Arduino ausgelesen. Angebracht ist er am vordersten Punkt des Kamerahalters. Verwendet wurde ein Endschalter des Typs 5E4T125 von Burgess. 
+Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der Zielbereich erreicht ist und der Masten berührt wird. Dafür wird der Endschalter mit dem Arduino ausgelesen. Angebracht ist er am vordersten Punkt des Kamerahalters. Verwendet wurde ein Endschalter des Typs 5E4T125 von Burgess.
 
 \subsection{Grundeinheit}
 \label{ssec:GrundeinheitBeschrieb}
-Die Grundeinheit besteht aus der Verbindung von Hubvorrichtung und Fahreinheit. Dabei werden diverse elektronische Komponenten und Sensoren an der Grundeinheit befestigt, welche aber in einem separaten Kapitel behandelt werden. Auch zur Grundeinheit gehören die Motorhalterung, der Befestigungswickel für die Laufkatze und die Führungsrohre der Carbonstäbe. 
+Die Grundeinheit besteht aus der Verbindung von Hubvorrichtung und Fahreinheit. Dabei werden diverse elektronische Komponenten und Sensoren an der Grundeinheit befestigt, welche aber in einem separaten Kapitel behandelt werden. Auch zur Grundeinheit gehören die Motorhalterung, der Befestigungswickel für die Laufkatze und die Führungsrohre der Carbonstäbe.
 
 \subsubsection{Grundplatte}
 \label{sssec:GrundplatteBeschrieb}
-Die Grundplatte wurde aus einer MFD-Platte gefertigt. Dabei hat diese Platte einen Ausschnitt in der Mitte, durch welches das Seil der Seilwinde geht.Neben dem Ausschnitt wird der Winkel für die Seilwinde angeschraubt. Zwei zusätzliche Löcher neben dem Ausschnitt dienen zur Befestigung der beiden Führungen. Die Elektronikkomponenten werden mithilfe von Klettverbindungen auf die Grundplatte befestigt. Die halterung für den LCD-Display wird mit einer Steckverbindung auf die Grundplatte gesteckt. Auf der Unterseite der Grundplatte wir die Halterung für den Ultraschall mit vier Schrauben befestigt. 
+Die Grundplatte wurde aus einer MFD-Platte gefertigt. Dabei hat diese Platte einen Ausschnitt in der Mitte, durch welches das Seil der Seilwinde geht.Neben dem Ausschnitt wird der Winkel für die Seilwinde angeschraubt. Zwei zusätzliche Löcher neben dem Ausschnitt dienen zur Befestigung der beiden Führungen. Die Elektronikkomponenten werden mithilfe von Klettverbindungen auf die Grundplatte befestigt. Die halterung für den LCD-Display wird mit einer Steckverbindung auf die Grundplatte gesteckt. Auf der Unterseite der Grundplatte wir die Halterung für den Ultraschall mit vier Schrauben befestigt.
 
 \subsubsection{Verbindungswinkel}
 \label{sssec:VerbindungswinkelBeschrieb}
-Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinheit. Dabei wird der Verbindungswinkel mit zwei M5 Schrauben auf an die Grundplatte geschraubt. Der Verbindungswinkel besitzt eine Gleitlagerung aus Messing. 
+Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinheit. Dabei wird der Verbindungswinkel mit zwei M5 Schrauben auf an die Grundplatte geschraubt. Der Verbindungswinkel besitzt eine Gleitlagerung aus Messing.
 
 
 \section{Konzeptänderungen nach PREN01}
@@ -452,11 +469,12 @@ Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinhei
 \subsection{Hubvorrichtung}
 
 \begin{itemize}
-		\item Der Haken ist neu aus Kunststoff aus dem 3D-Drucker gefertigt. Aufgrund einer leicht veränderten Geometrie ist 3D-Druck sinnvoller.
+		\item Der Haken ist neu aus Kunststoff aus dem 3D-Drucker gefertigt. Aufgrund einer leicht veränderten Geometrie ist ein 3D-Druck sinnvoller.
 		\item Zusätzlich wird der Haken noch von einem Schwenkbegrenzer eingeschränkt. Damit wird sichergestellt, dass der Haken leicht nach hinten gerichtet ist um die Last besser aufheben oder absetzen zu können.
+		\item Am Schwenkbegrenzer ist zusätzlich eine kleine Spiralfeder angebracht. Diese bietet den grossen Vorteil, die Last ohne eine Rückwärtsbewegung auf dem Seil abzusetzen.
 		\item Eine geplante Querverstrebung zwischen den beiden Führungsrohren aus Kohlenstofffasern wird weggelassen, da bei Testversuchen keine Probleme ohne die Verstrebung aufgetreten sind.
 		\item Der Nylonfaden um den Haken zu heben wird ersetzt durch einen Stofffaden. Der Nylonfaden wäre zu steif um diesen kontrolliert auf der Seilwinde aufzurollen.
-\end{itemize} 
+\end{itemize}
 
 \subsection{Elektronische Komponenten}
 
@@ -1010,7 +1028,41 @@ Legende:
 
 \chapter{Schlussdiskussion}
 \label{ch:SchlussDisku}
+Die Zusammenarbeit im Team war trotz einigen grösseren Schwierigkeiten bis zum Schluss sehr gut. Das Team war immer in der Lage um sich gegenseitig zu unterstützen und Probleme zu beheben. Dies war unbedingt nötig, da Eve Meier (Informatik) nach dem Pren1 das Team verlassen hat und sich David Craven (Elektrotechnik) nach kurzer Zeit im Pren2 abgemeldet hat. Dadurch wurde das Team sehr unausgeglichen mit vier Maschinentechnik-Studenten und nur je einem Informatik-, und Elektrotechnikstudenten. Die Studenten der Maschinentechnik versuchten zu helfen, wo es möglich war. Zum einen durch mithilfe beim Programmieren oder durch Anpassungen am Gerät um den Programmieraufwand zu reduzieren.\\
+Nachfolgend werden nach Fachbereich aufgetrennt die jeweiligen Erkenntnisse dem Pren-Modul beschrieben.
 
+\section{Maschinentechnik}
+
+\begin{itemize}
+	\item Kabelführung\\
+	Die Kabelführung wurde sehr lange vernachlässigt und wurde nicht als Problem betrachtet. Vor allem die Anordnung der Komponenten würde einiges einfacher fallen, wenn die Kabelführung schon definiert gewesen wäre. Zudem mussten Kabel verlängert werden aufgrund von Änderungen an der Positionierung einzelner Komponenten.
+	\item Ästhetik\\
+	Bei der Planung und Konstruktion des Gerätes wurde nicht auf das Aussehen geachtet. Die Denkweise war, dass die Ästhetik gegen Ende des Projektes ein Thema werden würde. Es hat sich aber herausgestellt, dass im Nachhinein eine gute Lösung schwer zu finden ist. Viel einfach wäre es gewesen, wenn schon seit beginn des Projektes Gedanken zum Aussehen gemacht worden wären.
+	\item Fertigung\\
+	Zu beginn des Projektes wurde ohne grosse Überlegungen Aluminium für viele Bauteile verwendet. Es wäre sinnvoller gewesen, sich im Voraus über die Werkstoffwahl Gedanken zu machen, um Mehraufwand durch mehrmaliges Fertigen zu vermeiden. Zusätzlich wurde die zur Verfügung gestellte Zeit für den 3D-Drucker, den Laser und die Mechanik-Werkstatt zu wenig genutzt.
+\end{itemize}
+
+\section{Elektrotechnik}
+\begin{itemize}
+	\item Wechsel des Boards\\
+	Es zeichnete sich schon früh ab, dass die Arbeit mit dem \textit{LoFive}-Board nicht wie gewollt funktioniert. Der später erfolgte Wechsel auf das \textit{Arduino} hätte schon viel früher passieren sollen. Die vorgegeben Meilensteine bei der Programmierung des \textit{LoFive}-Boards wurden selten eingehalten und verlängert. Wegen dem Wechsel des Boards, konnte auch das bisher Programmierte nicht mehr verwendet werden. Dies hat im Endeffekt dazu geführt, dass der komplette Code in kurzer Zeit neu geschrieben werden musste.
+	\item Schrittmotoren\\
+	Der benötigte Prozessoraufwand für die Ansteuerung der Schrittmotoren wurde unterschätzt und deshalb nicht als mögliches Problem betrachtet. Die Konsequenz daraus ist, dass beim Fahren ein Ruckeln auftritt. Eine mögliche Lösung wäre ein zweiter Mikroprozessor, welcher nur für die Ansteuerung der Schrittmotoren zuständig ist. Aus Zeitgründen musste aber auf diese Verbesserung verzichtet werden.
+\end{itemize}
+
+\section{Informatik}
+
+\section{Arbeitsprozess}
+	Die Zusammenarbeit unter den Disziplinen hat aufgrund der Anwesenheit an beiden Schultagen gut funktioniert. Lösungen wurden, soweit als möglich, gemeinsam gesucht und auch gefunden. Einige Probleme hätten aber verhindert werden können, wenn die gesetzten Meilensteine und die Konsequenzen, falls nicht erreicht, eingehalten worden wären. Ein strikteres Vorgehen wäre rückblickend wünschenswert gewesen. Zudem wurde hauptsächlich am Anfang des Projektes viel Zeit mit diskutieren in der Gruppe über Details verbraucht, welche zu diesem Zeitpunkt noch nicht relevant waren.
+	
+	\section{Fazit}
+	Trotz erschwerten Bedingungen, wie den Austritt von gleich zwei Teammitglieder oder den Wechsel des ET-Boards im Pren 2, konnte das Projekt insgesamt erfolgreich abgeschlossen werden. Ein Grund dafür war das bestreben, eine möglichst einfache Lösung zu finden. Da dies gelang, konnte eine Kombination gefunden werden, die im Vergleich zu anderen Möglichkeiten wenig Aufwand bereiteten und dennoch zuverlässig funktioniert.\\
+	Der Lerneffekt für das Team in Bezug das auf Projektmanagement und vor allem das interdisziplinäre Arbeiten war gross und die gesammelten Erfahrungen sicherlich nützlich für zukünftige Projekte. Das Arbeiten im Team hat allen Mitgliedern gut gefallen und alle konnten ihr Wissen und ihre Fähigkeiten einbringen.\\
+	\\
+	Das Budget konnte problemlos eingehalten werden. Aufgrund von noch verfügbarem Budget hätte auch im Falles eines Defektes Ersatzteile besorgt werden können.\\
+	Die vorgegebenen Meilensteine konnten immer eingehalten werden. Die vom Team selbst gesetzten Meilensteine konnten teilweise nicht am vorgegebenen Zeitpunkt erreicht werden.
+	
+	
 \listoffigures
 
 \listoftables
@@ -1033,7 +1085,7 @@ Die Aufgabenstellung im Original folgt auf den nächsten Seiten.
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
-	1.1 & F & Projektabgabe & Dezember 2017 \\
+	1.1 & F & Projektabgabe & Juni 2018 \\
 	\hline
 	1.2 & F & Eigenleistung & Systemkomponenten können zugekauft werden \\
 	\hline
@@ -1064,7 +1116,7 @@ Die Aufgabenstellung im Original folgt auf den nächsten Seiten.
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
-	2.1 & F & Gesamtlänge & 350 $\pm$ 2cm \\
+	2.1 & F & Gesamtstrecke & 350 $\pm$ 2cm \\
 	\hline
 	2.2 & F & Masten Abstand & Abstand zwischen den Masten 350cm $\pm$ 2cm \\
 	\hline
@@ -1095,7 +1147,7 @@ Die Aufgabenstellung im Original folgt auf den nächsten Seiten.
 	2.12 & F & Start- und Zielplatte & Matt \\
 	\hline
 	2.13 & F & Hindernisse & Auf der gesamten Plattform können Hindernisse stehen.\\
-	& & & Im Umkreis von mindestens 10cm um die Startposition des Ladegutes und um die Zielplatte herum sind keine Hindernisse \\
+	& & & Die Hindernisse können sich in einem Bereich von 10cm nach der Startposition der Last bis 20cm vor dem Mast 2 befinden  \\
 	\hline
 	2.14 & M & Hindernisse Höhe & Die Hindernisse haben eine maximale Höhe von 20cm. \\
 	\hline
@@ -1138,7 +1190,7 @@ Die Aufgabenstellung im Original folgt auf den nächsten Seiten.
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
-	4.1 & F & Material & Holz \\
+	4.1 & F & Material & Holz, schwarz gestrichen \\
 	\hline
 	4.2 & F &  Dimensionen & Seitenlänge 5cm $\pm$ 0.5cm \\
 	\hline
@@ -1168,9 +1220,9 @@ Die Aufgabenstellung im Original folgt auf den nächsten Seiten.
 	\hline
 	\textbf{Nr.} & \textbf{FMW\footnotemark} & \textbf{Bezeichnung} & \textbf{Beschreibung} \\
 	\hline
-	5.1 & M & Licht & Scheinwerfer welche auf die Wettbewerbsplattformen gerichtet sind, werden dazu führen, dass wir mit einer hohen Helligkeit arbeiten müssen \\
+	5.1 & M & Licht & Scheinwerfer welche auf die Wettbewerbsplattformen gerichtet sind, können dazu führen, dass wir mit einer hohen Helligkeit arbeiten müssen \\
 	\hline
-	5.2 & M & Temperaturen & Bei Lagerung und Betrieb Zimmertemperatur 15-\SI{20}{\degreeCelsius}\\
+	5.2 & M & Temperaturen & Bei Lagerung und Betrieb 15-\SI{40}{\degreeCelsius}\\
 	\hline
 	5.3 & M & Kein Spritzwasser & Für Innenanwendung\\
 	\hline

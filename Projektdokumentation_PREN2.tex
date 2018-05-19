@@ -536,6 +536,61 @@ Um die Funktionalität des Geräts zu gewährleisten, müssen einige Punkte in d
 \section{Tests}
 \label{sec:TestsPrototyp}
 
+Im Rahmen des Projektes wird das System bzw. Fahrzeug und deren Komponenten fortlaufend
+getestet. Die folgenden Testszenarien und Methoden sollen mögliche Fehler am System oder in
+Komponenten frühzeitig entdecken und so die Möglichkeiten bieten, Verbesserungen
+vorzunehmen. Weiter kann durch definierte Testfälle sichergestellt werden, dass alle essentiellen
+Komponenten getestet werden.
+
+\subsection{Methodik}
+
+Bevor die Komponenten in das Gesamtsystem integriert wurden, wurden sie einzeln getestet. Danach wurden sie ins Gesamtsystem integriert und erneut getestet. Für sämtliche Tests wurde immer zuerst ein Ziel anhand der Anforderungsliste definiert und dann die Resultate mithilfe eines Protokolls festgehalten.
+
+\subsection{Testszenarien}
+
+
+\begin{tabular}{|p{.04\textwidth}|p{.05\textwidth}|p{0.2\textwidth}|p{0.3\textwidth}|p{0.55\textwidth}|}
+	\hline
+	\textbf{Nr.} & \textbf{Anf.\footnotemark}& \textbf{Test} & \textbf{Was wurde getestet} & \textbf{Fazit} \\
+	\hline
+	2.01 & 3.7 & Schrittmotoren einschalten, ansteuern und ausschalten & Schrittmotoren mit Startschalter einschalten drehen lassen und ausschalten & Motoren drehen wie erwartet \\
+	\hline
+	2.02 & 3.7 3.8 & Hub- und Fahrmotor ansteuern & Dezember 2017& Systemkomponenten können zugekauft werden \\
+	\hline
+	2.03 & 4.6 4.7 4.8 & Prototyp Kommunikation & Ein funktioneller Prototyp der in der Lage ist auf GPIO Port 8(Tx) und 10(Rx) seriell kommunizieren kann & Es wurden zwei Skripte erstellt um die generelle Fähigkeit der Kommunikation zu erarbeiten \\
+	\hline
+	2.04 & 3.9 & Zielplattform Fläche und Distanz & Ziel des Tests soll sein, die Distanz eines cm’s (in Pixel) unter Berücksichtigung der Höhe zu ermitteln & Es konnte eine Liste mit Pixelwerten von 1 cm aus unterschiedlichen Höhen erstellt werden \\
+	\hline
+	2.05& 3.7 & Start Endschalter & Testen der Funktionalität des ET- und Arduinoboards & Funktionen konnten erfolgreich getestet werden \\
+	\hline
+	2.06 & 3.7 & Laufkatze + Antrieb mit Schrittmotor & Test des Schrittmotors für den Antrieb. Dabei soll die Funktion des Schrittmotors des Antriebes und das Verhalten des Antriebes / Laufkatze soll getestet werden & Die Laufkatze ist gefahren \\
+	\hline
+	2.07 & 4.6 4.7 & Ultraschall LCD & Arduino UNO Code zur Ansteuerung des Sensors und LCDs & Der Sensor ist auf die Wettbewerbsdistanz genügend genau \\
+	\hline
+	2.08 & 4.6 4.7 & Ultraschall DUE LCD & Arduino DUE Code zur Ansteuerung des Sensors in x-Achse(Länge) und z-Achse(Höhe) und des LCD-Displays mit Anzeige von beiden Längen & Der Sensor konnte auch auf dem Arduino DUE betrieben werden, jedoch blockiert er sich teilweise selber. Die genauigkeit der Messung konnte mithilfe eines Röhrchens das über den Sender gestülpt wurde verbessert werden. \\
+	\hline
+	2.09 & 3.7 3.8 4.5 & Starten und Last anheben & Der ganze Aufbau soll vom Start eine bestimmte Länge vorwärts fahren bis zur Last. Dort angekommen soll der Aufbau die Last greifen und hochziehen. Dabei fährt der Aufbau weiter vorwärts. Die Last soll sicher gegriffen werden und vor dem erstmöglichen Hindernis hochgezogen werden & Das vorwärtsfahren, das greifen und heben hat funktioniert. Jedoch wurde die Last zu wenig schnell gehoben, weshalb das Hindernis berührt wurde.  \\
+	\hline
+	2.10 & 3.8 4.8 & Last absetzen & Absetzen der Last auf einen Vordefinierten Punkt auf den Parkour & Die Last konnte abgesetzt werden, jedoch musste das Anheben der Last neu kalibriert werden, da sich die Hakengeometrie verändert hatte \\
+	\hline
+	
+\end{tabular}
+\footnotetext{Getestete Anforderungen aus Anforderungsliste}
+
+Die Detaillierten Versuchsprotokolle sind im Anhang zu finden.
+
+\subsection{Fazit}
+
+Die durchgeführten Tests (siehe Anhang) zeigen auf, dass alle wesentlichen
+Komponenten soweit funktionieren und nur in folgenden Fällen zu Komplikationen führen kann:\\
+
+\begin{itemize}
+	\item Durch den Parallelbetrieb der Motoren Sensoren und des Displays kam es zu einer Stockenden Fahrbewegung. Dabei stellte sich heraus, dass das Arduino DUE Programme nicht parallel abarbeiten kann. Deshalb wurden die Ultraschallsensoren auf das Raspberry PI ausgelagert. zusätzlich musste die Ansteuerung der Motoren mithilfe einer anderen Funktion gelöst werden.
+	\item Der Ultraschallsensor hat sich teilweise selber blockiert, da er nach dem senden des Tastimpulses auf eine Antwort wartete, diese jedoch nie kam. Deshalb musste zusätzlich eine weitere Funktion implementiert werden, sodass wenn der Ultraschallsensor nach 2 Sekunden keine Antwort erhielt eine weitere Messung durchgeführt wurde.
+\end{itemize}
+
+
+
 \section{Schnittstellen und Abhängigkeiten}
 \label{sec:SchnittAbhang}
 % TODO Überprüfen

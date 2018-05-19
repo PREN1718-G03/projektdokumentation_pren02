@@ -38,6 +38,9 @@
 % Definierte Spaltenbreiten bei Tabellen
 \usepackage{array}
 
+% Pagebreaking tables
+\usepackage{longtable}
+
 % Use biblatex
 \usepackage[style=apa,backend=biber,citestyle=authoryear]{biblatex}
 
@@ -548,8 +551,7 @@ Bevor die Komponenten in das Gesamtsystem integriert wurden, wurden sie einzeln 
 
 \subsection{Testszenarien}
 
-
-\begin{tabular}{|p{.04\textwidth}|p{.05\textwidth}|p{0.2\textwidth}|p{0.3\textwidth}|p{0.55\textwidth}|}
+\begin{longtable}{|p{.05\textwidth}|p{.05\textwidth}|p{0.2\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
 	\hline
 	\textbf{Nr.} & \textbf{Anf.\footnotemark}& \textbf{Test} & \textbf{Was wurde getestet} & \textbf{Fazit} \\
 	\hline
@@ -565,16 +567,16 @@ Bevor die Komponenten in das Gesamtsystem integriert wurden, wurden sie einzeln 
 	\hline
 	2.06 & 3.7 & Laufkatze + Antrieb mit Schrittmotor & Test des Schrittmotors für den Antrieb. Dabei soll die Funktion des Schrittmotors des Antriebes und das Verhalten des Antriebes / Laufkatze soll getestet werden & Die Laufkatze ist gefahren \\
 	\hline
-	2.07 & 4.6 4.7 & Ultraschall LCD & Arduino UNO Code zur Ansteuerung des Sensors und LCDs & Der Sensor ist auf die Wettbewerbsdistanz genügend genau \\
+	2.07 & 4.6 4.7 & Ultraschall LCD & Arduino UNO Code zur Ansteuerung des Sensors und LCDs & Der Sensor ist auf die Wettbewerbsdistanz genügend genau\\
 	\hline
-	2.08 & 4.6 4.7 & Ultraschall DUE LCD & Arduino DUE Code zur Ansteuerung des Sensors in x-Achse(Länge) und z-Achse(Höhe) und des LCD-Displays mit Anzeige von beiden Längen & Der Sensor konnte auch auf dem Arduino DUE betrieben werden, jedoch blockiert er sich teilweise selber. Die genauigkeit der Messung konnte mithilfe eines Röhrchens das über den Sender gestülpt wurde verbessert werden. \\
+	2.08 & 4.6 4.7 & Ultraschall DUE LCD & Arduino DUE Code zur Ansteuerung des Sensors in x-Achse(Länge) und z-Achse(Höhe) und des LCD-Displays mit Anzeige von beiden Längen & Der Sensor konnte auch auf dem Arduino DUE betrieben werden, jedoch blockiert er sich teilweise selber. Die Genauigkeit der Messung konnte mithilfe eines Röhrchens das über den Sender gestülpt wurde verbessert werden.\\
 	\hline
-	2.09 & 3.7 3.8 4.5 & Starten und Last anheben & Der ganze Aufbau soll vom Start eine bestimmte Länge vorwärts fahren bis zur Last. Dort angekommen soll der Aufbau die Last greifen und hochziehen. Dabei fährt der Aufbau weiter vorwärts. Die Last soll sicher gegriffen werden und vor dem erstmöglichen Hindernis hochgezogen werden & Das vorwärtsfahren, das greifen und heben hat funktioniert. Jedoch wurde die Last zu wenig schnell gehoben, weshalb das Hindernis berührt wurde.  \\
+	2.09 & 3.7 3.8 4.5 & Starten und Last anheben & Der ganze Aufbau soll vom Start eine bestimmte Länge vorwärts fahren bis zur Last. Dort angekommen soll der Aufbau die Last greifen und hochziehen. Dabei fährt der Aufbau weiter vorwärts. Die Last soll sicher gegriffen werden und vor dem erstmöglichen Hindernis hochgezogen werden & Das vorwärtsfahren, das greifen und heben hat funktioniert. Jedoch wurde die Last zu wenig schnell gehoben, weshalb das Hindernis berührt wurde.\\
 	\hline
-	2.10 & 3.8 4.8 & Last absetzen & Absetzen der Last auf einen Vordefinierten Punkt auf den Parkour & Die Last konnte abgesetzt werden, jedoch musste das Anheben der Last neu kalibriert werden, da sich die Hakengeometrie verändert hatte \\
+	2.10 & 3.8 4.8 & Last absetzen & Absetzen der Last auf einen Vordefinierten Punkt auf den Parkour & Die Last konnte abgesetzt werden, jedoch musste das Anheben der Last neu kalibriert werden, da sich die Hakengeometrie verändert hatte\\
 	\hline
 	
-\end{tabular}
+\end{longtable}
 \footnotetext{Getestete Anforderungen aus Anforderungsliste}
 
 Die Detaillierten Versuchsprotokolle sind im Anhang zu finden.

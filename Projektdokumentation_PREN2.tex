@@ -250,7 +250,7 @@ Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplattform übermit
 
 \subsection{Positionsanzeige}
 
-Auf dem LCD-Display werden die Koordinaten in x-, sowie z-Richtung dargestellt. Zwei Ultraschallsensoren, je einer in x-, und z-Richtung, messen die jeweiligen Distanzen. Bei der z-Koordinate muss jedoch noch einen Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die angezeigten Koordinaten die der transportierten Last sein müssen. Wie viel abgezogen werden muss, wird über den Hubschrittmotor berechnet. Damit bei der Fahrt über die Hindernisse nicht ein falscher Wert angezeigt wird, werden plötzliche grosse Änderungen nicht berücksichtigt und der vorherige Wert wird angezeigt. Der LCD-Display ist in Fahrtrichtung rechts mit Schrauben an einer Halterung aus dem 3D-Drucker befestigt. Die Halterung wiederum ist auf die Grundplatte gesteckt.
+Auf dem LCD-Display werden die Koordinaten in x-, und in z-Richtung dargestellt. Zwei Ultraschallsensoren, je einer in x-, und z-Richtung, messen die jeweiligen Distanzen. Bei der z-Koordinate muss jedoch noch ein Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die angezeigten Koordinaten die der transportierten Last sein müssen. Wie viel abgezogen werden muss, wird über den Hubschrittmotor berechnet. Damit bei der Fahrt über die Hindernisse nicht ein falscher Wert angezeigt wird, werden plötzliche grosse Änderungen nicht berücksichtigt und der vorherige Wert wird angezeigt. Der LCD-Display ist in Fahrtrichtung rechts mit Schrauben an einer Halterung aus dem 3D-Drucker befestigt. Die Halterung wiederum ist auf die Grundplatte gesteckt. Die Masse werden ungefähr einmal pro Sekunde aktualisiert und diese werden in Zentimeter auf eine Kommastelle genau angezeigt. Die Positionsanzeige wird über das Arduino DUE angesprochen. 
 
 \subsection{Zielerkennung}
 \subsubsection{Systemübersicht}
@@ -356,11 +356,12 @@ Zwischen dem Raspberry Pi und dem Elektronikerboard soll der Informationsaustaus
 
 Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
 
-Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 8 (Tx) und Pin 10 (Rx).
+Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 18 (Tx) und Pin 19 (Rx) auf dem Arduino und GPIO14 und GPIO15 auf dem Raspberry Pi. Zusätzlich werden noch die jeweiligen GND (Ground) verbunden. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio, width=0.8\textwidth]{UART_Verbindung_LLS_Steckplatine}
+	\includegraphics[keepaspectratio, width=0.8\textwidth]{SchemaKommunikationArduinoRaspbiScreenshot}
 	\caption{Verbindung der beiden Boards}
+
 	\label{fig:RaspberryPins}
 \end{figure}
 
@@ -1115,7 +1116,7 @@ Das Risiko Nr. 10 ist eingetroffen. Nach der vierten Semesterwoche des PREN2 fie
 
 \subsubsection{Änderung Mikrokontrollerplattform}
 \label{ch:ÄnderungMikrokontroller}
-Das Konzept vom PREN1 beinhaltet als Mikrokontrollerplattform das "LoFive" Board. Wie sich jedoch herausstellte, war es für uns unmöglich diesen Mikrokontroller für unsere Aufgaben zu programmieren. Aus diesem Grund wurde in Semesterwoche drei der Entscheid gefällt, dieses durch einen anderen Mikrokontroller, also durch das \textquotedblleft Arduino Due\textquotedblright\ zu ersetzen. Das eingetretene Risiko beinhaltet viele nicht brauchbare Arbeitsstunden des Programmieren für das "LoFive".
+Das Konzept vom PREN1 beinhaltet als Mikrokontrollerplattform das "LoFive" Board. Wie sich jedoch herausstellte, war es für uns unmöglich diesen Mikrokontroller für unsere Aufgaben zu programmieren. Aus diesem Grund wurde in Semesterwoche drei der Entscheid gefällt, dieses durch einen anderen Mikrokontroller, also durch das \textquotedblleft Arduino Due\textquotedblright\ zu ersetzen. Das eingetretene Risiko beinhaltet viele nicht brauchbare bzw. nur halbwegs brauchbare Arbeitsstunden des Programmieren für das "LoFive".
 
 \chapter{Schlussdiskussion}
 \label{ch:SchlussDisku}

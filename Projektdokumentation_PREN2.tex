@@ -201,8 +201,10 @@ Der Ablauf der verschiedenen Teilschritte erfolgt gemäss Abbildung \ref{fig:Abl
 	\label{fig:Ablaufdiagramm}
 \end{figure}
 
-Nach dem das Gerät am Seil angebracht wurde, kann mit dem Restart-Knopf am \textit{ArduinoDue} gestartet werden. Es wird nun eine Vorprogrammierter Ablauf gefahren. Dieser beinhaltet den Antriebsschrittmotor zum Vorwärtsfahren bis der Haken in die Last eingehängt hat und den Hubschrittmotor, welcher die Last um eine bestimmte Schrittanzahl hebt. Dieser Ablauf läuft über das \textit{ArduinoDue}. Gleichzeitig werden die Daten der Ultraschallsensoren über das \textit{RasPi} ausgewertet und als Distanzen in Millimetern vom \textit{ArduinoDue} abgefragt. Bei der z-Koordinate wird zusätzlich noch die vom Hubschrittmotor gehobene Höhe abgezogen und beide Koordinaten werden auf dem LCD-Display angezeigt.\\
-Das Gerät wird dann mit der aufgenommenen Last Vorwärtsfahren, bis die Kamera die Zielplattform sieht und das \textit{RasPi} diese erkennen kann. Das \textit{ArduinoDue} fragt regelmäßig ab, ob das \textit{Raspi} die Zielplattform bereits erkannt hat. Falls die Antwort ein positiver Wert ist, wird diese übermittelte Distanz abgefahren und der Hubmotor startet das Absetzen der Last. Wie viel der Hubmotor die Last absenken muss, wird aus den Daten des vertikal-messenden Ultraschallsensor und den Schritten des Hubmotors berechnet. Wenn die Last auf der Zielplattform aufkommt, klinkt sich der Haken automatisch aus der Last aus. Der Haken wird danach wieder 25 Zentimeter hochgehoben und Der Antriebsmotor fährt solange vorwärts, bis der Endschalter betätigt wird. Damit ist die Aufgabe beendet.
+\newpage
+
+Nach dem das Gerät am Seil angebracht wurde (\ref{sec:Bedienung}), kann mit dem Restart-Knopf am \textit{ArduinoDue} (\ref{sssec:ArduinoDue}) gestartet werden. Es wird nun eine Vorprogrammierter Ablauf gefahren. Dieser beinhaltet den Antriebsschrittmotor zum Vorwärtsfahren (\ref{ssec:Antrieb}) bis der Haken in die Last eingehängt hat (\ref{ssec:Lastgreifenundabsetzen}) und den Hubschrittmotor, welcher die Last um eine bestimmte Schrittanzahl hebt (\ref{ssec:Lastanhebenundsenken}). Dieser Ablauf läuft über das \textit{ArduinoDue}. Gleichzeitig werden die Daten der Ultraschallsensoren (\ref{ssec:Ultraschallsensor}) über das \textit{RasPi} (\ref{sssec:RasPi}) ausgewertet und als Distanzen in Millimetern vom \textit{ArduinoDue} abgefragt. Bei der z-Koordinate wird zusätzlich noch die vom Hubschrittmotor gehobene Höhe abgezogen und beide Koordinaten werden auf dem LCD-Display (\ref{ssec:Positionsanzeige}) angezeigt.\\
+Das Gerät wird dann mit der aufgenommenen Last Vorwärtsfahren, bis die Kamera (\ref{ssec:Zielerkennung}) die Zielplattform sieht und das \textit{RasPi} diese erkennen kann (\ref{ssec:Zielerkennung}). Das \textit{ArduinoDue} fragt regelmäßig ab, ob das \textit{RasPi} die Zielplattform bereits erkannt hat. Falls die Antwort ein positiver Wert ist, wird diese übermittelte Distanz abgefahren und der Hubmotor startet das Absetzen der Last. Wie viel der Hubmotor die Last absenken muss, wird aus den Daten des vertikal messenden Ultraschallsensors und den Schritten des geleisteten Hubmotors berechnet. Wenn die Last auf der Zielplattform aufkommt, klinkt sich der Haken automatisch aus der Last aus. Der Haken wird danach wieder 25 Zentimeter hochgehoben und der Antriebsmotor fährt solange vorwärts, bis der Endschalter(\ref{ssec:Endschalter}) betätigt wird. Damit ist die Aufgabe beendet.
 
 
 \newpage
@@ -233,20 +235,15 @@ Im Blockdiagramm (Abb. \ref{fig:Blockdiagramm}) sind die Schnittstellen graphisc
 \label{ssec:Antrieb}
 
 \subsubsection{Kraftübertragung und Führung}
+\label{sssec:KraftuebertragungundFuehrung}
 Der Antrieb auf dem Seil wird mit drei Rädern ausgeführt. Das mittlere Rad aus Gummi ist das angetriebene Rad. Es wird direkt von einem Schrittmotor angetrieben. Dies setzt voraus, dass sich die Achse des Motors um den Radius des Antriebsrades über dem Seil befinden muss. Die Ausfallwahrscheinlichkeit ist dadurch tief, da keine Riemen-, oder Zahnradübersetzung notwendig sind. Zudem kann auch der Schlupf klein gehalten werden. Weil der Motor aber über dem Seil angebracht ist, liegt auch der Schwerpunkt des gesamten Gerätes höher. Der Lastausgleich wird dadurch schwieriger und Schwingungen werden begünstigt.
 \\
 Vor und hinter dem Antriebsrad sind im Abstand von jeweils 7cm zwei Führungsräder angebracht. Diese sind in der Höhe verstellbar und müssen manuell im voraus eingestellt werden. Die Aufgabe dieser Räder ist die Schwingung in x-Richtung zu minimieren und den Druck des Rades auf das Seil zu erhöhen. Letzteres hat zur Folge, dass die Reibkraft steigt und somit der Schlupf und die Rutschgefahr auf dem Seil minimiert wird.
 
 \subsubsection{Schrittmotoren}
+\label{sssec:Schrittmotoren}
 %todo Beschreibung Schrittmotoren
 Die Laufkatze hat total zwei Schrittmotoren verbaut. Einen für den Antrieb auf dem Seil und einen für den Hub der Last. Der Antrieb auf dem Seil ist ein Motor des Typs JK42HM48-1684A.Dieser dreht sich pro Schritt um \SI{0.9}{\degree}. Das Haltemoment beträgt 4.4kgcm. Der Antrieb des Hubes wird mit einem Motor des Typs 35HS3408A4 ausgeführt. Dieser dreht sich pro Schritt um \SI{1.8}{\degree}. Das Haltemoment beträgt 1.8kgcm.
-
-
-
-\subsection{Aufhängung}
-%todo Abschnitt wahrscheinlich löschen
-Durch die unten gelenkige und gedämpft gelagerte Aufhängung kann die Winkeländerung, welche durch den Seildurchhang verursacht wird, kompensiert werden. Dabei hängt die Last durch den Schwerpunkt immer senkrecht nach unten. Durch das Gelenk (ähnlich wie bei einer Gondelbahn) wird der ganze Aufbau aber empfindlich gegen pendeln, weil das Gelenk kein Drehmoment aufnehmen kann. Dieses wird beispielsweise durch die Beschleunigung bei Anfahren oder Abbremsen erzeugt. Das Gelenk wird mit einer Messingbuchse und einer Schraube mit Sicherungsmutter realisiert. Zudem kann sich, je nach Aufbau, der Schwerpunkt der Laufkatze beim Anheben und Absetzen der Last ändern, was wiederum ein Drehmoment erzeugt. Mit Dämpfern kann das Drehmoment aufgenommen und ein Pendeln minimiert werden. Diese Dämpfer werden dann, im Prinzip einer Pendelstütze in der Mechanik, am einen Ende am Antrieb und am anderen Ende an der Aufhängung montiert. Zudem soll der Dämpfer möglichst horizontal angestellt sein, damit er die Pendelbewegung aufnehmen kann. AN der Aufhängung werden der Hubmotor, die elektrischen Komponenten, die Energieversorgung und die Führungen der Hubeinrichtung angebracht. Diese besteht aus zwei Linearführungen, durch welche zwei Stäbe in einem Rohr hoch und hinuntergefahren werden. Weiter werden, je nach Notwendigkeit, Ausgleichsgewichte auf der Aufhängung positioniert, damit die Laufkatze zentral unter dem Seil hängt.
-
 
 \begin{figure}[h!]
 	\centering
@@ -256,49 +253,69 @@ Durch die unten gelenkige und gedämpft gelagerte Aufhängung kann die Winkelän
 \end{figure}
 
 
+\subsection{Aufhängung}
+\label{ssec:Aufhaengung}
+%todo Abschnitt wahrscheinlich löschen
+Durch die unten gelenkige und gedämpft gelagerte Aufhängung kann die Winkeländerung, welche durch den Seildurchhang verursacht wird, kompensiert werden. Dabei hängt die Last durch den Schwerpunkt immer senkrecht nach unten. Durch das Gelenk (ähnlich wie bei einer Gondelbahn) wird der ganze Aufbau aber empfindlich gegen pendeln, weil das Gelenk kein Drehmoment aufnehmen kann. Dieses wird beispielsweise durch die Beschleunigung bei Anfahren oder Abbremsen erzeugt. Das Gelenk wird mit einer Messingbuchse und einer Schraube mit Sicherungsmutter realisiert. Zudem kann sich, je nach Aufbau, der Schwerpunkt der Laufkatze beim Anheben und Absetzen der Last ändern, was wiederum ein Drehmoment erzeugt. Mit Dämpfern kann das Drehmoment aufgenommen und ein Pendeln minimiert werden. Diese Dämpfer werden dann, im Prinzip einer Pendelstütze in der Mechanik, am einen Ende am Antrieb und am anderen Ende an der Aufhängung montiert. Zudem soll der Dämpfer möglichst horizontal angestellt sein, damit er die Pendelbewegung aufnehmen kann. AN der Aufhängung werden der Hubmotor, die elektrischen Komponenten, die Energieversorgung und die Führungen der Hubeinrichtung angebracht. Diese besteht aus zwei Linearführungen, durch welche zwei Stäbe in einem Rohr hoch und hinuntergefahren werden. Weiter werden, je nach Notwendigkeit, Ausgleichsgewichte auf der Aufhängung positioniert, damit die Laufkatze zentral unter dem Seil hängt.
+
+
+
 \subsection{Grundeinheit}
 \label{ssec:GrundeinheitBeschrieb}
-Die Grundeinheit besteht aus der Verbindung von Hubvorrichtung und Fahreinheit. Dabei werden diverse elektronische Komponenten und Sensoren an der Grundeinheit befestigt, welche aber in einem separaten Kapitel behandelt werden. Auch zur Grundeinheit gehören die Motorhalterung, der Befestigungswickel für die Laufkatze und die Führungsrohre der Carbonstäbe.
+Die Grundeinheit besteht aus der Verbindung von Hubvorrichtung und Fahreinheit. Dabei werden diverse elektronische Komponenten und Sensoren an der Grundeinheit befestigt, welche aber in einem separaten Kapitel behandelt werden. Auch zur Grundeinheit gehören die Motorhalterung, der Befestigungswickel für die Laufkatze und die Führungsrohre der Kohlenstofffaserstäbe.
+
+\begin{figure}[h!]
+	\includegraphics[keepaspectratio,width=\textwidth]{Grundplatte}
+	\caption{Grundeinheit}
+	\label{fig:Grundeinheit}
+\end{figure}
 
 \subsubsection{Grundplatte}
 \label{sssec:GrundplatteBeschrieb}
-Die Grundplatte wurde aus einer MFD-Platte gefertigt. Dabei hat diese Platte einen Ausschnitt in der Mitte, durch welches das Seil der Seilwinde geht.Neben dem Ausschnitt wird der Winkel für die Seilwinde angeschraubt. Zwei zusätzliche Löcher neben dem Ausschnitt dienen zur Befestigung der beiden Führungen. Die Elektronikkomponenten werden mithilfe von Klettverbindungen auf die Grundplatte befestigt. Die halterung für den LCD-Display wird mit einer Steckverbindung auf die Grundplatte gesteckt. Auf der Unterseite der Grundplatte wir die Halterung für den Ultraschall mit vier Schrauben befestigt.
+Die Grundplatte wurde aus einer MFD-Platte gefertigt. Dabei hat diese Platte einen Ausschnitt in der Mitte, durch welches das Seil der Seilwinde geht.Neben dem Ausschnitt wird der Winkel für die Seilwinde angeschraubt. Zwei zusätzliche Löcher neben dem Ausschnitt dienen zur Befestigung der beiden Führungen. Die Elektronikkomponenten werden mithilfe von Klettverbindungen auf die Grundplatte befestigt. Die Halterung für den LCD-Display wird mit einer Steckverbindung auf die Grundplatte gesteckt. Auf der Unterseite der Grundplatte wir die Halterung für den Ultraschallsensor mit vier Schrauben befestigt. Zusätzlich sind zwei kleine Winkel aus Aluminium angebracht, um Schalter für die Mikrocomputer zu befestigen. Die Kabelführung ist ebenfalls mithilfe von Klebesockel auf der Grundplatte gelöst.
+
+
 
 \subsubsection{Verbindungswinkel}
 \label{sssec:VerbindungswinkelBeschrieb}
 Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinheit. Dabei wird der Verbindungswinkel mit zwei M5 Schrauben auf an die Grundplatte geschraubt. Der Verbindungswinkel besitzt eine Gleitlagerung aus Messing.
 
-\subsubsection{Kamerahalterung} %todo Abmasse halterung anpassen
-Die Kamera ist etwa 20 Zentimeter vor der Seilwinde für den Hub angebracht. Dafür wurde ein 11 Zentimeter langes Winkelprofil aus Aluminium an der Grundplatte angeschraubt. An diesem ist ein Aluminiumwinkel befestigt, der die Kamera hält. Dieser ist schwenkbar, damit die Kamera optimal ausgerichtet werden kann. Dabei ist essentiell wichtig, dass die Grundplatte immer Parallel zum Boden liegt, da sonst die Kamera falsche Daten liefern würde und somit die Genauigkeit beim Absetzen stark beeinträchtigen würde. Die RasPi-Kamera wird mit 4 Schrauben an dem Winkel befestigt. Zusätzlich ist auf dem Winkelprofil der Ultraschallsensor in x-Richtung angebracht und auf dem Aluminiumwinkel der Endschalter.
+\subsubsection{Kamerahalterung}
+\label{sssec:Kamerahalterung}
+Die Kamera ist etwa 20 Zentimeter vor der Seilwinde für den Hub angebracht. Dafür wurde ein 11 Zentimeter langes Winkelprofil aus Aluminium an der Grundplatte angeschraubt. An diesem ist ein Aluminiumwinkel befestigt, der die Kamera hält. Dieser ist schwenkbar, damit die Kamera optimal ausgerichtet werden kann. Dabei ist essentiell wichtig, dass die Grundplatte immer Parallel zum Boden liegt, da sonst die Kamera falsche Daten liefern würde und somit die Genauigkeit beim Absetzen stark beeinträchtigen würde. Die \textit{RasPi}-Kamera wird mit 4 Schrauben an dem Winkel befestigt. Zusätzlich ist auf dem Winkelprofil der Ultraschallsensor in x-Richtung angebracht und auf dem Aluminiumwinkel der Endschalter.
 
 
 
 \subsection{Last greifen und absetzen}
+\label{ssec:Lastgreifenundabsetzen}
 %todo Testprotokolle verlinken
 Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken.  Eine nicht-Drehbare Querstange aus Aluminium dient als Halterung für den Haken. Ebenfalls an dieser Querstange ist ein Schwenkbegrenzer mit einer Feder befestigt. Die Feder hält den Haken in einer Schieflage von etwa 45\SI{}{\degree}. Weil die Startposition der Last vorgegeben ist, wird das Aufheben der Last im voraus programmiert.
 Nach dem anheben der Last wird die Feder durch das zusätzliche Gewicht gestaucht und der Winkel des Hakens zur Vertikalen verkleinert sich auf etwa 10\SI{}{\degree}.\\
 Beim Absetzen der Last auf der Zielplattform drückt die Feder den Haken automatisch wieder in die Ursprungsposition und klinkt sich damit aus dem Haken der Last aus.
-Durch einen gekrümmten Draht an der Unterseite des Greifers wird sichergestellt, dass sich die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird. %todo verdrehung?
+Durch einen gekrümmten Draht an der Unterseite des Greifers wird sichergestellt, dass sich die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird.
 Der Haken ist aus ABS gefertigt und wird 3D gedruckt.
 
 \subsection{Last anheben und senken}
-Die Last wird mithilfe einer Seilwinde angehoben, welche über einen Schrittmotor angetrieben wird. Dieser ist auf der Befestigungsplatte positioniert. Auf der Motorachse ist eine Seiltrommel aus Aluminium befestigt, die einen Stofffaden aufwickelt. Das Ende des Fadens ist direkt am Greifer befestigt. %todo anmachen des Fadens
+\label{ssec:Lastanhebenundsenken}
+Die Last wird mithilfe einer Seilwinde angehoben, welche über einen Schrittmotor angetrieben wird. Dieser ist auf der Befestigungsplatte positioniert. Auf der Motorachse ist eine Seiltrommel aus Aluminium befestigt, die einen Stofffaden aufwickelt. Das Ende des Fadens ist direkt am Greifer mit einer Schlaufe an einer Schraube befestigt.
 Da ein loses Seil stark in Schwingung geraten kann, wird zusätzlich eine Führung mit zwei Stäben aus Kohlenstofffasern verwendet. Auf der Befestigungsplatte sind dafür Führungsrohre angebracht. Um den Widerstand zwischen der Führung und dem Stab so klein wie möglich zu halten, wird das Führungsrohr geschmiert. Aufgrund dieser Führungsstäbe können Schwingungen und Verdrehungen vermieden werden.
 Dank diesem Aufbau kann der Greifer genauer geführt werden und somit der Transport der Last optimiert ablaufen.
 
 
 
 \subsection{Regelung und Steuerung}
+\label{ssec:RegelungundSteuerung}
 Als Kern der elektronischen Steuerung wird das \textit{ArduinoDue} Board verwendet, welches mit dem \textit{Atmel ATSAM3X8E} Mikroprozessor bestückt ist. Programmiert wurde mit C++.
 
 Über das Board werden zwei Schrittmotoren-Treiber sowie ein LCD-Display angesteuert. Zur Rückmeldung werden zwei Ultraschallsensoren und ein \textit{Raspberry Pi 3 Model B} (RasPi) verwendet.
 
 Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplattform übermittelt, kann das System als Regelungssystem betrachtet werden. Solange das Ziel nicht erkannt wird, soll das Gerät mit maximaler Geschwindigkeit fahren. Mit der Erkennung des Ziels wird das Gerät immer langsamer und stoppt über dem Zielfeld. Mit diesem System wird ein effektives Anfahren des Ziels erreicht. Zum Starten und Stoppen des Geräts wird ein Schalter und ein Taster verwendet.
 
-\subsubsection{Arduino}
+\subsubsection{ArduinoDue}
+\label{sssec:ArduinoDue}
 %todo Beschreibung Arduino DUE
 
-Als Unterstützung zum RasPi wird ein Arduino Due eingesetzt. In Vergleich zum kleineren Arduino Uno liegt der Vorteil in der grösseren Anzahl Ein und Ausgänge, womit es sich vor allem für grössere Projekte anbietet.
+Als Unterstützung zum \textit{RasPi} wird ein \textit{ArduinoDue} eingesetzt. In Vergleich zum kleineren Arduino Uno liegt der Vorteil in der grösseren Anzahl Ein und Ausgänge, womit es sich vor allem für grössere Projekte anbietet.
 
 
 
@@ -319,6 +336,7 @@ Als Unterstützung zum RasPi wird ein Arduino Due eingesetzt. In Vergleich zum k
 \end{itemize}\parencite{ArduinoDue2018}
 
 \subsubsection{RasPi}
+\label{sssec:RasPi}
 %todo Beschreibung Raspi
 Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. Das Ein-Chip-System läuft mit einem ARM-Mikroprozessor von Broadcom. Durch seine Bekanntheit, der vielen Module die es dazu gibt, sowie seinem Preis ist das Raspberry Pi Pionier auf dem Bereich der Einplatinencomputer.
 
@@ -339,7 +357,7 @@ Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. D
 \vspace{1em}
 
 \subsubsection{Kommunikation zwischen Boards}
-\label{ssec:Kommunikation}
+\label{sssec:Kommunikation}
 Zwischen dem Raspberry Pi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
 
 Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
@@ -348,7 +366,7 @@ Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 8 (Tx) und Pin 10 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[keepaspectratio, width=0.8\textwidth]{UART_Verbindung_LLS_Steckplatine}
-	\caption{Verbindung der beiden Boards}
+	\caption{Verbindung der Boards}
 	\label{fig:RaspberryPins}
 \end{figure}
 
@@ -361,7 +379,9 @@ Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, S
 Auf dem LCD-Display werden die Koordinaten in x-, und in z-Richtung dargestellt. Zwei Ultraschallsensoren, je einer in x-, und z-Richtung, messen die jeweiligen Distanzen. Bei der z-Koordinate muss jedoch noch ein Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die angezeigten Koordinaten die der transportierten Last sein müssen. Wie viel abgezogen werden muss, wird über den Hubschrittmotor berechnet. Damit bei der Fahrt über die Hindernisse nicht ein falscher Wert angezeigt wird, werden plötzliche grosse Änderungen nicht berücksichtigt und der vorherige Wert wird angezeigt. Der LCD-Display ist in Fahrtrichtung rechts mit Schrauben an einer Halterung aus dem 3D-Drucker befestigt. Die Halterung wiederum ist auf die Grundplatte gesteckt. Die Masse werden ungefähr einmal pro Sekunde aktualisiert und diese werden in Zentimeter auf eine Kommastelle genau angezeigt. Die Positionsanzeige wird über das Arduino DUE angesprochen. 
 
 \subsection{Zielerkennung}
+\label{ssec:Zielerkennung}
 \subsubsection{Systemübersicht}
+\label{sssec:Systemuebersicht}
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{TargetRecOS}
@@ -384,12 +404,12 @@ Das System muss den Ablauf in Abbildung \ref{fig:AblaufZielerkennung} umsetzen k
 	\label{fig:AblaufZielerkennung}
 \end{figure}
 
-Der Schritt \textquotedblleft Zielplatte erkennen\textquotedblright\ wird im Kapitel \ref{ssec:bilderkennung} ausführlich beschrieben.
+Der Schritt \textquotedblleft Zielplatte erkennen\textquotedblright\ wird im Kapitel \ref{sssec:Bilderkennung} ausführlich beschrieben.
 
-Jene Schritte mit der Bezeichnung \textquotedblleft Kommunikation ET\textquotedblright\ werden im Kapitel \ref{ssec:kommunikation} detailliert beschrieben.
+Jene Schritte mit der Bezeichnung \textquotedblleft Kommunikation ET\textquotedblright\ werden im Kapitel \ref{sssec:Kommunikation} detailliert beschrieben.
 
 \subsubsection{Bilderkennung}
-\label{ssec:Bilderkennung}
+\label{sssec:Bilderkennung}
 
 \begin{figure}[h!]
 	\centering
@@ -423,7 +443,7 @@ Dieser Ablauf wird in Abbildung \ref{fig:ZielerkennungAblauf} noch genauer darge
 \end{figure}
 
 \subsubsection{Systemarchitektur}
-\label{ssec:SysArch}
+\label{sssec:SysArch}
 
 Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (siehe Abb. \ref{fig:SystemArchitektur}). Zum Einen ist dies die Kamera mit der dazugehörenden Logik, wie auch die serielle Schnittstelle über die die Kommunikation realisiert wird, zum Anderen ist dies der Controller, welcher als Supervisor die ganzen Prozesse überwacht und koordiniert.
 
@@ -436,7 +456,7 @@ Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (si
 
 Die Logik der Erkennung wurde in zwei Teile separiert, bildlich dargestellt in der Abbildung \ref{fig:KameraSensor}. Zum Einen das Erfassen der Daten des Sensors und der Erkennung der Zielplattform, und zum Anderen das Berechnen der Distanz zwischen Zielplattform und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung wird über eine Factory-Klasse bereitgestellt. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
 
-Im Moment wird die Erkennung der Zielplattform (wie in Kapitel \ref{ssec:Bilderkennung} dargestellt) über einen Kontur\-erkennungs\-algorithmus der Bibliothek 'OpenCV' realisiert. Ist die Zielplattform erkannt, so wird über den Controller das Signal zum Berechnen der Distanz gegeben. Die Methodik zur Distanzberechnung wird in Kapitel \ref{ssec:DistModelCreation} genauer erläutert.
+Im Moment wird die Erkennung der Zielplattform (wie in Kapitel \ref{sssec:Bilderkennung} dargestellt) über einen Kontur\-erkennungs\-algorithmus der Bibliothek 'OpenCV' realisiert. Ist die Zielplattform erkannt, so wird über den Controller das Signal zum Berechnen der Distanz gegeben. Die Methodik zur Distanzberechnung wird in Kapitel \ref{ssec:DistModelCreation} genauer erläutert.
 
 Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue Fahrtanweisungen zur Motor- und Sensorsteuerung übergeben. Dies wird über das 'communicator'-Modul realisiert.
 
@@ -476,6 +496,7 @@ Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 18 (Tx) und Pin 19
 
 
 \subsection{Positionsanzeige}
+\label{ssec:Positionsanzeige}
 
 Auf dem LCD-Display werden die Koordinaten in x-, sowie z-Richtung dargestellt. Zwei Ultraschallsensoren, je einer in x-, und z-Richtung, messen die jeweiligen Distanzen. Bei der z-Koordinate muss jedoch noch einen Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die angezeigten Koordinaten die der transportierten Last sein müssen. Wie viel abgezogen werden muss, wird über den Hubschrittmotor berechnet. Damit bei der Fahrt über die Hindernisse nicht ein falscher Wert angezeigt wird, werden plötzliche grosse Änderungen nicht berücksichtigt und der vorherige Wert wird angezeigt. Der LCD-Display ist in Fahrtrichtung rechts mit Schrauben an einer Halterung aus dem 3D-Drucker befestigt. Die Halterung wiederum ist auf die Grundplatte gesteckt.
 
@@ -484,12 +505,14 @@ Auf dem LCD-Display werden die Koordinaten in x-, sowie z-Richtung dargestellt. 
 
 
 \subsection{Ultraschallsensor}
+\label{ssec:Ultraschallsensor}
 %todo Quelle Datenblatt
 Für die Distanzmessung werden in x-Richtung und y-Richtung je ein Ultraschallsensor verwendet. Die Ultraschallsensoren des Typs HC-SR04 weisen eine Messdistanz zwischen zwei Zentimeter und bis zu fünf Meter auf. Die Genauigkeit wird mit drei Millimetern Abweichung angegeben. Dies ist ausreichend für die geplante Anwendung. Ausgelesen und verarbeitet werden die Informationen auf dem \textit{RasPi}.
 
 
 
 \subsection{Endschalter}
+\label{ssec:Endschalter}
 Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der Zielbereich erreicht ist und der Masten berührt wird. Dafür wird der Endschalter mit dem Arduino ausgelesen. Angebracht ist er am vordersten Punkt des Kamerahalters. Verwendet wurde ein Endschalter des Typs 5E4T125 von Burgess.
 
 
@@ -1387,7 +1410,7 @@ Die Aufgabenstellung im Original folgt auf den nächsten Seiten.
 	\hline
 	4.2 & F &  Dimensionen & Seitenlänge 5cm $\pm$ 0.5cm \\
 	\hline
-	4.3 & M & Gewicht & 50-90g, siehe Sektion \ref{app:sec:RechKlotzMasse} \\
+	4.3 & M & Gewicht & 50-90g, siehe Sektion \ref{app:sec:RechKlotzMasse} \\ %todo Berechning Klotz?
 	\hline
 	4.4 & F & Aufnahme & Metallischer, magnetischer Haken oben in der Mitte des Würfels.\\
 	& & & Innendurchmesser des Hakens ist 1.3cm $\pm$ 0.1mm\\

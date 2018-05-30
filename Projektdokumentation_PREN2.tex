@@ -376,7 +376,7 @@ UART muss auf dem Raspberry Pi manuell aktiviert werden.  Zusätzlich muss das i
 
 Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control definiert werden. Die Programm\-ierung dieser wird auf dem RaspberryPi mit Hilfe des Python Moduls \textquotedblleft pySerial\textquotedblright\ realisiert.
 
-Auf dem LCD-Display werden die Koordinaten in x-, und in z-Richtung dargestellt. Zwei Ultraschallsensoren, je einer in x-, und z-Richtung, messen die jeweiligen Distanzen. Bei der z-Koordinate muss jedoch noch ein Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die angezeigten Koordinaten die der transportierten Last sein müssen. Wie viel abgezogen werden muss, wird über den Hubschrittmotor berechnet. Damit bei der Fahrt über die Hindernisse nicht ein falscher Wert angezeigt wird, werden plötzliche grosse Änderungen nicht berücksichtigt und der vorherige Wert wird angezeigt. Der LCD-Display ist in Fahrtrichtung rechts mit Schrauben an einer Halterung aus dem 3D-Drucker befestigt. Die Halterung wiederum ist auf die Grundplatte gesteckt. Die Masse werden ungefähr einmal pro Sekunde aktualisiert und diese werden in Zentimeter auf eine Kommastelle genau angezeigt. Die Positionsanzeige wird über das Arduino DUE angesprochen. 
+Auf dem LCD-Display werden die Koordinaten in x-, und in z-Richtung dargestellt. Zwei Ultraschallsensoren, je einer in x-, und z-Richtung, messen die jeweiligen Distanzen. Bei der z-Koordinate muss jedoch noch ein Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die angezeigten Koordinaten die der transportierten Last sein müssen. Wie viel abgezogen werden muss, wird über den Hubschrittmotor berechnet. Damit bei der Fahrt über die Hindernisse nicht ein falscher Wert angezeigt wird, werden plötzliche grosse Änderungen nicht berücksichtigt und der vorherige Wert wird angezeigt. Der LCD-Display ist in Fahrtrichtung rechts mit Schrauben an einer Halterung aus dem 3D-Drucker befestigt. Die Halterung wiederum ist auf die Grundplatte gesteckt. Die Masse werden ungefähr einmal pro Sekunde aktualisiert und diese werden in Zentimeter auf eine Kommastelle genau angezeigt. Die Positionsanzeige wird über das Arduino DUE angesprochen.
 
 \subsection{Zielerkennung}
 \label{ssec:Zielerkennung}
@@ -468,14 +468,14 @@ Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue 
 \end{figure}
 
 \begin{landscape}
-	
+
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[keepaspectratio,width=\linewidth]{pi-sensor}
 		\caption{Detailansicht des Raspberry Pi Sensormoduls}
 		\label{fig:PiSensor}
 	\end{figure}
-	
+
 \end{landscape}
 
 \subsubsection{RasPi-Kamera}
@@ -484,13 +484,13 @@ Für die Erkennung der Zielplattform wird die \textit{RasPi}-Kamera v2.1 verwend
 
 
 
-Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 18 (Tx) und Pin 19 (Rx) auf dem Arduino und GPIO14 und GPIO15 auf dem Raspberry Pi. Zusätzlich werden noch die jeweiligen GND (Ground) verbunden. 
+Wie in Abb. \ref{fig:SchemaKommunikation} dargestellt sind dies Pin 18 (Tx) und Pin 19 (Rx) auf dem Arduino und GPIO14 und GPIO15 auf dem Raspberry Pi. Zusätzlich werden noch die jeweiligen GND (Ground) verbunden.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[keepaspectratio, width=0.8\textwidth]{SchemaKommunikationArduinoRaspbiScreenshot}
 	\caption{Verbindung der beiden Boards}
 
-	\label{fig:RaspberryPins}
+	\label{fig:SchemaKommunikation}
 \end{figure}
 
 
@@ -616,7 +616,7 @@ Bevor die Komponenten in das Gesamtsystem integriert wurden, wurden sie einzeln 
 	\hline
 	2.10 & 3.8 4.8 & Last absetzen & Absetzen der Last auf einen Vordefinierten Punkt auf den Parkour & Die Last konnte abgesetzt werden, jedoch musste das Anheben der Last neu kalibriert werden, da sich die Hakengeometrie verändert hatte\\
 	\hline
-	
+
 \end{longtable}
 \footnotetext{Getestete Anforderungen aus Anforderungsliste}
 
@@ -1229,7 +1229,7 @@ Legende:
 Das Risiko Nr. 10 ist eingetroffen. Nach der vierten Semesterwoche des PREN2 fiel ein Teammitglied aufgrund interner Differenzen aus. Da es sich bei diesem Teammitglied um einen Elektrotechnikstudenten handelt, ist dieser Ausfall für unser Team besonders schmerzhaft, da wir nun nur noch einen Elektrotechnik-Student haben. Dieses eingetroffene Risiko bedeutete nun, dass der verbleibende Elektrotechnik-Student für die ganze Arbeit in seinem Fachbereich zuständig war, was sehr viel zusätzliches Engagement bedeutete.
 
 \subsubsection{Änderung Mikrokontrollerplattform}
-\label{ch:ÄnderungMikrokontroller}
+\label{ch:AenderungMikrokontroller}
 Das Konzept vom PREN1 beinhaltet als Mikrokontrollerplattform das "LoFive" Board. Wie sich jedoch herausstellte, war es für uns unmöglich diesen Mikrokontroller für unsere Aufgaben zu programmieren. Aus diesem Grund wurde in Semesterwoche drei der Entscheid gefällt, dieses durch einen anderen Mikrokontroller, also durch das \textquotedblleft Arduino Due\textquotedblright\ zu ersetzen. Das eingetretene Risiko beinhaltet viele nicht brauchbare bzw. nur halbwegs brauchbare Arbeitsstunden des Programmieren für das "LoFive".
 
 \chapter{Schlussdiskussion}

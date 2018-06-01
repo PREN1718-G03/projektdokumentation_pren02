@@ -610,7 +610,7 @@ Bevor die Komponenten in das Gesamtsystem integriert wurden, wurden sie einzeln 
 	\hline
 	2.01 & 3.7 & Schrittmotoren einschalten, ansteuern und ausschalten & Schrittmotoren mit Startschalter einschalten drehen lassen und ausschalten & Motoren drehen wie erwartet \\
 	\hline
-	2.02 & 3.7 3.8 & Hub- und Fahrmotor ansteuern & Dezember 2017& Systemkomponenten können zugekauft werden \\
+	2.02 & 3.7 3.8 & Hub- und Fahrmotor ansteuern & Ansteuerung beider Schrittmotoren& Beide Schrittmotoren konnten parallel betrieben werden \\
 	\hline
 	2.03 & 4.6 4.7 4.8 & Prototyp Kommunikation & Ein funktioneller Prototyp der in der Lage ist auf GPIO Port 8(Tx) und 10(Rx) seriell kommunizieren kann & Es wurden zwei Skripte erstellt um die generelle Fähigkeit der Kommunikation zu erarbeiten \\
 	\hline
@@ -618,7 +618,7 @@ Bevor die Komponenten in das Gesamtsystem integriert wurden, wurden sie einzeln 
 	\hline
 	2.05& 3.7 & Start Endschalter & Testen der Funktionalität des ET- und Arduinoboards & Funktionen konnten erfolgreich getestet werden \\
 	\hline
-	2.06 & 3.7 & Laufkatze + Antrieb mit Schrittmotor & Test des Schrittmotors für den Antrieb. Dabei soll die Funktion des Schrittmotors des Antriebes und das Verhalten des Antriebes / Laufkatze soll getestet werden & Die Laufkatze ist gefahren \\
+	2.06 & 3.7 & Schrittmotor Antrieb & Test des Schrittmotors für den Antrieb. Dabei soll die Funktion des Schrittmotors des Antriebes und das Verhalten des Antriebes / Laufkatze soll getestet werden & Die Laufkatze ist gefahren \\
 	\hline
 	2.07 & 4.6 4.7 & Ultraschall LCD & Arduino UNO Code zur Ansteuerung des Sensors und LCDs & Der Sensor ist auf die Wettbewerbsdistanz genügend genau\\
 	\hline
@@ -634,6 +634,8 @@ Bevor die Komponenten in das Gesamtsystem integriert wurden, wurden sie einzeln 
 
 Die Detaillierten Versuchsprotokolle sind im Anhang zu finden.
 
+\section{Test Komplett}
+
 \section{Fazit}
 
 Die durchgeführten Tests (siehe Anhang) zeigen auf, dass alle wesentlichen
@@ -643,9 +645,6 @@ Komponenten soweit funktionieren und nur in folgenden Fällen zu Komplikationen 
 	\item Durch den Parallelbetrieb der Motoren Sensoren und des Displays kam es zu einer Stockenden Fahrbewegung. Dabei stellte sich heraus, dass das Arduino DUE Programme nicht parallel abarbeiten kann. Deshalb wurden die Ultraschallsensoren auf das Raspberry PI ausgelagert. zusätzlich musste die Ansteuerung der Motoren mithilfe einer anderen Funktion gelöst werden.
 	\item Der Ultraschallsensor hat sich teilweise selber blockiert, da er nach dem senden des Tastimpulses auf eine Antwort wartete, diese jedoch nie kam. Deshalb musste zusätzlich eine weitere Funktion implementiert werden, sodass wenn der Ultraschallsensor nach 2 Sekunden keine Antwort erhielt eine weitere Messung durchgeführt wurde.
 \end{itemize}
-
-
-
 
 \chapter{Essentielle Berechnungen und Resultate}
 \label{sec:EssBerechnung}

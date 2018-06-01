@@ -577,7 +577,20 @@ Um die Funktionalität des Geräts zu gewährleisten, müssen einige Punkte in d
 	\item Der Kippschalter am ET-Board muss nun betätigt werden um das Gerät zu starten.
 \end{itemize}
 
-\section{Tests}
+\section{Schnittstellen und Abhängigkeiten}
+\label{sec:SchnittAbhang}
+% TODO Überprüfen
+
+Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem \textit{RasPi} und dem \textit{ArduinoDue}, zum anderen müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das \textit{ArduinoDue} benötigt.
+
+Viele Schnittstellen sind von der Positionsbestimmung abhängig. Um die Position zu bestimmen, werden die Schrittmotoren und zwei Ultraschallsensoren eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das Heben und Senken derselben und das Absetzen. Da ein Haken eingesetzt wird, muss diese Positionsbestimmung genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von 0...+20mm liegen. In x-Richtung darf die Genauigkeit ebenfalls etwa 0...+20mm betragen, da sonst der Haken die Last verfehlt. Der LCD-Display gibt zudem die Koordinaten wieder.
+
+Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst ruhig und waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert und die Beschleunigungskurve des Antriebs ist S-Förmig definiert. Gelenkig muss diese sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Haken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit beim Lasttransport nicht eine Schieflage entsteht. Da sich die Komponenten auf die Balance der Plattform auswirken, muss deren Position im voraus evaluiert werden.
+
+Das Startsignal erfolgt mit einem Kippschalter, welcher am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels einem akustischen Signal.
+
+
+\chapter{Tests}
 \label{sec:TestsPrototyp}
 
 Im Rahmen des Projektes wird das System bzw. Fahrzeug und deren Komponenten fortlaufend
@@ -586,11 +599,11 @@ Komponenten frühzeitig entdecken und so die Möglichkeiten bieten, Verbesserung
 vorzunehmen. Weiter kann durch definierte Testfälle sichergestellt werden, dass alle essentiellen
 Komponenten getestet werden.
 
-\subsection{Methodik}
+\section{Methodik}
 
 Bevor die Komponenten in das Gesamtsystem integriert wurden, wurden sie einzeln getestet. Danach wurden sie ins Gesamtsystem integriert und erneut getestet. Für sämtliche Tests wurde immer zuerst ein Ziel anhand der Anforderungsliste definiert und dann die Resultate mithilfe eines Protokolls festgehalten.
 
-\subsection{Testszenarien}
+\section{Testszenarien}
 
 \begin{longtable}{|p{.05\textwidth}|p{.05\textwidth}|p{0.2\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
 	\hline
@@ -622,7 +635,7 @@ Bevor die Komponenten in das Gesamtsystem integriert wurden, wurden sie einzeln 
 
 Die Detaillierten Versuchsprotokolle sind im Anhang zu finden.
 
-\subsection{Fazit}
+\section{Fazit}
 
 Die durchgeführten Tests (siehe Anhang) zeigen auf, dass alle wesentlichen
 Komponenten soweit funktionieren und nur in folgenden Fällen zu Komplikationen führen kann:\\
@@ -634,22 +647,10 @@ Komponenten soweit funktionieren und nur in folgenden Fällen zu Komplikationen 
 
 
 
-\section{Schnittstellen und Abhängigkeiten}
-\label{sec:SchnittAbhang}
-% TODO Überprüfen
 
-Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem \textit{RasPi} und dem \textit{ArduinoDue}, zum anderen müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das \textit{ArduinoDue} benötigt.
-
-Viele Schnittstellen sind von der Positionsbestimmung abhängig. Um die Position zu bestimmen, werden die Schrittmotoren und zwei Ultraschallsensoren eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das Heben und Senken derselben und das Absetzen. Da ein Haken eingesetzt wird, muss diese Positionsbestimmung genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von 0...+20mm liegen. In x-Richtung darf die Genauigkeit ebenfalls etwa 0...+20mm betragen, da sonst der Haken die Last verfehlt. Der LCD-Display gibt zudem die Koordinaten wieder.
-
-Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst ruhig und waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert und die Beschleunigungskurve des Antriebs ist S-Förmig definiert. Gelenkig muss diese sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Haken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit beim Lasttransport nicht eine Schieflage entsteht. Da sich die Komponenten auf die Balance der Plattform auswirken, muss deren Position im voraus evaluiert werden.
-
-Das Startsignal erfolgt mit einem Kippschalter, welcher am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels einem akustischen Signal.
-
-
-\section{Essentielle Berechnungen und Resultate}
+\chapter{Essentielle Berechnungen und Resultate}
 \label{sec:EssBerechnung}
-\subsection{Auslegung Hubmotor}
+\section{Auslegung Hubmotor}
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
@@ -677,7 +678,7 @@ $\underline{\underline{M}}=(m_L+m_V)*g*r=\underline{\underline{0.0368m/s^2}}$\\
 Leistung	\\
 $\underline{\underline{P}}=M*\omega=\underline{\underline{0.245W}}$
 
-\subsection{Grobauslegung Motorenleistung Antrieb}
+\section{Grobauslegung Motorenleistung Antrieb}
 \label{ssec:GrobMotor}
 \begin{table}[h!]
 	\begin{tabular}{|p{0.3\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
@@ -717,7 +718,7 @@ $\underline{\underline{M}}=(F_{R}+F_{H})*r=\underline{\underline{0.186 Nm}}$	\\
 Nennleistung	\\
 $\underline{\underline{P}}=\Delta E/\Delta t=m*g*\Delta h/\Delta t=(1.5kg*9.81m/s^2*0.5m)/(15s)=\underline{\underline{0.49W}}$\\
 
-\subsection{Reibwerte (Haftreibung)}
+\section{Reibwerte (Haftreibung)}
 \label{ssec:ReibWer}
 
 \begin{table}[h!]
@@ -747,7 +748,7 @@ daraus folgt\\
 $\mu=tan(\alpha)$\\
 Wir erwarten einen Winkel zwischen $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rightarrow \mu = 0,14 ... 0,58$. Daraus folgt, dass wir als Material für die Rollen Gummi verwenden müssen.
 
-\subsection{Auswertung des Distanzversuchs und Modellermittlung}
+\section{Auswertung des Distanzversuchs und Modellermittlung}
 \label{ssec:DistModelCreation}
 % TODO Write this subsection in full glorious detail
 
@@ -805,7 +806,7 @@ Jedoch konnte auch keine einzelne Funktion für alle Höhen verwendet werden. Es
 	\begin{subfigure}[b]{0.3\textwidth}
 		\includegraphics[width=\textwidth]{hoehe82_5}
 	\end{subfigure}
-	\caption{Modelle der unterschiedlichen Messhöhen}
+	\caption{Modelle der unterschiedlichen Messhöhen, jeweils [cm] auf der y-Achse und [Pixel] auf der z-Achse}
 	\label{fig:Modelle}
 \end{figure}
 
@@ -1588,10 +1589,10 @@ Legende:
 \label{ssec:MassEffekt}
 \begin{figure}[h!]
 	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.8\textwidth}
 		\includegraphics[keepaspectratio,width=\textwidth]{Risikomatrix}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.45\textwidth}
+	\begin{subfigure}[b]{0.8\textwidth}
 		\includegraphics[keepaspectratio,width=\textwidth]{Risikomatrix_nachher}
 	\end{subfigure}
 	\caption{Gegenüberstellung der Risikomatrizen vor und nach den Massnahmen}

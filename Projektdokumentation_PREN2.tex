@@ -398,7 +398,7 @@ Das System muss den Ablauf in Abbildung \ref{fig:AblaufZielerkennung} umsetzen k
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio,height=0.4\textheight]{Ablaufdiagramm_ModusOperandi}
+	\includegraphics[keepaspectratio,height=0.6\textheight]{Ablaufdiagramm_ModusOperandi}
 	\caption{Ablaufdiagramm der PiSensor Logik}
 	\label{fig:AblaufZielerkennung}
 \end{figure}
@@ -436,7 +436,7 @@ Dieser Ablauf wird in Abbildung \ref{fig:ZielerkennungAblauf} noch genauer darge
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio,height=0.4\textheight]{ZielplatteErkennen}
+	\includegraphics[keepaspectratio,height=0.6\textheight]{ZielplatteErkennen}
 	\caption{Ablaufdiagramm Zielerkennung}
 	\label{fig:ZielerkennungAblauf}
 \end{figure}
@@ -448,7 +448,7 @@ Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (si
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio,width=0.5\textwidth]{SystemArchitektur}
+	\includegraphics[keepaspectratio,width=0.75\textwidth]{SystemArchitektur}
 	\caption{Modulübersicht der PiSensor Architektur}
 	\label{fig:PiSensorSystemArchitektur}
 \end{figure}
@@ -461,7 +461,7 @@ Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue 
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio,width=0.5\textwidth]{pi-sensor_cs}
+	\includegraphics[keepaspectratio,width=0.75\textwidth]{pi-sensor_cs}
 	\caption{Gesamtübersicht der Erkennungslogik}
 	\label{fig:KameraSensor}
 \end{figure}
@@ -479,19 +479,6 @@ Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue 
 
 \subsubsection{RasPi-Kamera}
 Für die Erkennung der Zielplattform wird die \textit{RasPi}-Kamera v2.1 verwendet. Angebracht ist die Kamera zuvorderst am Gerät mit vier Schrauben an einem Winkel. Damit die Zielplattform genügend früh erkannt werden kann und die Last nicht das Bild stört, ist die Kamera mit einem Winkel \SI{20}{\degree} zur Vertikalen nach vorne gerichtet. Das Bild wird auf dem \textit{RasPi} ausgewertet und erkennt damit die Zielplattform.
-
-
-
-Wie in Abb. \ref{fig:SchemaKommunikation} dargestellt sind dies Pin 18 (Tx) und Pin 19 (Rx) auf dem Arduino und GPIO14 und GPIO15 auf dem Raspberry Pi. Zusätzlich werden noch die jeweiligen GND (Ground) verbunden.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[keepaspectratio, width=0.8\textwidth]{SchemaKommunikationArduinoRaspbiScreenshot}
-	\caption{Verbindung der beiden Boards}
-
-	\label{fig:SchemaKommunikation}
-\end{figure}
-
-
 
 \subsection{Positionsanzeige}
 \label{ssec:Positionsanzeige}

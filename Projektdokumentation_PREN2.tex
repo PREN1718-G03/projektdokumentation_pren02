@@ -168,7 +168,7 @@ Wie im vorherigen Modul Produktentwicklung 1 wurde die Dokumentation mit \LaTeX 
 
 \section{Kurzbeschrieb Anforderungen}
 \label{sec:KurzAnforder}
-Das Gerät muss sich autonom entlang eines ansteigenden Drahtseils fortbewegen können. Eine Last muss an einem fix bestimmten Ort aufgenommen und aufgehoben werden, ohne Berührung über nachfolgende Hindernisse transportiert und danach möglichst exakt auf einer Zielplatte im Absetzbereich abgesetzt werden (siehe Abb.\ref{fig:Funktionsskizze}).
+Das Gerät muss sich autonom entlang eines ansteigenden Drahtseils fortbewegen können. Eine Last, welche sich an einem vorbestimmten Platz befindet soll vom Gerät angehoben werden. Ohne Berührung der nachfolgenden Hindernisse muss die Last exakt auf der Zielplatte, welche sich im Absetzbereich befindet, abgesetzt werden (siehe Abb.\ref{fig:Funktionsskizze}).
 
 Nach dem Absetzen der Last muss das Gerät den Zielraum erreichen und den Masten berühren. Das Gerät muss die Zielplatte selbstständig erkennen können. Das Gerät darf nur die Last, das Drahtseil und den zweiten Masten berühren. Nach Aufnahme der Last, muss die aktuelle Position der Last in x-, und z-Richtung in Echtzeit dargestellt werden.
 
@@ -182,7 +182,7 @@ In Abbildung \ref{fig:Blockdiagramm} findet sich eine Darstellung der technische
 
 \section{Beschreibung der Grundfunktion}
 \label{sec:GrundBeschrieb}
-Die Grundfunktionen des zu bauenden Gerätes sind hauptsächlich das Fortbewegen an einem Drahtseil und das Greifen und Absetzen einer Last. Um die Last zu greifen ist ein Hubmechanismus notwendig, der die Last um mindestens 200mm heben kann. Um die aktuelle Position messen zu können, werden zwei Ultraschallsensoren verwendet. Die aktuelle Position der aufzuhebenden Last wird auf dem Gerät mittels eines LCD-Displays angezeigt. Eine Kamera wird verwendet, um die vorgegebene Zielplattform zu erkennen. Damit ist das Gerät in der Lage an der richtigen Position, über dem Mittelpunkt der Zielplattform, zu stoppen. Diese Funktionen laufen bis auf das Startsignal autonom ab.
+Die Grundfunktionen des zu bauenden Gerätes sind hauptsächlich das Fortbewegen an einem Drahtseil und das Greifen und Absetzen einer Last. Um die Last zu greifen ist ein Hubmechanismus notwendig, der die Last um mindestens 200mm heben kann. Um die aktuelle Position messen zu können, werden zwei Ultraschallsensoren verwendet. Die aktuelle Position der aufzuhebenden Last wird auf dem Gerät mittels eines LCD-Displays angezeigt. Eine Kamera wird verwendet, um die vorgegebene Zielplatte zu erkennen. Damit ist das Gerät in der Lage an der richtigen Position, über dem Mittelpunkt der Zielplatte, zu stoppen. Diese Funktionen laufen bis auf das Startsignal autonom ab.
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
@@ -205,7 +205,7 @@ Der Ablauf der verschiedenen Teilschritte erfolgt gemäss Abbildung \ref{fig:Abl
 
 
 Nach dem das Gerät am Seil angebracht wurde (\ref{sec:Bedienungsanleitung}), kann mit dem Restart-Knopf am \textit{ArduinoDue} (\ref{sssec:ArduinoDue}) gestartet werden. Es wird nun ein vorprogrammierter Ablauf gefahren. Dieser beinhaltet den Antriebsschrittmotor zum Vorwärtsfahren (\ref{ssec:Antrieb}) bis der Haken in die Last eingehängt hat (\ref{ssec:Lastgreifenundabsetzen}) und den Hubschrittmotor, welcher die Last um eine bestimmte Schrittanzahl hebt (\ref{ssec:Lastanhebenundsenken}). Dieser Ablauf läuft über das \textit{ArduinoDue}. Gleichzeitig werden die Daten der Ultraschallsensoren (\ref{ssec:Ultraschallsensor}) über das \textit{RasPi} (\ref{sssec:RasPi}) ausgewertet und als Distanzen in Millimetern vom \textit{ArduinoDue} abgefragt. Bei der z-Koordinate wird zusätzlich noch die vom Hubschrittmotor gehobene Höhe abgezogen und beide Koordinaten werden auf dem LCD-Display (\ref{ssec:Positionsanzeige}) angezeigt.\\
-Das Gerät wird dann mit der aufgenommenen Last Vorwärtsfahren, bis die Kamera (\ref{ssec:Zielerkennung}) die Zielplattform sieht und das \textit{RasPi} diese erkennen kann (\ref{ssec:Zielerkennung}). Das \textit{ArduinoDue} fragt regelmäßig ab, ob das \textit{RasPi} die Zielplattform bereits erkannt hat. Falls die Antwort ein positiver Wert ist, wird diese übermittelte Distanz abgefahren und der Hubmotor startet das Absetzen der Last. Wie viel der Hubmotor die Last absenken muss, wird aus den Daten des vertikal messenden Ultraschallsensors und den geleisteten Schritten des Hubmotors berechnet. Wenn die Last auf der Zielplattform aufkommt, klinkt sich der Haken automatisch aus der Last aus. Der Haken wird danach wieder 25 Zentimeter hochgehoben und der Antriebsmotor fährt solange vorwärts, bis der Endschalter(\ref{ssec:Endschalter}) betätigt wird. Damit ist die Aufgabe beendet.
+Das Gerät wird dann mit der aufgenommenen Last Vorwärtsfahren, bis die Kamera (\ref{ssec:Zielerkennung}) die Zielplatte sieht und das \textit{RasPi} diese erkennen kann (\ref{ssec:Zielerkennung}). Das \textit{ArduinoDue} fragt regelmäßig ab, ob das \textit{RasPi} die Zielplatte bereits erkannt hat. Falls die Antwort ein positiver Wert ist, wird diese übermittelte Distanz abgefahren und der Hubmotor startet das Absetzen der Last. Wie viel der Hubmotor die Last absenken muss, wird aus den Daten des vertikal messenden Ultraschallsensors und den geleisteten Schritten des Hubmotors berechnet. Wenn die Last auf der Zielplatte aufkommt, klinkt sich der Haken automatisch aus der Last aus. Der Haken wird danach wieder 25 Zentimeter hochgehoben und der Antriebsmotor fährt solange vorwärts, bis der Endschalter(\ref{ssec:Endschalter}) betätigt wird. Damit ist die Aufgabe beendet.
 
 \newpage
 Im Blockdiagramm (Abb. \ref{fig:Blockdiagramm}) sind die Schnittstellen graphisch dargestellt.
@@ -291,7 +291,7 @@ Die Kamera ist etwa 20 Zentimeter vor der Seilwinde für den Hub angebracht. Daf
 %todo Testprotokolle verlinken
 Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken.  Eine nicht-Drehbare Querstange aus Aluminium dient als Halterung für den Haken. Ebenfalls an dieser Querstange ist ein Schwenkbegrenzer mit einer Druckfeder befestigt. Die Feder hält den Haken in einer Schieflage von etwa 45\SI{}{\degree}. Weil die Startposition der Last vorgegeben ist, wird das Aufheben der Last im voraus programmiert.
 Nach dem anheben der Last wird die Feder durch das zusätzliche Gewicht gestaucht und der Winkel des Hakens zur Vertikalen verkleinert sich auf etwa 10\SI{}{\degree}.\\
-Beim Absetzen der Last auf der Zielplattform drückt die Feder den Haken automatisch wieder in die Ursprungsposition und klinkt sich damit aus dem Haken der Last aus.
+Beim Absetzen der Last auf der Zielplatte drückt die Feder den Haken automatisch wieder in die Ursprungsposition und klinkt sich damit aus dem Haken der Last aus.
 Durch einen gekrümmten Draht an der Unterseite des Greifers wird sichergestellt, dass sich die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird.
 Der Haken ist aus ABS gefertigt und wird 3D gedruckt.
 
@@ -309,7 +309,7 @@ Als Kern der elektronischen Steuerung wird das \textit{ArduinoDue} Board verwend
 
 Über das Board werden zwei Schrittmotoren-Treiber sowie ein LCD-Display angesteuert. Zur Rückmeldung werden zwei Ultraschallsensoren und ein \textit{Raspberry Pi 3 Model B} (RasPi) verwendet.
 
-Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplattform übermittelt, kann das System als Regelungssystem betrachtet werden. Solange das Ziel nicht erkannt wird, soll das Gerät mit maximaler Geschwindigkeit fahren. Mit der Erkennung des Ziels wird das Gerät immer langsamer und stoppt über dem Zielfeld. Mit diesem System wird ein effektives Anfahren des Ziels erreicht. Zum Starten und Stoppen des Geräts wird ein Schalter und ein Taster verwendet.
+Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplatte übermittelt, kann das System als Regelungssystem betrachtet werden. Solange das Ziel nicht erkannt wird, soll das Gerät mit maximaler Geschwindigkeit fahren. Mit der Erkennung des Ziels wird das Gerät immer langsamer und stoppt über dem Zielfeld. Mit diesem System wird ein effektives Anfahren des Ziels erreicht. Zum Starten und Stoppen des Geräts wird ein Schalter und ein Taster verwendet.
 
 \subsubsection{ArduinoDue}
 \label{sssec:ArduinoDue}
@@ -453,11 +453,11 @@ Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (si
 	\label{fig:PiSensorSystemArchitektur}
 \end{figure}
 
-Die Logik der Erkennung wurde in zwei Teile separiert, bildlich dargestellt in der Abbildung \ref{fig:KameraSensor}. Zum Einen das Erfassen der Daten des Sensors und der Erkennung der Zielplattform, und zum Anderen das Berechnen der Distanz zwischen Zielplattform und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung wird über eine Factory-Klasse bereitgestellt. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
+Die Logik der Erkennung wurde in zwei Teile separiert, bildlich dargestellt in der Abbildung \ref{fig:KameraSensor}. Zum Einen das Erfassen der Daten des Sensors und der Erkennung der Zielplatte, und zum Anderen das Berechnen der Distanz zwischen Zielplatte und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung wird über eine Factory-Klasse bereitgestellt. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
 
-Im Moment wird die Erkennung der Zielplattform (wie in Kapitel \ref{sssec:Bilderkennung} dargestellt) über einen Kontur\-erkennungs\-algorithmus der Bibliothek 'OpenCV' realisiert. Ist die Zielplattform erkannt, so wird über den Controller das Signal zum Berechnen der Distanz gegeben. Die Methodik zur Distanzberechnung wird in Kapitel \ref{ssec:DistModelCreation} genauer erläutert.
+Im Moment wird die Erkennung der Zielplatte (wie in Kapitel \ref{sssec:Bilderkennung} dargestellt) über einen Kontur\-erkennungs\-algorithmus der Bibliothek 'OpenCV' realisiert. Ist die Zielplatte erkannt, so wird über den Controller das Signal zum Berechnen der Distanz gegeben. Die Methodik zur Distanzberechnung wird in Kapitel \ref{ssec:DistModelCreation} genauer erläutert.
 
-Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue Fahrtanweisungen zur Motor- und Sensorsteuerung übergeben. Dies wird über das 'communicator'-Modul realisiert.
+Ist die Entfernung zur Zielplatte ermittelt, so soll der PiController genaue Fahrtanweisungen zur Motor- und Sensorsteuerung übergeben. Dies wird über das 'communicator'-Modul realisiert.
 
 \begin{figure}[h!]
 	\centering
@@ -478,7 +478,7 @@ Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue 
 \end{landscape}
 
 \subsubsection{RasPi-Kamera}
-Für die Erkennung der Zielplattform wird die \textit{RasPi}-Kamera v2.1 verwendet. Angebracht ist die Kamera zuvorderst am Gerät mit vier Schrauben an einem Winkel. Damit die Zielplattform genügend früh erkannt werden kann und die Last nicht das Bild stört, ist die Kamera mit einem Winkel \SI{20}{\degree} zur Vertikalen nach vorne gerichtet. Das Bild wird auf dem \textit{RasPi} ausgewertet und erkennt damit die Zielplattform.
+Für die Erkennung der Zielplatte wird die \textit{RasPi}-Kamera v2.1 verwendet. Angebracht ist die Kamera zuvorderst am Gerät mit vier Schrauben an einem Winkel. Damit die Zielplatte genügend früh erkannt werden kann und die Last nicht das Bild stört, ist die Kamera mit einem Winkel \SI{20}{\degree} zur Vertikalen nach vorne gerichtet. Das Bild wird auf dem \textit{RasPi} ausgewertet und erkennt damit die Zielplatte.
 
 \subsection{Positionsanzeige}
 \label{ssec:Positionsanzeige}
@@ -596,7 +596,7 @@ Bevor die Komponenten in das Gesamtsystem integriert wurden, sind diese einzeln 
 	\hline
 	2.03 & 4.6 4.7 4.8 & Prototyp Kommunikation & Ein funktioneller Prototyp der in der Lage ist seriell zu  kommunizieren & Es wurden zwei Skripte erstellt um die generelle Fähigkeit der Kommunikation zu erarbeiten \\
 	\hline
-	2.04 & 3.9 & Zielplattform Fläche und Distanz & Ziel des Tests soll sein, die Distanz eines Zentimeters (in Pixel) unter Berücksichtigung der Höhe zu ermitteln & Es konnte eine Liste mit Pixelwerten von 1 cm aus unterschiedlichen Höhen erstellt werden \\
+	2.04 & 3.9 & Zielplatte Fläche und Distanz & Ziel des Tests soll sein, die Distanz eines Zentimeters (in Pixel) unter Berücksichtigung der Höhe zu ermitteln & Es konnte eine Liste mit Pixelwerten von 1 cm aus unterschiedlichen Höhen erstellt werden \\
 	\hline
 	2.05& 3.7 & Start Endschalter & Testen der Funktionalität des ET- und Arduinoboards & Funktionen konnten erfolgreich getestet werden \\
 	\hline

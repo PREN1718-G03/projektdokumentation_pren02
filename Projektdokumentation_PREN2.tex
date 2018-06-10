@@ -559,7 +559,7 @@ Die Schnittstellen der verschiedenen Komponenten sind zentral für die Funktions
 
 Viele Schnittstellen sind von der Positionsbestimmung abhängig. Um die Position zu bestimmen, werden die Schrittmotoren und zwei Ultraschallsensoren eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das Heben und Senken derselben und das Absetzen. Weil ein Haken eingesetzt wird, muss diese Positionsbestimmung genau sein, damit die Last abgesetzt werden kann. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von 0...+20mm liegen. In x-Richtung darf die Genauigkeit ebenfalls etwa 0...+20mm betragen, da sonst der Haken die Last nicht absetzt.
 
-Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst ruhig und waagerecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Deshalb muss auf die Anordnung der Komponenten geachtet werden, damit beim Lasttransport nicht eine Schieflage entsteht. Da sich die Komponenten auf die Balance der Plattform auswirken, muss deren Position im voraus evaluiert werden.
+Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst ruhig und waagerecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Deshalb muss auf die Anordnung der Komponenten geachtet werden, damit beim Lasttransport die Grundplatte waagrecht bleit. Da sich die Komponenten auf die Balance der Plattform auswirken, muss deren Position im voraus evaluiert werden.
 
 Das Startsignal erfolgt über den Resetknopf am \textit{ArduinoDue}. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels einem akustischen Signal.
 
@@ -603,9 +603,13 @@ Bevor die Komponenten in das Gesamtsystem integriert wurden, sind diese einzeln 
 	\hline
 	2.10 & 3.8 4.8 & Last absetzen & Absetzen der Last auf einen Vordefinierten Punkt auf den Parkour & Die Last konnte abgesetzt werden, jedoch musste das Anheben der Last neu kalibriert werden, da sich die Hakengeometrie verändert hatte\\
 	\hline
+	2.11 & Alle Anforderungen & Alle Funktionen & Durchlauf aller Funktionen & Weil als Stromversorgung für das RasPi eine Powerbank verwendet wurde, wurde dieses nicht richtig mit Strom versorgt. Beim Nächsten Versuch muss die Stromquelle also auf die Akkus umgestellt werden.\\
+	\hline
+	2.12 & Alle Anforderungen & Alle Funktionen & Durchlauf aller Funktionen & Alle Teilanforderungen können erfüllt werden. Jedoch gibt es noch eine unsaubere Ausführung der Steuerung. Die Laufkatze fährt zuerst über die Zielplattform heraus, fährt wieder zurück und setzt die Last ab. Die Last ist auf der Zielplattform. Und der Endpfosten wird auch wie erwartet berührt.\\
+	\hline
 
 \end{longtable}
-\footnotetext{Getestete Anforderungen aus Anforderungsliste}
+\footnotetext{Getestete Anforderungen aus Anforderungsliste (Siehe \ref{app:sec:ProjektAnf})}
 
 Die Detaillierten Versuchsprotokolle sind im Anhang zu finden.
 

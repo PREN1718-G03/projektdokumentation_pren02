@@ -217,6 +217,54 @@ Im Blockdiagramm (Abb. \ref{fig:Blockdiagramm}) sind die Schnittstellen graphisc
 
 \newpage
 
+\section{Konzeptänderungen nach PREN01}
+\label{sec:Konzeptaenderungen}
+
+
+\subsection{Antriebseinheit und Grundplatte}
+
+\begin{itemize}
+	\item Das angetriebene Laufrad ist neu aus Gummi und nicht nur mit Gummi beschichtet. Die Reibung auf dem Seil wird damit vergrössert und Rutschen auf dem Seil wird vermindert.
+	\item Bei dem Gelenk der Aufhängung ist zusätzlich eine Messingbuchse eingebaut damit möglichst wenig Reibung auftritt.
+	\item Die Dämpfer um Schwingungen aufzufangen werden nicht benötigt, da die Schwingungen auch ohne Dämpfer klein sind.
+	\item Die Grundplatte wird aus bearbeitungstechnischen Gründen nicht mehr aus Aluminium gefertigt sondern aus einer gelaserten, 6mm dicken Holzplatte.
+	\item Die Positionsanzeige in x-Richtung wird nur noch über einen Ultraschallsensor bestimmt. Der Einbezug des Schrittmotor wird aufgrund der ausreichenden Genauigkeit des Ultraschallsensors nicht mehr benötigt.
+	\item Die geplante Durchhangstabelle wird nicht miteinbezogen, da ebenfalls ein Ultra\-schall\-sensor verwendet wird. Der Schrittmotor wird aber noch immer ein\-bezogen, da der Ultraschall\-sensor an der Grundplatte angebracht ist aber die Position der Last angezeigt werden muss.
+\end{itemize}
+
+\subsection{Hubvorrichtung}
+
+\begin{itemize}
+	\item Der Haken ist neu aus Kunststoff aus dem 3D-Drucker gefertigt. Aufgrund einer leicht veränderten Geometrie ist ein 3D-Druck sinnvoller.
+	\item Zusätzlich wird der Haken noch von einem Schwenkbegrenzer eingeschränkt. Damit wird sichergestellt, dass der Haken leicht nach hinten gerichtet ist um die Last besser aufheben oder absetzen zu können.
+	\item Am Schwenkbegrenzer ist zusätzlich eine kleine Spiralfeder angebracht. Diese bietet den grossen Vorteil, die Last ohne eine Rückwärtsbewegung auf dem Seil abzusetzen.
+	\item Eine geplante Querverstrebung zwischen den beiden Führungsrohren aus Kohlenstofffasern wird weggelassen, da bei Testversuchen keine Probleme ohne die Verstrebung aufgetreten sind.
+	\item Der Nylonfaden um den Haken zu heben wird ersetzt durch einen Stofffaden. Der Nylonfaden wäre zu steif um diesen kontrolliert auf der Seilwinde aufzurollen.
+\end{itemize}
+
+\subsection{Elektronische Komponenten}
+
+\begin{itemize}
+	\item Als Kern der elektronischen Steuerung wird neu anstelle des \textit{LoFive} Boards ein \textit{ArduinoDue} Board verwendet. Weil das \textit{LoFive} ein sehr neues Board ist, bestehen im Vergleich zum \textit{ArduinoDue} wenig bis keine Informationen oder Beispiele im Internet dafür. Ein grosser Mehraufwand und Unsicherheit wäre die Folge gewesen.
+	\item Aufgrund des Wechsels vom \textit{LoFive} auf das \textit{ArduinoDue} ist auch die Programmiersprache nicht mehr Rust, sondern es wird neu auf C programmiert.
+	\item Die Auswertung der Daten der Ultraschallsensoren erfolgt neu über das \textit{RasPi} anstatt dem \textit{Arduino}. Grund dafür ist die bessere Prozessorleistung des \textit{RasPi}.
+\end{itemize}
+
+
+\section{Schnittstellen}
+\label{sec:Schnittstellen}
+
+\subsection{Ultraschallsensoren}
+\label{ssec:UltrasonicSensorInterface}
+
+Zur Distanzmessung wird der Ultraschallsensor HC-SR04 gebraucht. Dieser wird über 5V gespeist und über zwei GPIO-Pins angesprochen. Einer davon (Trigger) dient dabei zum Auslösen des Pulses, während der Andere (Echo) ein Signal abgibt, falls der Puls wieder empfangen wurde.
+
+Aus der Zeit zwischen Puls und Empfang kann danach die Distanz über die folgende Formel berechnet werden:
+
+\begin{equation*}
+distanz = \frac{\Delta_{Zeit} \cdot 34300}{2}
+\end{equation*}
+
 \section{Komponenten}
 \label{sec:Pren02Komponenten}
 
@@ -249,7 +297,7 @@ Vor und hinter dem Antriebsrad sind im Abstand von jeweils 7cm zwei Führungsrä
 
 \subsubsection{Schrittmotoren}
 \label{sssec:Schrittmotoren}
-Die Laufkatze hat total zwei Schrittmotoren verbaut. Einen für den Antrieb auf dem Seil und einen für den Hub der Last. Der Antrieb auf dem Seil ist ein Motor des Typs JK42HM48-1684. Dieser dreht sich pro Schritt um \SI{0.9}{\degree}. Das Haltemoment beträgt 4.4kgcm. Der Antrieb des Hubes wird mit einem Motor des Typs 35HS3408A4 ausgeführt. Dieser dreht sich pro Schritt um \SI{1.8}{\degree}. Das Haltemoment beträgt 1.8kgcm.
+Die Laufkatze hat total zwei Schrittmotoren verbaut. einen für den Antrieb auf dem Seil und einen für den Hub der Last. Der Antrieb auf dem Seil ist ein Motor des Typs JK42HM48-1684. Dieser dreht sich pro Schritt um \SI{0.9}{\degree}. Das Haltemoment beträgt 4.4kgcm. Der Antrieb des Hubes wird mit einem Motor des Typs 35HS3408A4 ausgeführt. Dieser dreht sich pro Schritt um \SI{1.8}{\degree}. Das Haltemoment beträgt 1.8kgcm.
 \parencite{CNCSHOP2014}, \parencite{OWO}
 \\
 In Abbildung \ref{fig:SystemArchitektur} ist die Antriebseinheit dargestellt. Diese ist für den Antrieb auf dem Seil und für die Befestigung des ganzen Gerätes auf dem Seil konzipiert. Die Antriebseinheit wird über das Gelenk mit dem Rest der Laufkatze verbunden.
@@ -348,11 +396,11 @@ Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. D
 
 \subsubsection{Kommunikation zwischen Boards}
 \label{sssec:Kommunikation}
-Zwischen dem RasPi und dem Arduino Due soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
+Zwischen dem RasPi und dem \textit{ArduinoDue} soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
 
-Für die Kommunikation mittels asynchroner, seriellen UART-Schnittstelle können, auf dem Arduino Due wie auf dem RasPi, die explizit dafür ausgelegten PINs verwendet werden.
+Für die Kommunikation mittels asynchroner, seriellen UART-Schnittstelle können, auf dem \textit{ArduinoDue} wie auf dem RasPi, die explizit dafür ausgelegten PINs verwendet werden.
 
-Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 18 (Tx) und Pin 19 (Rx). Zusätzlich müssen die beiden Ground (GND) Potentiale vom RasPi und dem Arduino Due verbunden sein.
+Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 18 (Tx) und Pin 19 (Rx). Zusätzlich müssen die beiden Ground (GND) Potentiale vom RasPi und dem \textit{ArduinoDue} verbunden sein.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[keepaspectratio, width=0.8\textwidth]{SchemaKommunikationArduinoRaspbiScreenshot}
@@ -437,7 +485,7 @@ Dieser Ablauf wird in Abbildung \ref{fig:ZielerkennungAblauf} noch genauer darge
 \subsubsection{Systemarchitektur}
 \label{sssec:SysArch}
 
-Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (siehe Abb. \ref{fig:SystemArchitektur}). Zum Einen ist dies die Kamera mit der dazugehörenden Logik, wie auch die serielle Schnittstelle über die die Kommunikation realisiert wird, zum Anderen ist dies der Controller, welcher als Supervisor die ganzen Prozesse überwacht und koordiniert.
+Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (siehe Abb. \ref{fig:SystemArchitektur}). Zum einen ist dies die Kamera mit der dazugehörenden Logik, wie auch die serielle Schnittstelle über die die Kommunikation realisiert wird, zum anderen ist dies der Controller, welcher als Supervisor die ganzen Prozesse überwacht und koordiniert.
 
 \begin{figure}[h!]
 	\centering
@@ -446,9 +494,9 @@ Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (si
 	\label{fig:PiSensorSystemArchitektur}
 \end{figure}
 
-Die Logik der Erkennung wurde in zwei Teile separiert, bildlich dargestellt in der Abbildung \ref{fig:KameraSensor}. Zum Einen das Erfassen der Daten des Sensors und der Erkennung der Zielplatte, und zum Anderen das Berechnen der Distanz zwischen Zielplatte und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung wird über eine Factory-Klasse bereitgestellt. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
+Die Logik der Erkennung wurde in zwei Teile separiert, bildlich dargestellt in der Abbildung \ref{fig:KameraSensor}. Zum einen das Erfassen der Daten des Sensors und der Erkennung der Zielplatte, zum anderen das Berechnen der Distanz zwischen Zielplatte und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung über eine Factory-Klasse bereitgestellt wird. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
 
-Im Moment wird die Erkennung der Zielplatte (wie in Kapitel \ref{sssec:Bilderkennung} dargestellt) über einen Kontur\-erkennungs\-algorithmus der Bibliothek 'OpenCV' realisiert. Ist die Zielplatte erkannt, so wird über den Controller das Signal zum Berechnen der Distanz gegeben. Die Methodik zur Distanzberechnung wird in Kapitel \ref{ssec:DistModelCreation} genauer erläutert.
+Im Moment wird die Erkennung der Zielplatte (wie in Kapitel \ref{sssec:Bilderkennung} dargestellt) über einen Konturen\-erkennungs\-algorithmus der Bibliothek 'OpenCV' realisiert. Ist die Zielplatte erkannt, so wird über den Controller das Signal zum Berechnen der Distanz gegeben. Die Methodik zur Distanzberechnung wird in Kapitel \ref{ssec:DistModelCreation} genauer erläutert.
 
 Ist die Entfernung zur Zielplatte ermittelt, so soll der PiController genaue Fahrtanweisungen zur Motor- und Sensorsteuerung übergeben. Dies wird über das 'communicator'-Modul realisiert.
 
@@ -471,12 +519,12 @@ Ist die Entfernung zur Zielplatte ermittelt, so soll der PiController genaue Fah
 \end{landscape}
 
 \subsubsection{RasPi-Kamera}
-Für die Erkennung der Zielplatte wird die \textit{RasPi}-Kamera v2.1 verwendet. Angebracht ist die Kamera zuvorderst am Gerät mit vier Schrauben an einem Winkel. Damit die Zielplatte genügend früh erkannt werden kann und die Last nicht das Bild stört, ist die Kamera mit einem Winkel \SI{20}{\degree} zur Vertikalen nach vorne gerichtet. Das Bild wird auf dem \textit{RasPi} ausgewertet und erkennt damit die Zielplatte.
+Für die Erkennung der Zielplatte wird die \textit{RasPi}-Kamera v2.1 verwendet. Angebracht ist die Kamera zuvorderst am Gerät mit vier Schrauben an einem Winkel. Damit die Zielplatte genügend früh erkannt werden kann und die Last nicht das Bild stört, ist die Kamera mit einem Winkel von \SI{20}{\degree} zur Vertikalen nach vorne gerichtet. Das Bild wird auf dem \textit{RasPi} ausgewertet und erkennt damit die Zielplatte.
 
 \subsection{Positionsanzeige}
 \label{ssec:Positionsanzeige}
 
-Auf dem LCD-Display werden die Koordinaten in x-, sowie z-Richtung dargestellt. Zwei Ultraschallsensoren, je einer in x-, und z-Richtung, messen die jeweiligen Distanzen. Bei der z-Koordinate muss jedoch noch ein Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die angezeigten Koordinaten die der transportierten Last sein müssen. Wie viel abgezogen werden muss, wird über den Hubschrittmotor berechnet. Damit bei der Fahrt über die Hindernisse nicht ein falscher Wert angezeigt wird, werden plötzliche grosse Änderungen nicht berücksichtigt und der vorherige Wert wird angezeigt. Der LCD-Display ist in Fahrtrichtung rechts mit Schrauben an einer Halterung aus dem 3D-Drucker befestigt. Die Halterung wiederum ist auf die Grundplatte gesteckt. Die Masse werden ungefähr einmal pro Sekunde aktualisiert und diese werden in Zentimeter auf eine Kommastelle genau angezeigt. Die Positionsanzeige wird über das \textit{ArduinoDue} angesprochen.
+Auf dem LCD-Display werden die Koordinaten in x-, sowie z-Richtung dargestellt. Zwei Ultraschallsensoren, je einer in x-, und z-Richtung, messen die jeweiligen Distanzen. Bei der z-Koordinate muss jedoch noch ein Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die Koordinaten der transportierten Last dargestellt werden sollen. Wie viel abgezogen werden muss, ist abhängig von der Distanz, welche vom Hubmotor angehoben wird. Damit bei der Fahrt über die Hindernisse nicht ein falscher Wert angezeigt wird, werden plötzliche grosse Änderungen nicht berücksichtigt und der vorherige Wert wird angezeigt. Der LCD-Display ist in Fahrtrichtung rechts mit Schrauben an einer Halterung aus dem 3D-Drucker befestigt. Die Halterung wiederum ist auf die Grundplatte gesteckt. Die Position wird einmal pro Sekunde aktualisiert. Die Anzeige ist in Zentimeter und mit einer Genauigkeit von einer Nachkommastelle. Das LCD-Modul wird über das \textit{ArduinoDue} angesteuert.
 
 \newpage
 
@@ -491,54 +539,6 @@ Für die Distanzmessung werden in x-Richtung und y-Richtung je ein Ultraschallse
 Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der Zielbereich erreicht ist und der Masten berührt wird. Dafür wird der Endschalter mit dem Arduino ausgelesen. Angebracht ist er am vordersten Punkt des Kamerahalters. Verwendet wurde ein Endschalter des Typs 5E4T125 von Burgess.
 
 
-\section{Konzeptänderungen nach PREN01}
-\label{sec:Konzeptaenderungen}
-
-
-\subsection{Antriebseinheit und Grundplatte}
-
-\begin{itemize}
-		\item Das angetriebene Laufrad ist neu aus Gummi und nicht nur mit Gummi beschichtet. Die Reibung auf dem Seil wird damit vergrössert und verhindert Rutschen.
-		\item Bei dem Gelenk der Aufhängung ist zusätzlich eine Messingbuchse eingebaut damit möglichst wenig Reibung auftritt.
-		\item Die Dämpfer um Schwingungen aufzufangen werden nicht benötigt, da die Schwingungen auch ohne Dämpfer klein sind.
-		\item Die Grundplatte wird aus bearbeitungstechnischen Gründen nicht mehr aus Aluminium gefertigt sondern aus einer gelaserten, 6mm dicken Holzplatte.
-		\item Die Positionsanzeige in x-Richtung wird nur noch über einen Ultraschallsensor bestimmt. Der Einbezug des Schrittmotor wird aufgrund der ausreichenden Genauigkeit des Ultraschallsensors nicht mehr benötigt.
-		\item Die geplante Durchhangstabelle wird nicht miteinbezogen, da ebenfalls ein Ultraschallsensor verwendet wird. Der Schrittmotor wird aber noch immer einbezogen, da der Ultraschallsensor an der Grundplatte angebracht ist aber die Position der Last angezeigt werden muss.
-\end{itemize}
-
-\subsection{Hubvorrichtung}
-
-\begin{itemize}
-		\item Der Haken ist neu aus Kunststoff aus dem 3D-Drucker gefertigt. Aufgrund einer leicht veränderten Geometrie ist ein 3D-Druck sinnvoller.
-		\item Zusätzlich wird der Haken noch von einem Schwenkbegrenzer eingeschränkt. Damit wird sichergestellt, dass der Haken leicht nach hinten gerichtet ist um die Last besser aufheben oder absetzen zu können.
-		\item Am Schwenkbegrenzer ist zusätzlich eine kleine Spiralfeder angebracht. Diese bietet den grossen Vorteil, die Last ohne eine Rückwärtsbewegung auf dem Seil abzusetzen.
-		\item Eine geplante Querverstrebung zwischen den beiden Führungsrohren aus Kohlenstofffasern wird weggelassen, da bei Testversuchen keine Probleme ohne die Verstrebung aufgetreten sind.
-		\item Der Nylonfaden um den Haken zu heben wird ersetzt durch einen Stofffaden. Der Nylonfaden wäre zu steif um diesen kontrolliert auf der Seilwinde aufzurollen.
-\end{itemize}
-
-\subsection{Elektronische Komponenten}
-
-\begin{itemize}
-		\item Als Kern der elektronischen Steuerung wird neu anstelle des \textit{LoFive} Boards ein \textit{ArduinoDue} Board verwendet. Weil das \textit{LoFive} ein sehr neues Board ist, bestehen im Vergleich zum \textit{ArduinoDue} wenig bis keine Informationen oder Beispiele im Internet dafür. Ein grosser Mehraufwand und Unsicherheit wäre die Folge gewesen.
-		\item Aufgrund des Wechsels vom \textit{LoFive} auf das \textit{ArduinoDue} ist auch die Programmiersprache nicht mehr Rust, sondern es wird neu auf C programmiert.
-		\item Die Auswertung der Daten der Ultraschallsensoren erfolgt neu über das \textit{RasPi} anstatt dem \textit{Arduino}. Grund dafür ist die bessere Prozessorleistung des \textit{RasPi}.
-\end{itemize}
-
-
-\section{Schnittstellen}
-\label{sec:Schnittstellen}
-
-\subsection{Ultraschallsensoren}
-\label{ssec:UltrasonicSensorInterface}
-
-Zur Distanzmessung wird der Ultraschallsensor HC-SR04 gebraucht. Dieser wird über 5V gespeist und über zwei GPIO-Pins angesprochen. Einer davon (Trigger) dient dabei zum Auslösen des Pulses, während der Andere (Echo) ein Signal abgibt, falls der Puls wieder empfangen wurde.
-
-Aus der Zeit zwischen Puls und Empfang kann danach die Distanz über die folgende Formel berechnet werden:
-
-\begin{equation*}
-	distanz = \frac{\Delta_{Zeit} \cdot 34300}{2}
-\end{equation*}
-
 \section{Bedienungsanleitung}
 \label{sec:Bedienungsanleitung}
 %todo anpassung höhe des Hakens ab Boden
@@ -549,7 +549,7 @@ Um die Funktionalität des Geräts zu gewährleisten, müssen einige Punkte in d
 	\item Die Laufkatze muss vorsichtig in das Seil eingehängt werden. Wichtig ist, dass sich die Führungsrollen unter und das Antriebsrad über dem Seil befinden.
 	\item Das Gerät muss sich an der Position auf dem Seil befinden, damit der Masten gerade berührt wird.
 	\item Die vorgegebene Höhe von 5 Zentimeter vom untersten Punkt des Hakens bis zum Boden muss eingestellt werden. Wenn sich der Haken an der korrekten Höhe befindet, muss der Stecker der Akkupacks am ET-Board eingesteckt werden damit der Schrittmotor die Hubvorrichtung hält.
-	\item Der Kippschalter am ET-Board und der Reset-Knopf auf dem ArduinoDue muss nun betätigt werden um das Gerät zu starten.
+	\item Der Kippschalter am ET-Board und der Reset-Knopf auf dem \textit{ArduinoDue} muss nun betätigt werden um das Gerät zu starten.
 \end{itemize}
 
 \section{Schnittstellen und Abhängigkeiten}
@@ -597,7 +597,7 @@ Bevor die Komponenten in das Gesamtsystem integriert wurden, sind diese einzeln 
 	\hline
 	2.07 & 4.6 4.7 & Ultraschall LCD & Arduino UNO Code zur Ansteuerung des Sensors und LCDs & Der Sensor ist auf die Wettbewerbsdistanz genügend genau\\
 	\hline
-	2.08 & 4.6 4.7 & Ultraschall DUE LCD & Arduino DUE Code zur Ansteuerung des Sensors in x-Achse(Länge) und z-Achse(Höhe) und des LCD-Displays mit Anzeige von beiden Längen & Der Sensor konnte auch auf dem Arduino DUE betrieben werden, jedoch blockiert er sich teilweise selber. Die Genauigkeit der Messung konnte mithilfe eines Röhrchens das über den Sender gestülpt wurde verbessert werden.\\
+	2.08 & 4.6 4.7 & Ultraschall DUE LCD & \textit{ArduinoDue} Code zur Ansteuerung des Sensors in x-Achse(Länge) und z-Achse(Höhe) und des LCD-Displays mit Anzeige von beiden Längen & Der Sensor konnte auch auf dem \textit{ArduinoDue} betrieben werden, jedoch blockiert er sich teilweise selber. Die Genauigkeit der Messung konnte mithilfe eines Röhrchens das über den Sender gestülpt wurde verbessert werden.\\
 	\hline
 	2.09 & 3.7 3.8 4.5 & Starten und Last anheben & Der ganze Aufbau soll vom Start eine bestimmte Länge vorwärts fahren bis zur Last. Dort angekommen soll der Aufbau die Last greifen und hochziehen. Dabei fährt der Aufbau weiter vorwärts. Die Last soll sicher gegriffen werden und vor dem erstmöglichen Hindernis hochgezogen werden & Das vorwärtsfahren, das greifen und heben hat funktioniert. Jedoch wurde die Last zu wenig schnell gehoben, weshalb das Hindernis berührt wurde.\\
 	\hline

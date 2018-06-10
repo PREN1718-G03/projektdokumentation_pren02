@@ -129,7 +129,7 @@ Horw, \today
 
 	Der Fokus dieses Moduls liegt im Bau der Laufkatze und der Funktionalität des ganzen Gerätes. Zudem ist die Projektplanung, die Dokumentation und die Interdisziplinäre Zusammenarbeit sehr wichtig. Das Ziel des Projektes ist es, eine Laufkatze zu entwickeln welche autonom eine Last aufheben und an einer zuvor unbekannten Position auf eine Zielplatte absetzten kann. Die Position der aufgenommenen Last soll während dem Transport angezeigt werden.
 
-	Das Ergebnis dieser Arbeit ist ein Konzept einer Laufkatze, welche mit Seilrollen angetrieben wird. Unterhalb der Aufhängung ist die Montageplatte und die Hubeinrichtung angebracht. Diese besteht aus einem Haken welcher mit einer geführten Seilwindenkonstruktion gehoben werden kann. Die Zielplatte wird mittels Bilderkennung erkannt und die Distanz mit Ultraschallsensoren und dem Zählen der Schritte von den Schrittmotoren.
+Das Ergebnis dieser Arbeit ist ein Konzept einer Laufkatze, welche mit Seilrollen angetrieben wird. Unterhalb der Aufhängung ist die Montageplatte und die Hubeinrichtung angebracht. Diese besteht aus einem Haken welcher mit einer geführten Seilwindenkonstruktion gehoben werden kann. Die Zielplatte wird mittels Bilderkennung, und die Distanz mit Ultraschallsensoren und Zählen der Schritte der Schrittmotoren erkannt.
 
 	Am Ende des Moduls wird das geschaffene an einem Wettbewerb von Experten bewertet. Es werden unter anderem die Geschwindigkeit, die Genauigkeit und die fehlerfreie Absolvierung der Aufgaben angeschaut.
 
@@ -607,17 +607,48 @@ Bevor die Komponenten in das Gesamtsystem integriert wurden, sind diese einzeln 
 
 Die Detaillierten Versuchsprotokolle sind im Anhang zu finden.
 
-\section{Test Komplett}
+\section{Freigabetest}
 
-\section{Fazit}
+Als Freigabetest wurde ein kompletter Testdurchlauf durchgeführt.\\
 
-Die durchgeführten Tests (siehe Anhang) zeigen auf, dass alle wesentlichen
-Komponenten soweit funktionieren und nur in folgenden Fällen zu Komplikationen führen kann:\\
+\subsection{Ablauf Test}
+\begin{enumerate}
+	\item Laufkatze auf Seil aufsetzen (Zeitfenster 2 Minuten)
+	\item I/O-Schalter betätigen
+	\item Vorwärtsfahren bis Last gegriffen
+	\item Last heben
+	\item Vorwärtsfahren bis Zielplattform erkannt
+	\item Eingehende Werte umrechnen und entsprechenden Weg fahren
+	\item Last auf Zielplattform absetzen
+	\item Haken anheben
+	\item Fahren bis Zielmasten erreicht
+\end{enumerate}
 
-\begin{itemize}
-	\item Durch den Parallelbetrieb der Motoren Sensoren und des Displays kam es zu einer Stockenden Fahrbewegung. Dabei stellte sich heraus, dass das Arduino DUE Programme nicht parallel abarbeiten kann. Deshalb wurden die Ultraschallsensoren auf das Raspberry PI ausgelagert. zusätzlich musste die Ansteuerung der Motoren mithilfe einer anderen Funktion gelöst werden.
-	\item Der Ultraschallsensor hat sich teilweise selber blockiert, da er nach dem senden des Tastimpulses auf eine Antwort wartete, diese jedoch nie kam. Deshalb musste zusätzlich eine weitere Funktion implementiert werden, sodass wenn der Ultraschallsensor nach 2 Sekunden keine Antwort erhielt eine weitere Messung durchgeführt wurde.
+\subsection{Resultate}
+
+\begin{enumerate}
+	\item Laufkatze konnte in 1 Minute auf das Seil gesetzt werden.
+	\item Mit dem Betätigen des I/O-Schalters wurde die Laufkatze gestartet
+	\item Laufkatze greift Last
+	\item Last wurde vor dem 1. Hindernis gehoben
+	\item Last wird über Hindernisse transportiert
+	\item Sensordaten wurden empfangen und der entsprechende weg gefahren
+	\item Haken wurde auf Zielplattform abgesenkt
+	\item Haken wurde Angehoben
+	\item Gerät hat Zielmast berührt und Motoren wurden gestoppt
+	\item Während der gesamten Fahrt wurden die Koordinaten angezeigt	\item Platform wurde nicht berührt
+\end{enumerate}
+
+\begin{itemize}	
+	\item Inbetriebnahmezeit ~1 Minute
+	\item Fahrzeit 45 Sekunden
+	\item Last auf Zweit-innersten Kreis abgesetzt
+	\item getestete Fahrgeschwindigkeit 0.14 m/s
 \end{itemize}
+
+\subsection{Fazit}
+Es konnten sämtliche für den Wettbewerb erforderlichen Tasks erfüllt werden. Jedoch ist die Fahrgeschwindigkeit im Moment noch zu tief um mit den schnelleren Teams mithalten zu können. Die Genauigkeit der Anzeige konnte auch nicht genau kontrolliert werden. Die Werte erschienen aber plausibel.
+
 
 \chapter{Essentielle Berechnungen und Resultate}
 \label{sec:EssBerechnung}

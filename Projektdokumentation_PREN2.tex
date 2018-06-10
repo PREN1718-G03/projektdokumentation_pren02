@@ -545,19 +545,19 @@ Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der
 Um die Funktionalität des Geräts zu gewährleisten, müssen einige Punkte in der Vorbereitung beachtet werden.
 
 \begin{itemize}
-	\item Es muss sichergestellt sein, dass alle Kabel eingesteckt sind ausser der Stecker der Energieversorgung von den Akkupacks.
+	\item Es muss sichergestellt sein, dass alle Kabel eingesteckt sind und der Hauptschalter sowie der Schalter für das \textit{ArduinoDue} ausgeschaltet sind.
 	\item Die Laufkatze muss vorsichtig in das Seil eingehängt werden. Wichtig ist, dass sich die Führungsrollen unter und das Antriebsrad über dem Seil befinden.
-	\item Das Gerät muss sich an der Position auf dem Seil befinden, damit der Masten gerade berührt wird.
-	\item Die vorgegebene Höhe von 5 Zentimeter vom untersten Punkt des Hakens bis zum Boden muss eingestellt werden. Wenn sich der Haken an der korrekten Höhe befindet, muss der Stecker der Akkupacks am ET-Board eingesteckt werden damit der Schrittmotor die Hubvorrichtung hält.
-	\item Der Kippschalter am ET-Board und der Reset-Knopf auf dem \textit{ArduinoDue} muss nun betätigt werden um das Gerät zu starten.
+	\item Das Gerät muss so positioniert sein, damit der Masten gerade berührt wird.
+	\item Die vorgegebene Höhe von 4 Zentimeter vom untersten Punkt des Hakens bis zum Boden muss eingestellt werden. Wenn sich der Haken auf der korrekten Höhe befindet, muss der Hauptschalter eingeschaltet werden, damit die Schrittmotoren ihre Position halten.
+	\item Der Kippschalter am \textit{ArduinoDue} und dessen Resetknopf müssen betätigt werden um das Gerät zu starten.
 \end{itemize}
 
 \section{Schnittstellen und Abhängigkeiten}
 \label{sec:SchnittAbhang}
 % TODO Überprüfen
-Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem \textit{RasPi} und dem \textit{ArduinoDue}, zum anderen müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das \textit{ArduinoDue} benötigt.
+Die Schnittstellen der verschiedenen Komponenten sind zentral für die Funktionstüchtigkeit der Laufkatze. Zum einen ist dies die Kommunikation zwischen dem \textit{RasPi} und dem \textit{ArduinoDue}, zum anderen müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputern wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Diese Schnittstelle bietet sich an, weil sie auf beiden Mikrocomputern zur verfügung steht und sich zur Datenübertragung über kurze Distanzen eignet.
 
-Viele Schnittstellen sind von der Positionsbestimmung abhängig. Um die Position zu bestimmen, werden die Schrittmotoren und zwei Ultraschallsensoren eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das Heben und Senken derselben und das Absetzen. Da ein Haken eingesetzt wird, muss diese Positionsbestimmung genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von 0...+20mm liegen. In x-Richtung darf die Genauigkeit ebenfalls etwa 0...+20mm betragen, da sonst der Haken die Last verfehlt. Der LCD-Display gibt zudem die Koordinaten der Last wieder.
+Viele Schnittstellen sind von der Positionsbestimmung abhängig. Um die Position zu bestimmen, werden die Schrittmotoren und zwei Ultraschallsensoren eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das Heben und Senken derselben und das Absetzen. Weil ein Haken eingesetzt wird, muss diese Positionsbestimmung genau sein, damit die Last abgesetzt werden kann. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von 0...+20mm liegen. In x-Richtung darf die Genauigkeit ebenfalls etwa 0...+20mm betragen, da sonst der Haken die Last nicht absetzt.
 
 Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst ruhig und waagerecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Deshalb muss auf die Anordnung der Komponenten geachtet werden, damit beim Lasttransport nicht eine Schieflage entsteht. Da sich die Komponenten auf die Balance der Plattform auswirken, muss deren Position im voraus evaluiert werden.
 

@@ -125,11 +125,11 @@ Horw, \today
 
 \pagenumbering{roman}
 \begin{abstract}
-	Im Rahmen des Moduls Produktentwicklung 2 wird ein Funktionsmuster des in PREN01 ausgearbeiteten Konzeptes erstellt. Dabei sind die Fachrichtungen Maschinentechnik, Informatik und Elektrotechnik vertreten. Neben der Realisierung des geplanten Funktionsumfang, steht vor allem auch das gute Abschneiden im Wettbewerb im Vordergrund.
+	Im Rahmen des Moduls Produktentwicklung 2 wird ein Funktionsmuster des in PREN01 ausgearbeiteten Konzeptes erstellt. Dabei sind die Fachrichtungen Maschinentechnik, Informatik und Elektrotechnik vertreten. Neben der Realisierung des geplanten Funktionsumfangs steht vor allem auch das gute Abschneiden im Wettbewerb im Vordergrund.
 
-	Der Fokus dieses Moduls liegt in dem Bauen der Laufkatze und der Funktionalität des ganzen Gerätes. Zudem ist die Projektplanung, die Dokumentation und die Interdisziplinäre Zusammenarbeit sehr wichtig. Das Ziel des Projektes ist es, eine Laufkatze zu entwickeln welche autonom eine Last aufheben und an einer zuvor unbekannten Position auf eine Zielplatte absetzten kann. Die Position der aufgenommenen Last soll während dem Transport angezeigt werden.
+	Der Fokus dieses Moduls liegt im Bau der Laufkatze und der Funktionalität des ganzen Gerätes. Zudem ist die Projektplanung, die Dokumentation und die Interdisziplinäre Zusammenarbeit sehr wichtig. Das Ziel des Projektes ist es, eine Laufkatze zu entwickeln welche autonom eine Last aufheben und an einer zuvor unbekannten Position auf eine Zielplatte absetzten kann. Die Position der aufgenommenen Last soll während dem Transport angezeigt werden.
 
-	Das Ergebnis dieser Arbeit ist ein Konzept einer Laufkatze, welche mit Seilrollen angetrieben wird. Unterhalb der Aufhängung ist die Montageplatte und die Hubeinrichtung angebracht. Diese besteht aus einem Haken welcher mit einer geführten Seilwindenkonstruktion gehoben werden kann. Die Zielplatte wird mittels Bilderkennung erkannt und die Distanz mit Ultraschallsensoren und dem Zählen der Schritte von den Motoren.
+Das Ergebnis dieser Arbeit ist ein Konzept einer Laufkatze, welche mit Seilrollen angetrieben wird. Unterhalb der Aufhängung ist die Montageplatte und die Hubeinrichtung angebracht. Diese besteht aus einem Haken welcher mit einer geführten Seilwindenkonstruktion gehoben werden kann. Die Zielplatte wird mittels Bilderkennung, und die Distanz mit Ultraschallsensoren und Zählen der Schritte der Schrittmotoren erkannt.
 
 	Am Ende des Moduls wird das geschaffene an einem Wettbewerb von Experten bewertet. Es werden unter anderem die Geschwindigkeit, die Genauigkeit und die fehlerfreie Absolvierung der Aufgaben angeschaut.
 
@@ -168,13 +168,11 @@ Wie im vorherigen Modul Produktentwicklung 1 wurde die Dokumentation mit \LaTeX 
 
 \section{Kurzbeschrieb Anforderungen}
 \label{sec:KurzAnforder}
-Das Gerät muss sich autonom entlang eines ansteigenden Drahtseils fortbewegen können. Eine Last muss an einem fix bestimmten Ort aufgehoben werden, ohne Berührung über nachfolgende Hindernisse transportiert und danach möglichst exakt auf einer Zielplatte im Absetzbereich abgesetzt werden (siehe Abb.\ref{fig:Funktionsskizze}).
+Das Gerät muss sich autonom entlang eines ansteigenden Drahtseils fortbewegen können. Eine Last, welche sich an einem vorbestimmten Platz befindet soll vom Gerät angehoben werden. Ohne Berührung der nachfolgenden Hindernisse muss die Last exakt auf der Zielplatte, welche sich im Absetzbereich befindet, abgesetzt werden (siehe Abb.\ref{fig:Funktionsskizze}).
 
 Nach dem Absetzen der Last muss das Gerät den Zielraum erreichen und den Masten berühren. Das Gerät muss die Zielplatte selbstständig erkennen können. Das Gerät darf nur die Last, das Drahtseil und den zweiten Masten berühren. Nach Aufnahme der Last, muss die aktuelle Position der Last in x-, und z-Richtung in Echtzeit dargestellt werden.
 
 Das Gerät muss innerhalb von zwei Minuten startbereit sein. Die Zeit um den Zielraum zu erreichen liegt bei maximal vier Minuten. Die Abbildung \ref{fig:Ablaufdiagramm} stellt den beschrieben Ablauf anschaulich dar.
-
-In Abbildung \ref{fig:Blockdiagramm} findet sich eine Darstellung der technischen Komponenten und ihren Zusammenhängen.
 
 \chapter{Produktbeschreibung}
 % Beschreibung der Komponenten und des Produkts welche wir in PREN02 erarbeiten
@@ -182,7 +180,7 @@ In Abbildung \ref{fig:Blockdiagramm} findet sich eine Darstellung der technische
 
 \section{Beschreibung der Grundfunktion}
 \label{sec:GrundBeschrieb}
-Die Grundfunktionen des zu bauenden Gerätes sind hauptsächlich das Fortbewegen an einem Drahtseil und das Greifen und Absetzen einer Last. Um die Last zu greifen ist ein Hubmechanismus notwendig, der die Last um mindestens 200mm heben kann. Um die aktuelle Position messen zu können, werden zwei Ultraschallsensoren verwendet. Die aktuelle Position der aufzuhebenden Last wird auf dem Gerät mittels eines LCD-Displays angezeigt. Eine Kamera wird verwendet, um die vorgegebene Zielplattform zu erkennen. Damit ist das Gerät in der Lage an der richtigen Position, über dem Mittelpunkt der Zielplattform, zu stoppen. Diese Funktionen laufen bis auf das Startsignal autonom ab.
+Die Grundfunktionen des zu bauenden Gerätes sind hauptsächlich das Fortbewegen an einem Drahtseil und das Greifen und Absetzen einer Last. Um die Last zu greifen ist ein Hubmechanismus notwendig, der die Last um mindestens 200mm heben kann. Um die aktuelle Position messen zu können, werden zwei Ultraschallsensoren verwendet. Die aktuelle Position der aufzuhebenden Last wird auf dem Gerät mittels eines LCD-Displays angezeigt. Eine Kamera wird verwendet, um die vorgegebene Zielplatte zu erkennen. Damit ist das Gerät in der Lage an der richtigen Position, über dem Mittelpunkt der Zielplatte, zu stoppen. Diese Funktionen laufen bis auf das Startsignal autonom ab.
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{PrenFunktionsskizze}
@@ -203,9 +201,9 @@ Der Ablauf der verschiedenen Teilschritte erfolgt gemäss Abbildung \ref{fig:Abl
 
 \newpage
 
-Nach dem das Gerät am Seil angebracht wurde (\ref{sec:Bedienungsanleitung}), kann mit dem Restart-Knopf am \textit{ArduinoDue} (\ref{sssec:ArduinoDue}) gestartet werden. Es wird nun eine Vorprogrammierter Ablauf gefahren. Dieser beinhaltet den Antriebsschrittmotor zum Vorwärtsfahren (\ref{ssec:Antrieb}) bis der Haken in die Last eingehängt hat (\ref{ssec:Lastgreifenundabsetzen}) und den Hubschrittmotor, welcher die Last um eine bestimmte Schrittanzahl hebt (\ref{ssec:Lastanhebenundsenken}). Dieser Ablauf läuft über das \textit{ArduinoDue}. Gleichzeitig werden die Daten der Ultraschallsensoren (\ref{ssec:Ultraschallsensor}) über das \textit{RasPi} (\ref{sssec:RasPi}) ausgewertet und als Distanzen in Millimetern vom \textit{ArduinoDue} abgefragt. Bei der z-Koordinate wird zusätzlich noch die vom Hubschrittmotor gehobene Höhe abgezogen und beide Koordinaten werden auf dem LCD-Display (\ref{ssec:Positionsanzeige}) angezeigt.\\
-Das Gerät wird dann mit der aufgenommenen Last Vorwärtsfahren, bis die Kamera (\ref{ssec:Zielerkennung}) die Zielplattform sieht und das \textit{RasPi} diese erkennen kann (\ref{ssec:Zielerkennung}). Das \textit{ArduinoDue} fragt regelmäßig ab, ob das \textit{RasPi} die Zielplattform bereits erkannt hat. Falls die Antwort ein positiver Wert ist, wird diese übermittelte Distanz abgefahren und der Hubmotor startet das Absetzen der Last. Wie viel der Hubmotor die Last absenken muss, wird aus den Daten des vertikal messenden Ultraschallsensors und den Schritten des geleisteten Hubmotors berechnet. Wenn die Last auf der Zielplattform aufkommt, klinkt sich der Haken automatisch aus der Last aus. Der Haken wird danach wieder 25 Zentimeter hochgehoben und der Antriebsmotor fährt solange vorwärts, bis der Endschalter(\ref{ssec:Endschalter}) betätigt wird. Damit ist die Aufgabe beendet.
 
+Nach dem das Gerät am Seil angebracht wird (\ref{sec:Bedienungsanleitung}), kann mit dem Reset-Knopf des \textit{ArduinoDue} (\ref{sssec:ArduinoDue}) gestartet werden. Es wird nun ein vorprogrammierter Ablauf gefahren. Dieser beinhaltet den Antriebsschrittmotor zum Vorwärtsfahren (\ref{ssec:Antrieb}) bis der Haken in die Last eingehängt hat (\ref{ssec:Lastgreifenundabsetzen}) und den Hubschrittmotor, welcher die Last um eine bestimmte Schrittanzahl hebt (\ref{ssec:Lastanhebenundsenken}). Dieser Ablauf läuft über das \textit{ArduinoDue}. Gleichzeitig werden die Daten der Ultraschallsensoren (\ref{ssec:Ultraschallsensor}) über das \textit{RasPi} (\ref{sssec:RasPi}) ausgewertet und als Distanzen in Millimetern vom \textit{ArduinoDue} abgefragt. Bei der z-Koordinate wird zusätzlich noch die vom Hubschrittmotor gehobene Höhe abgezogen und beide Koordinaten werden auf dem LCD-Display (\ref{ssec:Positionsanzeige}) angezeigt.\\
+Das Gerät wird dann mit der aufgenommenen Last Vorwärtsfahren, bis die Kamera (\ref{ssec:Zielerkennung}) die Zielplatte sieht und das \textit{RasPi} diese erkennen kann (\ref{ssec:Zielerkennung}). Das \textit{ArduinoDue} fragt regelmäßig ab, ob das \textit{RasPi} die Zielplatte bereits erkannt hat. Falls die Antwort ein positiver Wert ist, wird diese übermittelte Distanz abgefahren und der Hubmotor startet das Absetzen der Last. Wie viel der Hubmotor die Last absenken muss, wird aus den Daten des vertikal messenden Ultraschallsensors und den geleisteten Schritten des Hubmotors berechnet. Wenn die Last auf der Zielplatte aufkommt, klinkt sich der Haken automatisch aus der Last aus. Der Haken wird danach wieder 25 Zentimeter hochgehoben und der Antriebsmotor fährt solange vorwärts, bis der Endschalter(\ref{ssec:Endschalter}) betätigt wird. Damit ist die Aufgabe beendet.
 
 \newpage
 Im Blockdiagramm (Abb. \ref{fig:Blockdiagramm}) sind die Schnittstellen graphisch dargestellt.
@@ -232,52 +230,46 @@ Im Blockdiagramm (Abb. \ref{fig:Blockdiagramm}) sind die Schnittstellen graphisc
 \newpage
 
 \subsection{Aufhängung}
-%todo Abschnitt wahrscheinlich löschen
-Durch die unten gelenkig und gedämpft gelagerte Aufhängung kann die Winkeländerung, welche durch den Seildurchhang verursacht wird, kompensiert werden. Dabei hängt die Last durch den Schwerpunkt immer senkrecht nach unten. Durch das Gelenk (ähnlich wie bei einer Gondelbahn) wird der ganze Aufbau aber empfindlich gegen pendeln, weil das Gelenk kein Drehmoment aufnehmen kann. Dieses wird beispielsweise durch die Beschleunigung bei Anfahren oder Abbremsen erzeugt. Das Gelenk wird mit einer Messingbuchse und einer Schraube mit Sicherungsmutter realisiert. An der Aufhängung wird der Hubmotor, die elektrischen Komponenten, die Energieversorgung und die Führungen der Hubeinrichtung angebracht. Diese besteht aus zwei Linearführungen, durch welche zwei Stäbe in einem Rohr hoch und hinuntergefahren werden.
+\label{ssec:Aufhaengung}
+Indem die Aufhängung gelenkig gelagert ist, kann die Winkeländerung am Seil kompensiert werden. Dadurch hängt die Laufkatze waagrecht, wenn der Schwerpunkt mittig unter dem Antriebsrad liegt. Durch das Gelenk kann die Laufkatze bei abrupten beschläunigungs und Bremsvorgängen ins pendeln geraten (ähnlich wie bei einer Gondelbahn). Das Gelenk wird mit einer Messingbuchse, einer Schraube und mit einer Sicherungsmutter realisiert. Ist das Gelenk, der Schwerpunkt der Laufkatze und der Haken nicht in einer Linie, so kommt es beim Anheben und Absetzen der Last zu einem unterschiedlichen Winkel der Laufkatze zum Boden. An der Aufhängung wird die Grundplatte angebracht.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[keepaspectratio,width=0.5\textwidth]{Antriebseinheit}
+	\caption{Modulübersicht Aufhängung	}
+	\label{fig:SystemArchitektur}
+\end{figure}
+
 \subsection{Antrieb}
-Der Antrieb auf dem Seil wird mit drei Rädern ausgeführt. Das mittlere Rad aus Gummi ist das angetriebene Rad. Es wird direkt von einem Schrittmotor angetrieben. Das Antriebsrad wird über eine Hohlwelle direkt auf der Motorwelle befestigt. Dies setzt voraus, dass sich die Achse des Motors um den Radius des Antriebsrades über dem Seil befinden muss. Die Ausfallwahrscheinlichkeit ist dadurch tief, da keine Riemen-, oder Zahnradübersetzung notwendig sind. Zudem kann auch der Schlupf klein gehalten werden. Weil der Motor aber über dem Seil angebracht ist, liegt auch der Schwerpunkt des gesamten Gerätes höher. Der Lastausgleich wird dadurch schwieriger und Schwingungen werden begünstigt.
+\label{ssec:Antrieb}
+Das mittlere Rad aus Gummi ist das Antriebsrad. Es wird direkt von einem Schrittmotor angetrieben. Das Antriebsrad wird mithilfe einer Hohlwelle direkt auf der Motorwelle befestigt. Die Ausfallwahrscheinlichkeit ist tief weil keine Übersetzungskomponenten notwendig sind. Umso grösser das Antriebsrad ist, desto höher ist der Schwerpunkt des gesamten Laufkatze. Der Lastausgleich wird daher mit einem kleineren Druchmesser des Antriebsrades begünstigt.
 \\
 Vor und hinter dem Antriebsrad sind im Abstand von jeweils 7cm zwei Führungsräder angebracht. Diese sind in der Höhe verstellbar und müssen manuell im voraus eingestellt werden. Die Aufgabe dieser Räder ist die Schwingung in x-Richtung zu minimieren und den Druck des Rades auf das Seil zu erhöhen. Letzteres hat zur Folge, dass die Reibkraft steigt und somit der Schlupf und die Rutschgefahr auf dem Seil minimiert wird.
 
 \subsubsection{Schrittmotoren}
 \label{sssec:Schrittmotoren}
-%todo Beschreibung Schrittmotoren
-Die Laufkatze hat total zwei Schrittmotoren verbaut. Einen für den Antrieb auf dem Seil und einen für den Hub der Last. Der Antrieb auf dem Seil ist ein Motor des Typs JK42HM48-1684A.Dieser dreht sich pro Schritt um \SI{0.9}{\degree}. Das Haltemoment beträgt 4.4kgcm. Der Antrieb des Hubes wird mit einem Motor des Typs 35HS3408A4 ausgeführt. Dieser dreht sich pro Schritt um \SI{1.8}{\degree}. Das Haltemoment beträgt 1.8kgcm.
+Die Laufkatze hat total zwei Schrittmotoren verbaut. Einen für den Antrieb auf dem Seil und einen für den Hub der Last. Der Antrieb auf dem Seil ist ein Motor des Typs JK42HM48-1684.Dieser dreht sich pro Schritt um \SI{0.9}{\degree}. Das Haltemoment beträgt 4.4kgcm. Der Antrieb des Hubes wird mit einem Motor des Typs 35HS3408A4 ausgeführt. Dieser dreht sich pro Schritt um \SI{1.8}{\degree}. Das Haltemoment beträgt 1.8kgcm.
+\parencite{CNCSHOP2014}, \parencite{OWO}
+\\
+In Abbildung \ref{fig:SystemArchitektur} ist die Antriebseinheit dargestellt. Diese ist für den Antrieb auf dem Seil und für die Befestigung des ganzen Gerätes auf dem Seil konzipiert. Die Antriebseinheit wird über das Gelenk mit dem Rest der Laufkatze verbunden.
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[keepaspectratio,width=0.5\textwidth]{Antriebseinheit}
-	\caption{Modulübersicht Antriebseinheit	}
-	\label{fig:SystemArchitektur}
-\end{figure}
+\subsection{Grundplatte}
+\label{ssec:GrundplatteBeschrieb}
 
+Die Grundplatte wurde aus einer MDF-Platte gefertigt. Diese Platte hat einen Ausschnitt in der Mitte, durch welchen das Seil der Seilwinde geht. Neben dem Ausschnitt wird der \textit{Verbindungswinkel} (\ref{sssec:VerbindungswinkelBeschrieb}) angeschraubt. Zwei zusätzliche Löcher links und rechts neben dem Ausschnitt dienen zur Befestigung der beiden Führungen. Die Elektronikkomponenten werden mithilfe von Klettstreifen auf die Grundplatte befestigt. Die Halterung für den LCD-Display wird mit einer Steckverbindung auf die Grundplatte gesteckt. Zusätzlich sind zwei kleine Winkel aus Aluminium angebracht, um Schalter für die Mikrocomputer zu befestigen. Einer davon ist oben und der andere unten an der Grundplatte befestigt. Auf der Unterseite der Grundplatte wir die Halterung für den Ultraschallsensor mit vier Schrauben befestigt. Die Kabelführung ist mithilfe von Klebesockel auf der Grundplatte gelöst.
 
-\subsection{Aufhängung}
-\label{ssec:Aufhaengung}
-%todo Abschnitt wahrscheinlich löschen
-Durch die unten gelenkige und gedämpft gelagerte Aufhängung kann die Winkeländerung, welche durch den Seildurchhang verursacht wird, kompensiert werden. Dabei hängt die Last durch den Schwerpunkt immer senkrecht nach unten. Durch das Gelenk (ähnlich wie bei einer Gondelbahn) wird der ganze Aufbau aber empfindlich gegen pendeln, weil das Gelenk kein Drehmoment aufnehmen kann. Dieses wird beispielsweise durch die Beschleunigung bei Anfahren oder Abbremsen erzeugt. Das Gelenk wird mit einer Messingbuchse und einer Schraube mit Sicherungsmutter realisiert. Zudem kann sich, je nach Aufbau, der Schwerpunkt der Laufkatze beim Anheben und Absetzen der Last ändern, was wiederum ein Drehmoment erzeugt. Mit Dämpfern kann das Drehmoment aufgenommen und ein Pendeln minimiert werden. Diese Dämpfer werden dann, im Prinzip einer Pendelstütze in der Mechanik, am einen Ende am Antrieb und am anderen Ende an der Aufhängung montiert. Zudem soll der Dämpfer möglichst horizontal angestellt sein, damit er die Pendelbewegung aufnehmen kann. AN der Aufhängung werden der Hubmotor, die elektrischen Komponenten, die Energieversorgung und die Führungen der Hubeinrichtung angebracht. Diese besteht aus zwei Linearführungen, durch welche zwei Stäbe in einem Rohr hoch und hinuntergefahren werden. Weiter werden, je nach Notwendigkeit, Ausgleichsgewichte auf der Aufhängung positioniert, damit die Laufkatze zentral unter dem Seil hängt.
-
-
-
-\subsection{Grundeinheit}
-\label{ssec:GrundeinheitBeschrieb}
-Die Grundeinheit besteht aus der Verbindung von Hubvorrichtung und Fahreinheit. Dabei werden diverse elektronische Komponenten und Sensoren an der Grundeinheit befestigt, welche aber in einem separaten Kapitel behandelt werden. Auch zur Grundeinheit gehören die Motorhalterung, der Befestigungswickel für die Laufkatze und die Führungsrohre der Kohlenstofffaserstäbe.
 
 \begin{figure}[h!]
 	\includegraphics[keepaspectratio,width=\textwidth]{Grundplatte}
-	\caption{Grundeinheit}
-	\label{fig:Grundeinheit}
+	\caption{Grundplatte}
+	\label{fig:Grundplatte}
 \end{figure}
-
-\subsubsection{Grundplatte}
-\label{sssec:GrundplatteBeschrieb}
-Die Grundplatte wurde aus einer MFD-Platte gefertigt. Dabei hat diese Platte einen Ausschnitt in der Mitte, durch welches das Seil der Seilwinde geht.Neben dem Ausschnitt wird der Winkel für die Seilwinde angeschraubt. Zwei zusätzliche Löcher neben dem Ausschnitt dienen zur Befestigung der beiden Führungen. Die Elektronikkomponenten werden mithilfe von Klettverbindungen auf die Grundplatte befestigt. Die Halterung für den LCD-Display wird mit einer Steckverbindung auf die Grundplatte gesteckt. Auf der Unterseite der Grundplatte wir die Halterung für den Ultraschallsensor mit vier Schrauben befestigt. Zusätzlich sind zwei kleine Winkel aus Aluminium angebracht, um Schalter für die Mikrocomputer zu befestigen. Die Kabelführung ist ebenfalls mithilfe von Klebesockel auf der Grundplatte gelöst.
-
 
 
 \subsubsection{Verbindungswinkel}
 \label{sssec:VerbindungswinkelBeschrieb}
-Der Verbindungswinkel ist die Verbindung der Grundeinheit und der Antriebseinheit. Dabei wird der Verbindungswinkel mit zwei M5 Schrauben auf an die Grundplatte geschraubt. Der Verbindungswinkel besitzt eine Gleitlagerung aus Messing.
+Der Verbindungswinkel ist die Verbindung der Grundplatte und der Antriebseinheit. Dabei wird der Verbindungswinkel mit zwei M5 Schrauben an die Grundplatte geschraubt. Der Verbindungswinkel besitzt ein Gleitlager aus Messing.
 
 \subsubsection{Kamerahalterung}
 \label{sssec:Kamerahalterung}
@@ -288,16 +280,16 @@ Die Kamera ist etwa 20 Zentimeter vor der Seilwinde für den Hub angebracht. Daf
 \subsection{Last greifen und absetzen}
 \label{ssec:Lastgreifenundabsetzen}
 %todo Testprotokolle verlinken
-Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken.  Eine nicht-Drehbare Querstange aus Aluminium dient als Halterung für den Haken. Ebenfalls an dieser Querstange ist ein Schwenkbegrenzer mit einer Feder befestigt. Die Feder hält den Haken in einer Schieflage von etwa 45\SI{}{\degree}. Weil die Startposition der Last vorgegeben ist, wird das Aufheben der Last im voraus programmiert.
+Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken.  Eine nicht-Drehbare Querstange aus Aluminium dient als Halterung für den Haken. Ebenfalls an dieser Querstange ist ein Schwenkbegrenzer mit einer Druckfeder befestigt. Die Feder hält den Haken in einer Schieflage von etwa 45\SI{}{\degree}. Weil die Startposition der Last vorgegeben ist, wird das Aufheben der Last im voraus programmiert.
 Nach dem anheben der Last wird die Feder durch das zusätzliche Gewicht gestaucht und der Winkel des Hakens zur Vertikalen verkleinert sich auf etwa 10\SI{}{\degree}.\\
-Beim Absetzen der Last auf der Zielplattform drückt die Feder den Haken automatisch wieder in die Ursprungsposition und klinkt sich damit aus dem Haken der Last aus.
+Beim Absetzen der Last auf der Zielplatte drückt die Feder den Haken automatisch wieder in die Ursprungsposition und klinkt sich damit aus dem Haken der Last aus.
 Durch einen gekrümmten Draht an der Unterseite des Greifers wird sichergestellt, dass sich die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird.
 Der Haken ist aus ABS gefertigt und wird 3D gedruckt.
 
 \subsection{Last anheben und senken}
 \label{ssec:Lastanhebenundsenken}
 Die Last wird mithilfe einer Seilwinde angehoben, welche über einen Schrittmotor angetrieben wird. Dieser ist auf der Befestigungsplatte positioniert. Auf der Motorachse ist eine Seiltrommel aus Aluminium befestigt, die einen Stofffaden aufwickelt. Das Ende des Fadens ist direkt am Greifer mit einer Schlaufe an einer Schraube befestigt.
-Da ein loses Seil stark in Schwingung geraten kann, wird zusätzlich eine Führung mit zwei Stäben aus Kohlenstofffasern verwendet. Auf der Befestigungsplatte sind dafür Führungsrohre angebracht. Um den Widerstand zwischen der Führung und dem Stab so klein wie möglich zu halten, wird das Führungsrohr geschmiert. Aufgrund dieser Führungsstäbe können Schwingungen und Verdrehungen vermieden werden.
+Da ein loses Seil stark in Schwingung geraten kann, wird zusätzlich eine Führung mit zwei Stäben aus Kohlenstofffasern verwendet. Auf der Befestigungsplatte sind dafür Führungsrohre angebracht. Aufgrund dieser Führungsstäbe können Schwingungen und Verdrehungen vermieden werden.
 Dank diesem Aufbau kann der Greifer genauer geführt werden und somit der Transport der Last optimiert ablaufen.
 
 
@@ -308,11 +300,10 @@ Als Kern der elektronischen Steuerung wird das \textit{ArduinoDue} Board verwend
 
 Über das Board werden zwei Schrittmotoren-Treiber sowie ein LCD-Display angesteuert. Zur Rückmeldung werden zwei Ultraschallsensoren und ein \textit{Raspberry Pi 3 Model B} (RasPi) verwendet.
 
-Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplattform übermittelt, kann das System als Regelungssystem betrachtet werden. Solange das Ziel nicht erkannt wird, soll das Gerät mit maximaler Geschwindigkeit fahren. Mit der Erkennung des Ziels wird das Gerät immer langsamer und stoppt über dem Zielfeld. Mit diesem System wird ein effektives Anfahren des Ziels erreicht. Zum Starten und Stoppen des Geräts wird ein Schalter und ein Taster verwendet.
+Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplatte übermittelt, kann das System als Regelungssystem betrachtet werden. Solange das Ziel nicht erkannt wird, soll das Gerät mit maximaler Geschwindigkeit fahren. Mit der Erkennung des Ziels wird das Gerät immer langsamer und stoppt über dem Zielfeld. Mit diesem System wird ein effektives Anfahren des Ziels erreicht. Zum Starten und Stoppen des Geräts wird ein Schalter und ein Taster verwendet.
 
 \subsubsection{ArduinoDue}
 \label{sssec:ArduinoDue}
-%todo Beschreibung Arduino DUE
 
 Als Unterstützung zum \textit{RasPi} wird ein \textit{ArduinoDue} eingesetzt. In Vergleich zum kleineren Arduino Uno liegt der Vorteil in der grösseren Anzahl Ein und Ausgänge, womit es sich vor allem für grössere Projekte anbietet.
 
@@ -361,12 +352,13 @@ Zwischen dem Raspberry Pi und dem Elektronikerboard soll der Informationsaustaus
 
 Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
 
-Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 8 (Tx) und Pin 10 (Rx).
+Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 18 (Tx) und Pin 19 (Rx). Zusätzlich müssen beide Boards über Ground (GND) auf die Masse geführt werden.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio, width=0.8\textwidth]{UART_Verbindung_LLS_Steckplatine}
+	\includegraphics[keepaspectratio, width=0.8\textwidth]{SchemaKommunikationArduinoRaspbiScreenshot}
 	\caption{Verbindung der Boards}
 	\label{fig:RaspberryPins}
+	
 \end{figure}
 
 Die RX und TX Pins des Raspberry Pi werden mit den jeweils komplementären Pins des Arduino (dh. TX und RX) zusammengesteckt.
@@ -375,7 +367,6 @@ UART muss auf dem Raspberry Pi manuell aktiviert werden.  Zusätzlich muss das i
 
 Für die serielle Übertragung müssen Baudrate, Port, Databits, Parity Check, Stopbits und flow control definiert werden. Die Programm\-ierung dieser wird auf dem RaspberryPi mit Hilfe des Python Moduls \textquotedblleft pySerial\textquotedblright\ realisiert.
 
-Auf dem LCD-Display werden die Koordinaten in x-, und in z-Richtung dargestellt. Zwei Ultraschallsensoren, je einer in x-, und z-Richtung, messen die jeweiligen Distanzen. Bei der z-Koordinate muss jedoch noch ein Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die angezeigten Koordinaten die der transportierten Last sein müssen. Wie viel abgezogen werden muss, wird über den Hubschrittmotor berechnet. Damit bei der Fahrt über die Hindernisse nicht ein falscher Wert angezeigt wird, werden plötzliche grosse Änderungen nicht berücksichtigt und der vorherige Wert wird angezeigt. Der LCD-Display ist in Fahrtrichtung rechts mit Schrauben an einer Halterung aus dem 3D-Drucker befestigt. Die Halterung wiederum ist auf die Grundplatte gesteckt. Die Masse werden ungefähr einmal pro Sekunde aktualisiert und diese werden in Zentimeter auf eine Kommastelle genau angezeigt. Die Positionsanzeige wird über das Arduino DUE angesprochen.
 
 \subsection{Zielerkennung}
 \label{ssec:Zielerkennung}
@@ -398,7 +389,7 @@ Das System muss den Ablauf in Abbildung \ref{fig:AblaufZielerkennung} umsetzen k
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio,height=0.4\textheight]{Ablaufdiagramm_ModusOperandi}
+	\includegraphics[keepaspectratio,height=0.6\textheight]{Ablaufdiagramm_ModusOperandi}
 	\caption{Ablaufdiagramm der PiSensor Logik}
 	\label{fig:AblaufZielerkennung}
 \end{figure}
@@ -436,7 +427,7 @@ Dieser Ablauf wird in Abbildung \ref{fig:ZielerkennungAblauf} noch genauer darge
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio,height=0.4\textheight]{ZielplatteErkennen}
+	\includegraphics[keepaspectratio,height=0.6\textheight]{ZielplatteErkennen}
 	\caption{Ablaufdiagramm Zielerkennung}
 	\label{fig:ZielerkennungAblauf}
 \end{figure}
@@ -448,20 +439,20 @@ Die Architektur des RaspberryPi-Sensors wurde in drei Hauptmodule unterteilt (si
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio,width=0.5\textwidth]{SystemArchitektur}
+	\includegraphics[keepaspectratio,width=0.75\textwidth]{SystemArchitektur}
 	\caption{Modulübersicht der PiSensor Architektur}
 	\label{fig:PiSensorSystemArchitektur}
 \end{figure}
 
-Die Logik der Erkennung wurde in zwei Teile separiert, bildlich dargestellt in der Abbildung \ref{fig:KameraSensor}. Zum Einen das Erfassen der Daten des Sensors und der Erkennung der Zielplattform, und zum Anderen das Berechnen der Distanz zwischen Zielplattform und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung wird über eine Factory-Klasse bereitgestellt. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
+Die Logik der Erkennung wurde in zwei Teile separiert, bildlich dargestellt in der Abbildung \ref{fig:KameraSensor}. Zum Einen das Erfassen der Daten des Sensors und der Erkennung der Zielplatte, und zum Anderen das Berechnen der Distanz zwischen Zielplatte und der Kamera. Die Schnittstelle ausserhalb des Moduls bildet dabei der 'Sensor Controller', dessen Realisierung wird über eine Factory-Klasse bereitgestellt. Die eigentliche Logik findet in Subklassen der 'TargetRecognition' und 'DistanceCalculation' statt.
 
-Im Moment wird die Erkennung der Zielplattform (wie in Kapitel \ref{sssec:Bilderkennung} dargestellt) über einen Kontur\-erkennungs\-algorithmus der Bibliothek 'OpenCV' realisiert. Ist die Zielplattform erkannt, so wird über den Controller das Signal zum Berechnen der Distanz gegeben. Die Methodik zur Distanzberechnung wird in Kapitel \ref{ssec:DistModelCreation} genauer erläutert.
+Im Moment wird die Erkennung der Zielplatte (wie in Kapitel \ref{sssec:Bilderkennung} dargestellt) über einen Kontur\-erkennungs\-algorithmus der Bibliothek 'OpenCV' realisiert. Ist die Zielplatte erkannt, so wird über den Controller das Signal zum Berechnen der Distanz gegeben. Die Methodik zur Distanzberechnung wird in Kapitel \ref{ssec:DistModelCreation} genauer erläutert.
 
-Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue Fahrtanweisungen zur Motor- und Sensorsteuerung übergeben. Dies wird über das 'communicator'-Modul realisiert.
+Ist die Entfernung zur Zielplatte ermittelt, so soll der PiController genaue Fahrtanweisungen zur Motor- und Sensorsteuerung übergeben. Dies wird über das 'communicator'-Modul realisiert.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[keepaspectratio,width=0.5\textwidth]{pi-sensor_cs}
+	\includegraphics[keepaspectratio,width=0.75\textwidth]{pi-sensor_cs}
 	\caption{Gesamtübersicht der Erkennungslogik}
 	\label{fig:KameraSensor}
 \end{figure}
@@ -478,35 +469,18 @@ Ist die Entfernung zur Zielplattform ermittelt, so soll der PiController genaue 
 \end{landscape}
 
 \subsubsection{RasPi-Kamera}
-%todo Beschreibung Kamera
-Für die Erkennung der Zielplattform wird die \textit{RasPi}-Kamera v2.1 verwendet. Angebracht ist die Kamera zuvorderst am Gerät mit vier Schrauben an einem Winkel. Damit die Zielplattform genügend früh erkannt werden kann und die Last nicht das Bild stört, ist die Kamera mit einem Winkel \SI{20}{\degree} zur Vertikalen nach vorne gerichtet. Das Bild wird auf dem \textit{RasPi} ausgewertet und erkennt damit die Zielplattform.
-
-
-
-Wie in Abb. \ref{fig:SchemaKommunikation} dargestellt sind dies Pin 18 (Tx) und Pin 19 (Rx) auf dem Arduino und GPIO14 und GPIO15 auf dem Raspberry Pi. Zusätzlich werden noch die jeweiligen GND (Ground) verbunden.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[keepaspectratio, width=0.8\textwidth]{SchemaKommunikationArduinoRaspbiScreenshot}
-	\caption{Verbindung der beiden Boards}
-
-	\label{fig:SchemaKommunikation}
-\end{figure}
-
-
+Für die Erkennung der Zielplatte wird die \textit{RasPi}-Kamera v2.1 verwendet. Angebracht ist die Kamera zuvorderst am Gerät mit vier Schrauben an einem Winkel. Damit die Zielplatte genügend früh erkannt werden kann und die Last nicht das Bild stört, ist die Kamera mit einem Winkel \SI{20}{\degree} zur Vertikalen nach vorne gerichtet. Das Bild wird auf dem \textit{RasPi} ausgewertet und erkennt damit die Zielplatte.
 
 \subsection{Positionsanzeige}
 \label{ssec:Positionsanzeige}
 
-Auf dem LCD-Display werden die Koordinaten in x-, sowie z-Richtung dargestellt. Zwei Ultraschallsensoren, je einer in x-, und z-Richtung, messen die jeweiligen Distanzen. Bei der z-Koordinate muss jedoch noch einen Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die angezeigten Koordinaten die der transportierten Last sein müssen. Wie viel abgezogen werden muss, wird über den Hubschrittmotor berechnet. Damit bei der Fahrt über die Hindernisse nicht ein falscher Wert angezeigt wird, werden plötzliche grosse Änderungen nicht berücksichtigt und der vorherige Wert wird angezeigt. Der LCD-Display ist in Fahrtrichtung rechts mit Schrauben an einer Halterung aus dem 3D-Drucker befestigt. Die Halterung wiederum ist auf die Grundplatte gesteckt.
-
+Auf dem LCD-Display werden die Koordinaten in x-, sowie z-Richtung dargestellt. Zwei Ultraschallsensoren, je einer in x-, und z-Richtung, messen die jeweiligen Distanzen. Bei der z-Koordinate muss jedoch noch ein Betrag abgezogen werden, da der Ultraschallsensor an der Grundplatte befestigt ist und die angezeigten Koordinaten die der transportierten Last sein müssen. Wie viel abgezogen werden muss, wird über den Hubschrittmotor berechnet. Damit bei der Fahrt über die Hindernisse nicht ein falscher Wert angezeigt wird, werden plötzliche grosse Änderungen nicht berücksichtigt und der vorherige Wert wird angezeigt. Der LCD-Display ist in Fahrtrichtung rechts mit Schrauben an einer Halterung aus dem 3D-Drucker befestigt. Die Halterung wiederum ist auf die Grundplatte gesteckt. Die Masse werden ungefähr einmal pro Sekunde aktualisiert und diese werden in Zentimeter auf eine Kommastelle genau angezeigt. Die Positionsanzeige wird über das \textit{ArduinoDue} angesprochen.
 
 \newpage
 
-
 \subsection{Ultraschallsensor}
 \label{ssec:Ultraschallsensor}
-%todo Quelle Datenblatt
-Für die Distanzmessung werden in x-Richtung und y-Richtung je ein Ultraschallsensor verwendet. Die Ultraschallsensoren des Typs HC-SR04 weisen eine Messdistanz zwischen zwei Zentimeter und bis zu fünf Meter auf. Die Genauigkeit wird mit drei Millimetern Abweichung angegeben. Dies ist ausreichend für die geplante Anwendung. Ausgelesen und verarbeitet werden die Informationen auf dem \textit{RasPi}.
+Für die Distanzmessung werden in x-Richtung und y-Richtung je ein Ultraschallsensor verwendet. Die Ultraschallsensoren des Typs HC-SR04 weisen eine Messdistanz zwischen zwei Zentimeter und bis zu drei Meter auf. Die Genauigkeit wird mit drei Millimetern Abweichung angegeben. Dies ist ausreichend für die geplante Anwendung. Ausgelesen und verarbeitet werden die Informationen auf dem \textit{RasPi}.\\ \\ \parencite{UltraschallsensorHC-SR04}
 
 
 
@@ -517,7 +491,7 @@ Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der
 
 \section{Konzeptänderungen nach PREN01}
 \label{sec:Konzeptaenderungen}
-% TODO Basil : Check Akkus? Check Beschleunigungssensor?
+
 
 \subsection{Antriebseinheit und Grundplatte}
 
@@ -525,9 +499,9 @@ Der Endschalter ist zuständig, dass das Antriebsrad automatisch stoppt wenn der
 		\item Das angetriebene Laufrad ist neu aus Gummi und nicht nur mit Gummi beschichtet. Die Reibung auf dem Seil wird damit vergrössert und verhindert Rutschen.
 		\item Bei dem Gelenk der Aufhängung ist zusätzlich eine Messingbuchse eingebaut damit möglichst wenig Reibung auftritt.
 		\item Die Dämpfer um Schwingungen aufzufangen werden nicht benötigt, da die Schwingungen auch ohne Dämpfer klein sind.
-		\item Die Grundplatte bearbeitungstechnischen Gründen nicht mehr aus Aluminium gefertigt sondern aus einer gelaserten, 6mm dicken Holzplatte.
-		\item Die Positionsanzeige in x-Richtung wird nur noch über einen Ultraschallsensor bestimmt. Der Schrittmotor wird aufgrund der ausreichenden Genauigkeit des Ultraschallsensors nicht mehr benötigt.
-		\item Die geplante Durchhangstabelle wird nicht miteinbezogen, da ebenfalls ein Ultraschallsensor verwendet wird. Der Schrittmotor wird aber noch immer benötigt, da der Ultraschallsensor an der Grundplatte angebracht ist aber die Position der Last angezeigt werden muss.
+		\item Die Grundplatte wird aus bearbeitungstechnischen Gründen nicht mehr aus Aluminium gefertigt sondern aus einer gelaserten, 6mm dicken Holzplatte.
+		\item Die Positionsanzeige in x-Richtung wird nur noch über einen Ultraschallsensor bestimmt. Der Einbezug des Schrittmotor wird aufgrund der ausreichenden Genauigkeit des Ultraschallsensors nicht mehr benötigt.
+		\item Die geplante Durchhangstabelle wird nicht miteinbezogen, da ebenfalls ein Ultraschallsensor verwendet wird. Der Schrittmotor wird aber noch immer einbezogen, da der Ultraschallsensor an der Grundplatte angebracht ist aber die Position der Last angezeigt werden muss.
 \end{itemize}
 
 \subsection{Hubvorrichtung}
@@ -572,21 +546,20 @@ Um die Funktionalität des Geräts zu gewährleisten, müssen einige Punkte in d
 	\item Es muss sichergestellt sein, dass alle Kabel eingesteckt sind ausser der Stecker der Energieversorgung von den Akkupacks.
 	\item Die Laufkatze muss vorsichtig in das Seil eingehängt werden. Wichtig ist, dass sich die Führungsrollen unter und das Antriebsrad über dem Seil befinden.
 	\item Das Gerät muss sich an der Position auf dem Seil befinden, damit der Masten gerade berührt wird.
-	\item Die vorgegebene Höhe von 5 Zentimeter vom untersten Punkt des Hakens bis zum Boden muss eingestellt werden. Wenn sich der Haken an der korrekten Höhe befindet, muss der Stecker der Akkupacks am ET-Board eingesteckt werden damit der Schrittmotor die hält.
-	\item Der Kippschalter am ET-Board muss nun betätigt werden um das Gerät zu starten.
+	\item Die vorgegebene Höhe von 5 Zentimeter vom untersten Punkt des Hakens bis zum Boden muss eingestellt werden. Wenn sich der Haken an der korrekten Höhe befindet, muss der Stecker der Akkupacks am ET-Board eingesteckt werden damit der Schrittmotor die Hubvorrichtung hält.
+	\item Der Kippschalter am ET-Board und der Reset-Knopf auf dem ArduinoDue muss nun betätigt werden um das Gerät zu starten.
 \end{itemize}
 
 \section{Schnittstellen und Abhängigkeiten}
 \label{sec:SchnittAbhang}
 % TODO Überprüfen
-
 Die Schnittstellen stellen sicher, dass die voneinander abhängigen Funktionen aufeinander abgestimmt funktionieren. Zum einen ist dies die Kommunikation zwischen dem \textit{RasPi} und dem \textit{ArduinoDue}, zum anderen müssen die physikalischen Komponenten und die Steuerung miteinander verbunden sein. Die Schnittstelle zwischen den Mikrocomputer wird mit einer UART Steckverbindung realisiert. Es ist essenziell, dass das Protokoll auf den Mikrocomputern definiert ist, damit die Informationen richtig übermittelt werden. Der Vorteil gegenüber dem USB liegt in der einfachen Ausführung und es wird kein Adapter für das \textit{ArduinoDue} benötigt.
 
-Viele Schnittstellen sind von der Positionsbestimmung abhängig. Um die Position zu bestimmen, werden die Schrittmotoren und zwei Ultraschallsensoren eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das Heben und Senken derselben und das Absetzen. Da ein Haken eingesetzt wird, muss diese Positionsbestimmung genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von 0...+20mm liegen. In x-Richtung darf die Genauigkeit ebenfalls etwa 0...+20mm betragen, da sonst der Haken die Last verfehlt. Der LCD-Display gibt zudem die Koordinaten wieder.
+Viele Schnittstellen sind von der Positionsbestimmung abhängig. Um die Position zu bestimmen, werden die Schrittmotoren und zwei Ultraschallsensoren eingesetzt, welche die Daten liefern. Von der Positionsbestimmung abhängig ist das Greifen der Last, das Heben und Senken derselben und das Absetzen. Da ein Haken eingesetzt wird, muss diese Positionsbestimmung genau sein, da sonst der Transport der Last fehlschlagen würde. Die Genauigkeit in z-Richtung muss dabei in einer Toleranz von 0...+20mm liegen. In x-Richtung darf die Genauigkeit ebenfalls etwa 0...+20mm betragen, da sonst der Haken die Last verfehlt. Der LCD-Display gibt zudem die Koordinaten der Last wieder.
 
-Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst ruhig und waagrecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Die durch die Beschleunigung auftretenden Schwingungen werden mit einer gelenkigen aber gedämpften Aufhängung minimiert und die Beschleunigungskurve des Antriebs ist S-Förmig definiert. Gelenkig muss diese sein, damit die Plattform bei variabler Steigung waagrecht bleibt. Ein zusätzlicher Vorteil ist, dass das Greifen der Last mit dem Haken durch die minimierten Schwingungen begünstigt wird. Unabhängig von den Schwingungen muss auch auf die Anordnung der Komponenten geachtet werden, damit beim Lasttransport nicht eine Schieflage entsteht. Da sich die Komponenten auf die Balance der Plattform auswirken, muss deren Position im voraus evaluiert werden.
+Damit die Zielerkennung mit OpenCV funktionieren kann, muss die Plattform möglichst ruhig und waagerecht sein. Dies ist abhängig von der Aufhängung und Antrieb. Deshalb muss auf die Anordnung der Komponenten geachtet werden, damit beim Lasttransport nicht eine Schieflage entsteht. Da sich die Komponenten auf die Balance der Plattform auswirken, muss deren Position im voraus evaluiert werden.
 
-Das Startsignal erfolgt mit einem Kippschalter, welcher am Gerät angebracht ist. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels einem akustischen Signal.
+Das Startsignal erfolgt über den Resetknopf am \textit{ArduinoDue}. Diese Variante ist weniger störungsanfällig als eine Signalerkennung via Bluetooth oder mittels einem akustischen Signal.
 
 
 \chapter{Tests}
@@ -600,7 +573,7 @@ Komponenten getestet werden.
 
 \section{Methodik}
 
-Bevor die Komponenten in das Gesamtsystem integriert wurden, wurden sie einzeln getestet. Danach wurden sie ins Gesamtsystem integriert und erneut getestet. Für sämtliche Tests wurde immer zuerst ein Ziel anhand der Anforderungsliste definiert und dann die Resultate mithilfe eines Protokolls festgehalten.
+Bevor die Komponenten in das Gesamtsystem integriert wurden, sind diese einzeln getestet worden. Danach wurden sie ins Gesamtsystem integriert und erneut getestet. Für sämtliche Tests wurde immer zuerst ein Ziel anhand der Anforderungsliste definiert und dann die Resultate mithilfe eines Protokolls festgehalten.
 
 \section{Testszenarien}
 
@@ -612,9 +585,9 @@ Bevor die Komponenten in das Gesamtsystem integriert wurden, wurden sie einzeln 
 	\hline
 	2.02 & 3.7 3.8 & Hub- und Fahrmotor ansteuern & Ansteuerung beider Schrittmotoren& Beide Schrittmotoren konnten parallel betrieben werden \\
 	\hline
-	2.03 & 4.6 4.7 4.8 & Prototyp Kommunikation & Ein funktioneller Prototyp der in der Lage ist auf GPIO Port 8(Tx) und 10(Rx) seriell kommunizieren kann & Es wurden zwei Skripte erstellt um die generelle Fähigkeit der Kommunikation zu erarbeiten \\
+	2.03 & 4.6 4.7 4.8 & Prototyp Kommunikation & Ein funktioneller Prototyp der in der Lage ist seriell zu  kommunizieren & Es wurden zwei Skripte erstellt um die generelle Fähigkeit der Kommunikation zu erarbeiten \\
 	\hline
-	2.04 & 3.9 & Zielplattform Fläche und Distanz & Ziel des Tests soll sein, die Distanz eines cm’s (in Pixel) unter Berücksichtigung der Höhe zu ermitteln & Es konnte eine Liste mit Pixelwerten von 1 cm aus unterschiedlichen Höhen erstellt werden \\
+	2.04 & 3.9 & Zielplatte Fläche und Distanz & Ziel des Tests soll sein, die Distanz eines Zentimeters (in Pixel) unter Berücksichtigung der Höhe zu ermitteln & Es konnte eine Liste mit Pixelwerten von 1 cm aus unterschiedlichen Höhen erstellt werden \\
 	\hline
 	2.05& 3.7 & Start Endschalter & Testen der Funktionalität des ET- und Arduinoboards & Funktionen konnten erfolgreich getestet werden \\
 	\hline
@@ -702,7 +675,7 @@ Es konnten sämtliche für den Wettbewerb erforderlichen Tasks erfüllt werden. 
 Winkelgeschwindigkeit\\
 $\omega=v/r=6.67s^{-1}$	\\
 Moment\\
-$\underline{\underline{M}}=(m_L+m_V)*g*r=\underline{\underline{0.0368m/s^2}}$\\
+$\underline{\underline{M}}=(m_L+m_V)*g*r=\underline{\underline{0.0368Nm}}$\\
 Leistung	\\
 $\underline{\underline{P}}=M*\omega=\underline{\underline{0.245W}}$
 
@@ -778,9 +751,8 @@ Wir erwarten einen Winkel zwischen $\alpha_{min}=8$ und $\alpha_{max}=30$ $ \rig
 
 \section{Auswertung des Distanzversuchs und Modellermittlung}
 \label{ssec:DistModelCreation}
-% TODO Write this subsection in full glorious detail
 
-Da wir unsere Kamera mit einem Anstellwinkel von \SI{70}{\degree} auf die Ebene schauen lassen, verzerren wir das Bild (und vor allem die Distanzen) perspektivisch (skizziert in Bild \ref{fig:Perspektive}). Um diese korrekt berechnen zu können wurde aus verschiedenen Höhen, die Länge in cm und in Pixel gemessen und durch die gesammelten Daten ein Modell gelegt. Dies wurde im Programm R Studio bewerkstelligt. Leider konnten die Daten nicht durch ein lineares Modell approximiert werden, und es musste ein Quadratisches verwendet werden, dies ist in Abbildung \ref{fig:Modelle} zu sehen.
+Da wir unsere Kamera mit einem Anstellwinkel von \SI{70}{\degree} auf die Ebene schauen lassen, verzerren wir das Bild (und vor allem die Distanzen) perspektivisch (skizziert in Bild \ref{fig:Perspektive}). Um diese korrekt berechnen zu können wurde aus verschiedenen Höhen, die Länge in Zentimeter und in Pixel gemessen und durch die gesammelten Daten ein Modell gelegt. Dies wurde im Programm R Studio bewerkstelligt. Leider konnten die Daten nicht durch ein lineares Modell approximiert werden, und es musste ein Quadratisches verwendet werden, dies ist in Abbildung \ref{fig:Modelle} zu sehen.
 
 Jedoch konnte auch keine einzelne Funktion für alle Höhen verwendet werden. Es müssen dadurch auch die Koeffizienten durch eine Funktion approximiert werden. Wir erhalten schlussendlich das Modell abhängig von Höhe h in cm und Distanz in Anzahl Pixel:
 
@@ -839,6 +811,10 @@ Jedoch konnte auch keine einzelne Funktion für alle Höhen verwendet werden. Es
 \end{figure}
 
 \chapter{Projektorganisation}
+\subsection{Einleitung}
+Aufgrund Umstrukturierungen im Team, mussten wir in der vierten Woche des Moduls PREN2 unsere Planung drastisch anpassen. Daher orientierten wir uns an der Sprintplanung der SCRUM-Softwareentwicklung und organisierten uns in zweiwöchigen Sprints. Daher sind unsere Meilensteine relativ eng zueinander gesetzt.
+
+Die detaillierte Planung finden Sie im Anhang in Kapitel \ref{ch:ProjektOrga}, darunter unter anderem die detaillierte Wochenplanung, Risikoplanung, Projektteamorganisation, und Tools welche zum Einsatz kamen.
 
 \section{Grober Rahmenplan}
 \label{sec:GrobRahmenplan}
@@ -850,14 +826,27 @@ An dieser Stelle ist der Projektplan grob umrissen, den Detaillierten finden Sie
 	\label{fig:GrobProjektReal}
 \end{figure}
 
+\section{Effekte der Massnahmen zur Risikoreduktion}
+
+Im Kapitel \ref{ch:RisikoMgmt} wird der Risikokatalog und Massnahmen genauer beleuchtet. Hier nur beispielhaft der Effekt für zwei Risiken und deren Entwicklung aufgrund getroffener Massnahmen.
+
+\begin{figure}[h!]
+	\includegraphics[width=\linewidth,keepaspectratio]{RisikomatrixSquashed}
+	\caption{Effekte der Massnahmen beispielhaft}
+	\label{fig:RiskMatSquashed}
+\end{figure}
+
+
 \chapter{Schlussdiskussion}
 \label{ch:SchlussDisku}
-Die Zusammenarbeit im Team war trotz einigen grösseren Schwierigkeiten bis zum Schluss sehr gut. Das Team war immer in der Lage sich gegenseitig zu unterstützen und Probleme zu beheben. Dies war unbedingt nötig, da Eve Meier (Informatik) nach dem Pren1 das Team verlassen hat und sich David Craven (Elektrotechnik) nach kurzer Zeit im Pren2 abgemeldet hat. Dadurch wurde das Team sehr unausgeglichen mit vier Maschinentechnik-Studenten und nur je einem Informatik-, und Elektrotechnikstudenten. Die Studenten der Maschinentechnik versuchten zu helfen, wo es möglich war. Zum einen durch mithilfe beim Programmieren oder durch Anpassungen am Gerät um den Programmieraufwand zu reduzieren.\\
-Nachfolgend werden nach Fachbereich aufgetrennt, die jeweiligen Erkenntnisse aus dem PRENs-Modul beschrieben.
+Die Zusammenarbeit im Team war trotz einigen grösseren Schwierigkeiten bis zum Schluss sehr gut. Das Team war immer in der Lage sich gegenseitig zu unterstützen und Probleme zu beheben. Dies war unbedingt nötig, da Eve Meier (Informatik) nach dem Pren1 das Team verlassen hat und sich David Craven (Elektrotechnik) nach kurzer Zeit im Pren2 abgemeldet hat. Dadurch wurde das Team sehr unausgeglichen mit vier Maschinentechnikstudenten und nur je einem Informatik-, und Elektrotechnikstudenten. Die Studenten der Maschinentechnik versuchten zu helfen, wo es möglich war. Zum einen durch mithilfe beim Programmieren oder durch Anpassungen am Gerät um den Programmieraufwand zu reduzieren.\\
+Nachfolgend werden nach Fachbereich aufgetrennt, die jeweiligen Erkenntnisse aus dem PREN-Modul beschrieben.
 
 \section{Maschinentechnik}
 
 \begin{itemize}
+	\item Aufbau
+	Es wurde viel untereinander über den Aufbau und Funktionsart gesprochen. Gute Ideen und Verbesserungen wurden so gefunden, da die Vorschläge angehört und diskutiert wurden.
 	\item Kabelführung\\
 	Die Kabelführung wurde sehr lange vernachlässigt und wurde nicht als Problem betrachtet. Vor allem die Anordnung der Komponenten würde einiges einfacher fallen, wenn die Kabelführung schon definiert gewesen wäre. Zudem mussten Kabel verlängert werden aufgrund von Änderungen an der Positionierung einzelner Komponenten.
 	\item Ästhetik\\
@@ -869,7 +858,7 @@ Nachfolgend werden nach Fachbereich aufgetrennt, die jeweiligen Erkenntnisse aus
 \section{Elektrotechnik}
 \begin{itemize}
 	\item Wechsel des Boards\\
-	Es zeichnete sich schon früh ab, dass die Arbeit mit dem \textit{LoFive}-Board nicht wie gewollt funktioniert. Der später erfolgte Wechsel auf das \textit{Arduino} hätte schon viel früher passieren sollen. Die vorgegeben Meilensteine bei der Programmierung des \textit{LoFive}-Boards wurden selten eingehalten und verlängert. Wegen dem Wechsel des Boards, konnte auch das bisher Programmierte nicht mehr verwendet werden. Dies hat im Endeffekt dazu geführt, dass der komplette Code in kurzer Zeit neu geschrieben werden musste.
+	Es zeichnete sich schon früh ab, dass die Arbeit mit dem \textit{LoFive}-Board nicht wie gewollt funktioniert. Der später erfolgte Wechsel auf das \textit{Arduino} hätte schon viel früher passieren sollen. Die vorgegeben Meilensteine bei der Programmierung des \textit{LoFive}-Boards wurden selten eingehalten und und die Frist wurde verlängert. Wegen dem Wechsel des Boards konnte das bisher Programmierte nicht mehr verwendet werden. Dies hat im Endeffekt dazu geführt, dass der komplette Code in kurzer Zeit neu geschrieben werden musste.
 	\item Schrittmotoren\\
 	Der benötigte Prozessoraufwand für die Ansteuerung der Schrittmotoren wurde unterschätzt und deshalb nicht als mögliches Problem betrachtet. Die Konsequenz daraus ist, dass beim Fahren ein Ruckeln auftritt. Eine mögliche Lösung wäre ein zweiter Mikroprozessor, welcher nur für die Ansteuerung der Schrittmotoren zuständig ist. Aus Zeitgründen musste aber auf diese Verbesserung verzichtet werden.
 \end{itemize}
@@ -880,12 +869,15 @@ Nachfolgend werden nach Fachbereich aufgetrennt, die jeweiligen Erkenntnisse aus
 	Das IT-Team hat schon früh damit begonnen Prototypen, für die verschiedenen Teilfunktionen die sie betrafen, zu entwickeln. Dies hatte zur Folge, dass schon früh grundlegende Fehler erkannt wurden und das IT-Team besser für die Eventualitäten, die im Projekt auftraten (Veränderte Teaminterne Anforderungen, mehr Ressourcen für Organisatorisches) bereit war.
 
 	\item Boardwahl\\
+	%TODO Pascal letzter Satz komisch
 	Im Nachhinein wäre es besser gewesen, ein gemeinsames Board für die Entwicklung zu verwenden. Dadurch wäre eine Schnittstelle (Kommunikation) weggefallen und es wären mehr Ressourcen (/Entwickler) zur Verfügung gestanden, die man frei hätte verteilen können. So wie es gelöst wurde, (zwei verschiedene Boards) entstand beim Helfen ein Verlust beim Beschaffen und Einarbeiten, welchen man hätte vermeiden können.
 
 \end{itemize}
 
 \section{Arbeitsprozess}
 	Die Zusammenarbeit unter den Disziplinen hat aufgrund der Anwesenheit an beiden Schultagen gut funktioniert. Lösungen wurden, soweit als möglich, gemeinsam gesucht und auch gefunden. Einige Probleme hätten aber verhindert werden können, wenn die gesetzten Meilensteine und die Konsequenzen, falls nicht erreicht, eingehalten worden wären. Ein strikteres Vorgehen wäre rückblickend wünschenswert gewesen. Zudem wurde hauptsächlich am Anfang des Projektes viel Zeit mit diskutieren in der Gruppe über Details verbraucht, welche zu diesem Zeitpunkt noch nicht relevant waren.
+	
+	\newpage
 
 \section{Eingetretene Risiken}
 \label{ch:EingetreteneRisikos}
@@ -893,18 +885,18 @@ Nachfolgend werden nach Fachbereich aufgetrennt, die jeweiligen Erkenntnisse aus
 Die Risiken beziehen sich auf die Tabelle im Kapitel \ref{sec:Risikokatalog}.
 
 \subsection{Ausfall Teammitglied}
-Das Risiko Nr. 10 ist eingetroffen. Nach der vierten Semesterwoche des PREN2 fiel ein Teammitglied aufgrund interner Differenzen aus. Da es sich bei diesem Teammitglied um einen Elektrotechnikstudenten handelt, ist dieser Ausfall für unser Team besonders schmerzhaft, da wir nun nur noch einen Elektrotechnik-Student haben. Dieses eingetroffene Risiko bedeutete nun, dass der verbleibende Elektrotechnik-Student für die ganze Arbeit in seinem Fachbereich zuständig war, was sehr viel zusätzliches Engagement bedeutete.
+Das Risiko Nr. 10 ist eingetroffen. Nach der vierten Semesterwoche des PREN2 fiel ein Teammitglied aufgrund interner Differenzen aus. Da es sich bei diesem Teammitglied um einen Elektrotechnikstudenten handelte, war dieser Ausfall für unser Team besonders schmerzhaft, da wir nun nur noch einen Elektrotechnik-Student zur Verfügung hatten. Das Eintreffen dieses Risikos bedeutete, dass der verbleibende Elektrotechnikstudent für die ganze Arbeit in seinem Fachbereich zuständig war, was sehr viel zusätzliches Engagement bedeutete.
 
 \subsection{Änderung Mikrokontrollerplattform}
 \label{ch:AenderungMikrokontroller}
-Das Konzept vom PREN1 beinhaltet als Mikrokontrollerplattform das "LoFive" Board. Wie sich jedoch herausstellte, war es für uns unmöglich diesen Mikrokontroller für unsere Aufgaben zu programmieren. Aus diesem Grund wurde in Semesterwoche drei der Entscheid gefällt, dieses durch einen anderen Mikrokontroller, also durch das \textquotedblleft Arduino Due\textquotedblright\ zu ersetzen. Das eingetretene Risiko beinhaltet viele nicht brauchbare bzw. nur halbwegs brauchbare Arbeitsstunden des Programmieren für das "LoFive".
+Das Konzept vom PREN1 beinhaltet als Mikrokontrollerplattform das \textit{LoFive} Board. Wie sich jedoch herausstellte, war es für uns unmöglich diesen Mikrokontroller für unsere Aufgaben zu programmieren. Aus diesem Grund wurde in Semesterwoche drei der Entscheid gefällt, dieses durch einen anderen Mikrokontroller, also durch das \textit{ArduinoDue} zu ersetzen. Das eingetretene Risiko beinhaltet viele nicht brauchbare beziehungsweise nur halbwegs brauchbare Arbeitsstunden des Programmieren für das \textit{LoFive}.
 
 \section{Fazit}
-Trotz erschwerten Bedingungen, wie den Austritt von gleich zwei Teammitglieder oder den Wechsel des ET-Boards im Pren 2, konnte das Projekt insgesamt erfolgreich abgeschlossen werden. Ein Grund dafür war das bestreben, eine möglichst einfache Lösung zu finden. Da dies gelang, konnte eine Kombination gefunden werden, die im Vergleich zu anderen Möglichkeiten wenig Aufwand bereiteten und dennoch zuverlässig funktioniert.
+Trotz erschwerten Bedingungen, wie den Austritt von gleich zwei Teammitglieder oder dem Wechsel des ET-Boards im PREN2, konnte das Projekt insgesamt erfolgreich abgeschlossen werden. Ein Grund dafür war das bestreben, eine möglichst einfache Lösung zu finden. Da dies gelang, konnte eine Kombination gefunden werden, die im Vergleich zu anderen Möglichkeiten wenig Aufwand bereiteten und dennoch zuverlässig funktioniert.
 
 Der Lerneffekt für das Team in Bezug das auf Projektmanagement und vor allem das interdisziplinäre Arbeiten war gross und die gesammelten Erfahrungen sicherlich nützlich für zukünftige Projekte. Das Arbeiten im Team hat allen Mitgliedern gut gefallen und alle konnten ihr Wissen und ihre Fähigkeiten einbringen.\\
 
-Das Budget konnte problemlos eingehalten werden. Aufgrund von noch verfügbarem Budget hätte auch im Falles eines Defektes Ersatzteile besorgt werden können.\\
+Das Budget konnte problemlos eingehalten werden. Aufgrund von noch verfügbarem Budget hätte auch im Falle eines Defektes Ersatzteile besorgt werden können.\\
 Die vorgegebenen Meilensteine konnten immer eingehalten werden. Die vom Team selbst gesetzten Meilensteine konnten teilweise nicht am vorgegebenen Zeitpunkt erreicht werden.
 
 
@@ -1041,7 +1033,7 @@ Die Aufgabenstellung im Original folgt auf den nächsten Seiten.
 	\hline
 	4.2 & F &  Dimensionen & Seitenlänge 5cm $\pm$ 0.5cm \\
 	\hline
-	4.3 & M & Gewicht & 50-90g, siehe Sektion \ref{app:sec:RechKlotzMasse} \\ %todo Berechning Klotz?
+	4.3 & M & Gewicht & 50-90g, siehe Sektion \ref{app:sec:RechKlotzMasse} \\ %todo Berechnung Klotz?
 	\hline
 	4.4 & F & Aufnahme & Metallischer, magnetischer Haken oben in der Mitte des Würfels.\\
 	& & & Innendurchmesser des Hakens ist 1.3cm $\pm$ 0.1mm\\

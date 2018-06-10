@@ -243,13 +243,13 @@ Indem die Aufhängung gelenkig gelagert ist, kann die Winkeländerung am Seil ko
 
 \subsection{Antrieb}
 \label{ssec:Antrieb}
-Das mittlere Rad aus Gummi ist das Antriebsrad. Es wird direkt von einem Schrittmotor angetrieben. Das Antriebsrad wird mithilfe einer Hohlwelle direkt auf der Motorwelle befestigt. Die Ausfallwahrscheinlichkeit ist tief weil keine Übersetzungskomponenten notwendig sind. Umso grösser das Antriebsrad ist, desto höher ist der Schwerpunkt des gesamten Laufkatze. Der Lastausgleich wird daher mit einem kleineren Druchmesser des Antriebsrades begünstigt.
+Das mittlere Rad aus Gummi ist das Antriebsrad. Es wird direkt von einem Schrittmotor angetrieben. Das Antriebsrad wird mithilfe einer Hohlwelle direkt auf der Motorwelle befestigt. Die Ausfallwahrscheinlichkeit ist tief weil keine Übersetzungskomponenten notwendig sind. Umso grösser das Antriebsrad ist, desto höher ist der Schwerpunkt des gesamten Laufkatze. Der Lastausgleich wird daher mit einem kleineren Durchmesser des Antriebsrades begünstigt.
 \\
 Vor und hinter dem Antriebsrad sind im Abstand von jeweils 7cm zwei Führungsräder angebracht. Diese sind in der Höhe verstellbar und müssen manuell im voraus eingestellt werden. Die Aufgabe dieser Räder ist die Schwingung in x-Richtung zu minimieren und den Druck des Rades auf das Seil zu erhöhen. Letzteres hat zur Folge, dass die Reibkraft steigt und somit der Schlupf und die Rutschgefahr auf dem Seil minimiert wird.
 
 \subsubsection{Schrittmotoren}
 \label{sssec:Schrittmotoren}
-Die Laufkatze hat total zwei Schrittmotoren verbaut. Einen für den Antrieb auf dem Seil und einen für den Hub der Last. Der Antrieb auf dem Seil ist ein Motor des Typs JK42HM48-1684.Dieser dreht sich pro Schritt um \SI{0.9}{\degree}. Das Haltemoment beträgt 4.4kgcm. Der Antrieb des Hubes wird mit einem Motor des Typs 35HS3408A4 ausgeführt. Dieser dreht sich pro Schritt um \SI{1.8}{\degree}. Das Haltemoment beträgt 1.8kgcm.
+Die Laufkatze hat total zwei Schrittmotoren verbaut. Einen für den Antrieb auf dem Seil und einen für den Hub der Last. Der Antrieb auf dem Seil ist ein Motor des Typs JK42HM48-1684. Dieser dreht sich pro Schritt um \SI{0.9}{\degree}. Das Haltemoment beträgt 4.4kgcm. Der Antrieb des Hubes wird mit einem Motor des Typs 35HS3408A4 ausgeführt. Dieser dreht sich pro Schritt um \SI{1.8}{\degree}. Das Haltemoment beträgt 1.8kgcm.
 \parencite{CNCSHOP2014}, \parencite{OWO}
 \\
 In Abbildung \ref{fig:SystemArchitektur} ist die Antriebseinheit dargestellt. Diese ist für den Antrieb auf dem Seil und für die Befestigung des ganzen Gerätes auf dem Seil konzipiert. Die Antriebseinheit wird über das Gelenk mit dem Rest der Laufkatze verbunden.
@@ -257,7 +257,7 @@ In Abbildung \ref{fig:SystemArchitektur} ist die Antriebseinheit dargestellt. Di
 \subsection{Grundplatte}
 \label{ssec:GrundplatteBeschrieb}
 
-Die Grundplatte wurde aus einer MDF-Platte gefertigt. Diese Platte hat einen Ausschnitt in der Mitte, durch welchen das Seil der Seilwinde geht. Neben dem Ausschnitt wird der \textit{Verbindungswinkel} (\ref{sssec:VerbindungswinkelBeschrieb}) angeschraubt. Zwei zusätzliche Löcher links und rechts neben dem Ausschnitt dienen zur Befestigung der beiden Führungen. Die Elektronikkomponenten werden mithilfe von Klettstreifen auf die Grundplatte befestigt. Die Halterung für den LCD-Display wird mit einer Steckverbindung auf die Grundplatte gesteckt. Zusätzlich sind zwei kleine Winkel aus Aluminium angebracht, um Schalter für die Mikrocomputer zu befestigen. Einer davon ist oben und der andere unten an der Grundplatte befestigt. Auf der Unterseite der Grundplatte wir die Halterung für den Ultraschallsensor mit vier Schrauben befestigt. Die Kabelführung ist mithilfe von Klebesockel auf der Grundplatte gelöst.
+Die Grundplatte wurde aus einer MDF-Platte gefertigt. Diese Platte hat einen Ausschnitt in der Mitte, durch welchen das Seil der Seilwinde durchgeführt ist. Neben dem Ausschnitt wird der \textit{Verbindungswinkel} (\ref{sssec:VerbindungswinkelBeschrieb}) angeschraubt. Zwei zusätzliche Löcher links und rechts neben dem Ausschnitt dienen zur Befestigung der beiden Führungen des Hakens, welcher mit zwei Kohlefaserstäben in Z-Richtung gleiten kann. Die Elektronikkomponenten werden mithilfe von Klettstreifen auf die Grundplatte befestigt. Die Halterung für den LCD-Display wird mit einer Steckverbindung auf die Grundplatte gesteckt. Zusätzlich sind zwei kleine Winkel aus Aluminium angebracht, um Schalter für die Mikrocomputer zu befestigen. Einer davon ist oben und der andere unten an der Grundplatte befestigt. Auf der Unterseite der Grundplatte wir die Halterung für den Ultraschallsensor mit vier Schrauben befestigt. Die Kabelführung ist mithilfe von Klebesockel auf der Grundplatte gelöst.
 
 
 \begin{figure}[h!]
@@ -273,15 +273,15 @@ Der Verbindungswinkel ist die Verbindung der Grundplatte und der Antriebseinheit
 
 \subsubsection{Kamerahalterung}
 \label{sssec:Kamerahalterung}
-Die Kamera ist etwa 20 Zentimeter vor der Seilwinde für den Hub angebracht. Dafür wurde ein 11 Zentimeter langes Winkelprofil aus Aluminium an der Grundplatte angeschraubt. An diesem ist ein Aluminiumwinkel befestigt, der die Kamera hält. Dieser ist schwenkbar, damit die Kamera optimal ausgerichtet werden kann. Dabei ist essentiell wichtig, dass die Grundplatte immer Parallel zum Boden liegt, da sonst die Kamera falsche Daten liefern würde und somit die Genauigkeit beim Absetzen stark beeinträchtigen würde. Die \textit{RasPi}-Kamera wird mit 4 Schrauben an dem Winkel befestigt. Zusätzlich ist auf dem Winkelprofil der Ultraschallsensor in x-Richtung angebracht und auf dem Aluminiumwinkel der Endschalter.
+Die Kamera ist 20 Zentimeter vor der Seilwinde für den Hub angebracht. Dafür wurde ein 11 Zentimeter langes Winkelprofil aus Aluminium an der Grundplatte angeschraubt. An diesem ist ein Aluminiumwinkel befestigt, der die Kamera hält. Dieser ist schwenkbar, damit die Kamera optimal ausgerichtet werden kann. Dabei ist essentiell wichtig, dass die Grundplatte immer Parallel zum Boden liegt, da sonst die Kamera falsche Daten liefern würde und somit die Genauigkeit beim Absetzen stark beeinträchtigen würde. Die \textit{RasPi}-Kamera wird mit 4 Schrauben an dem Winkel befestigt. Zusätzlich ist auf dem Winkelprofil der Ultraschallsensor in x-Richtung angebracht und auf dem Aluminiumwinkel der Endschalter.
 
 
 
 \subsection{Last greifen und absetzen}
 \label{ssec:Lastgreifenundabsetzen}
 %todo Testprotokolle verlinken
-Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken.  Eine nicht-Drehbare Querstange aus Aluminium dient als Halterung für den Haken. Ebenfalls an dieser Querstange ist ein Schwenkbegrenzer mit einer Druckfeder befestigt. Die Feder hält den Haken in einer Schieflage von etwa 45\SI{}{\degree}. Weil die Startposition der Last vorgegeben ist, wird das Aufheben der Last im voraus programmiert.
-Nach dem anheben der Last wird die Feder durch das zusätzliche Gewicht gestaucht und der Winkel des Hakens zur Vertikalen verkleinert sich auf etwa 10\SI{}{\degree}.\\
+Das Greifen der Last erfolgt über einen gelenkig gelagerten Haken.  Eine nicht-Drehbare Querstange aus Aluminium dient als Halterung für den Haken. Ebenfalls an dieser Querstange ist ein Schwenkbegrenzer mit einer Druckfeder befestigt. Die Feder hält den Haken in einer Schieflage von etwa 45\SI{}{\degree}. Weil die Startposition der Last vorgegeben ist, wird das Aufheben der Last statisch programmiert.
+Nach dem Anheben der Last wird die Feder durch das zusätzliche Gewicht gestaucht und der Winkel des Hakens zur Vertikalen verkleinert sich auf etwa 10\SI{}{\degree}.\\
 Beim Absetzen der Last auf der Zielplatte drückt die Feder den Haken automatisch wieder in die Ursprungsposition und klinkt sich damit aus dem Haken der Last aus.
 Durch einen gekrümmten Draht an der Unterseite des Greifers wird sichergestellt, dass sich die Last nach dem Anheben mittig zentriert und durch die Fahrt nicht verschoben wird.
 Der Haken ist aus ABS gefertigt und wird 3D gedruckt.
@@ -296,11 +296,11 @@ Dank diesem Aufbau kann der Greifer genauer geführt werden und somit der Transp
 
 \subsection{Regelung und Steuerung}
 \label{ssec:RegelungundSteuerung}
-Als Kern der elektronischen Steuerung wird das \textit{ArduinoDue} Board verwendet, welches mit dem \textit{Atmel ATSAM3X8E} Mikroprozessor bestückt ist. Programmiert wurde mit C++.
+Als Kern der elektronischen Steuerung wird das \textit{ArduinoDue} Board verwendet, welches mit dem \textit{Atmel ATSAM3X8E} Mikroprozessor bestückt ist. Programmiert wird in C.
 
 Über das Board werden zwei Schrittmotoren-Treiber sowie ein LCD-Display angesteuert. Zur Rückmeldung werden zwei Ultraschallsensoren und ein \textit{Raspberry Pi 3 Model B} (RasPi) verwendet.
 
-Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplatte übermittelt, kann das System als Regelungssystem betrachtet werden. Solange das Ziel nicht erkannt wird, soll das Gerät mit maximaler Geschwindigkeit fahren. Mit der Erkennung des Ziels wird das Gerät immer langsamer und stoppt über dem Zielfeld. Mit diesem System wird ein effektives Anfahren des Ziels erreicht. Zum Starten und Stoppen des Geräts wird ein Schalter und ein Taster verwendet.
+Weil die Steuerung vom RasPi die Richtung und Distanz zur Zielplatte misst und übermittelt, kann das System als Regelungssystem betrachtet werden. Solange das Ziel nicht erkannt wird, soll das Gerät mit maximaler Geschwindigkeit fahren. Sobald die Zielplatte erkennt wird, fährt die Laufkatze ans Ziel und hält dort an, damit die Last abgesetzt werden kann. Mit diesem System wird ein effektives Anfahren des Ziels erreicht. Zum Starten des Ablaufs wird ein Schalter und zum Stoppen wird ein Taster verwendet.
 
 \subsubsection{ArduinoDue}
 \label{sssec:ArduinoDue}
@@ -348,11 +348,11 @@ Das Raspberry Pi ist ein Einplatinencomputer in der Grösse einer Kreditkarte. D
 
 \subsubsection{Kommunikation zwischen Boards}
 \label{sssec:Kommunikation}
-Zwischen dem Raspberry Pi und dem Elektronikerboard soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
+Zwischen dem RasPi und dem Arduino Due soll der Informationsaustausch über eine serielle Schnittstelle erfolgen.
 
-Für die Verwendung einer Kommunikation mit einer asynchronen, seriellen UART-Schnittstelle können jeweilige PINs verwendet werden.
+Für die Kommunikation mittels asynchroner, seriellen UART-Schnittstelle können, auf dem Arduino Due wie auf dem RasPi, die explizit dafür ausgelegten PINs verwendet werden.
 
-Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 18 (Tx) und Pin 19 (Rx). Zusätzlich müssen beide Boards über Ground (GND) auf die Masse geführt werden.
+Wie in Abb. \ref{fig:RaspberryPins} dargestellt sind dies Pin 18 (Tx) und Pin 19 (Rx). Zusätzlich müssen die beiden Ground (GND) Potentiale vom RasPi und dem Arduino Due verbunden sein.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[keepaspectratio, width=0.8\textwidth]{SchemaKommunikationArduinoRaspbiScreenshot}
